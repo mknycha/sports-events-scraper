@@ -27,6 +27,8 @@ class Event
     should_report_time? && should_report_score?
   end
 
+  def to_s
+    "TIME: #{time} SCORE: #{score} NAME: #{name} LINK: #{link}"
   end
 
   private
