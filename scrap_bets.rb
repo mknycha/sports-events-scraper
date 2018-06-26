@@ -1,5 +1,6 @@
 require 'selenium-webdriver'
 require 'pry'
+require_relative 'settings'
 
 # WebScraper is supposed to create/update bet data objects and check if these are interesting.
 # If they are, should report them to the user and mark them as reported
