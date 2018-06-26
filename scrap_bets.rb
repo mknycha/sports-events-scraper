@@ -24,8 +24,24 @@ class Event
   end
 
   def should_be_reported?
+    should_report_time? && should_report_score?
+  end
 
   end
+
+  private
+
+    def should_report_time?
+      minutes = @time.split(':').first
+      minutes.to_i >= Settings.reporting_conditions[:after_minutes]
+    end
+
+    def should_report_score?
+      score_arr = @score.split('-')
+      goals_team_a = score_arr.first.to_i
+      goals_team_b = score_arr.last.to_i
+      (goals_team_a - goals_team_b).abs == Settings.reporting_conditions[:goal_difference]
+    end
 end
 
 class WebScraper
