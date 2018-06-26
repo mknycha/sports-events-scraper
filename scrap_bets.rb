@@ -7,8 +7,11 @@ require_relative 'settings'
 # How to store bet data objects, so they can be checked later?
 # Maybe it would good to parse event id (from the link?) and created a hash, where event data would be stored under event_id
 
-class EventData
-  def intialize(name, time, score, link)
+class Event
+  attr_reader :name, :time, :score, :link, :reported
+  attr_writer :time, :score
+
+  def initialize(name, time, score, link)
     @name = name
     @time = time
     @score = score
