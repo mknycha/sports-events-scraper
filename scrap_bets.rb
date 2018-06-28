@@ -2,11 +2,6 @@ require 'selenium-webdriver'
 require 'pry'
 require_relative 'settings'
 
-# WebScraper is supposed to create/update bet data objects and check if these are interesting.
-# If they are, should report them to the user and mark them as reported
-# How to store bet data objects, so they can be checked later?
-# Maybe it would good to parse event id (from the link?) and created a hash, where event data would be stored under event_id
-
 class Event
   attr_reader :name, :time, :score, :link, :reported
   attr_writer :time, :score
