@@ -46,6 +46,10 @@ class WebScraper
   SCORE_INDEX = 1
   SOCCER_SCORES_PATH = "http://sports.williamhill.com/bet/en-gb/betlive/9"
 
+  def initialize
+    @events_hash = {}
+  end
+
   def run
     begin
       setup_driver
@@ -55,8 +59,20 @@ class WebScraper
         name, time, score, link = get_event_data_from_table(table)
         time_formatted = time[/\d{2}:\d{2}/]
         next if time_formatted.nil?
-        id = get_id_from_link(link)
-        puts "TIME: #{time} SCORE: #{score} ID: #{id}"
+        event_id = get_id_from_link(link)
+        if @events_hash.has_key?(event_id)
+          event = @events_hash[event_id]
+          next if event.reported
+          event.time = time
+          event.score = score
+        else
+          event = Event.new(name, time, score, link)
+          @events_hash[event_id] = event
+        end
+        if event.should_be_reported?
+          event.mark_as_reported
+          puts event
+        end
       end
     ensure
       @driver.quit unless @driver.nil?
