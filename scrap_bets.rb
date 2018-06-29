@@ -56,22 +56,25 @@ class WebScraper
       @driver.navigate.to SOCCER_SCORES_PATH
       tables = get_tables
       tables.each do |table|
-        name, time, score, link = get_event_data_from_table(table)
-        time_formatted = time[/\d{2}:\d{2}/]
-        next if time_formatted.nil?
-        event_id = get_id_from_link(link)
-        if @events_hash.has_key?(event_id)
-          event = @events_hash[event_id]
-          next if event.reported
-          event.time = time
-          event.score = score
-        else
-          event = Event.new(name, time, score, link)
-          @events_hash[event_id] = event
-        end
-        if event.should_be_reported?
-          event.mark_as_reported
-          puts event
+        live_event_rows = get_live_event_rows_from_table(table)
+        live_event_rows.each do |live_event_row|
+          name, time, score, link = get_event_data_from_row(live_event_row)
+          time_formatted = time[/\d{2}:\d{2}/]
+          next if time_formatted.nil?
+          event_id = get_id_from_link(link)
+          if @events_hash.has_key?(event_id)
+            event = @events_hash[event_id]
+            next if event.reported
+            event.time = time
+            event.score = score
+          else
+            event = Event.new(name, time, score, link)
+            @events_hash[event_id] = event
+          end
+          if event.should_be_reported?
+            event.mark_as_reported
+            puts event
+          end
         end
       end
     ensure
@@ -86,19 +89,23 @@ class WebScraper
     @driver = Selenium::WebDriver.for :remote, url: 'http://localhost:4444/wd/hub', desired_capabilities: caps
   end
 
-  def get_event_data_from_table(source_table)
-    href_element = source_table.find_element(xpath: './/td/a[@href]')
-    name = href_element.text
-    link = href_element.attribute('href')
-    table_score_elements = source_table.find_elements(class: 'Score')
-    time = table_score_elements[TIME_INDEX]&.text
-    score = table_score_elements[SCORE_INDEX]&.text
-    [name, time, score, link]
-  end
-
   def get_tables
     sport_9_types = @driver.find_element(id: 'ip_sport_9_types')
     sport_9_types.find_elements(class: 'tableData')
+  end
+
+  def get_live_event_rows_from_table(table_element)
+    table_element.find_elements(class: 'rowLive')
+  end
+
+  def get_event_data_from_row(row_element)
+    href_element = row_element.find_element(xpath: './/td/a[@href]')
+    name = href_element.text
+    link = href_element.attribute('href')
+    table_score_elements = row_element.find_elements(class: 'Score')
+    time = table_score_elements[TIME_INDEX]&.text
+    score = table_score_elements[SCORE_INDEX]&.text
+    [name, time, score, link]
   end
 
   def get_id_from_link(link)
