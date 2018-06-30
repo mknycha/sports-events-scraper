@@ -2,12 +2,15 @@
 
 require 'dotenv/load'
 require 'net/smtp'
+require_relative 'events_html_table'
 
 class Mailer
   def initialize
+    @events_html_table = EventsHtmlTable.new
   end
 
   def add_event_to_mail(event)
+    @events_html_table.add_event(event)
   end
 
   def send_mail
