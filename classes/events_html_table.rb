@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsHtmlTable
   TABLE_OPENING_TAG = '<table>'
   TABLE_CLOSING_TAG = '</table>'
