@@ -59,17 +59,16 @@ class WebScraper
         live_event_rows = get_live_event_rows_from_table(table)
         live_event_rows.each do |live_event_row|
           name, time, score, link = get_event_data_from_row(live_event_row)
-          time_formatted = time[/\d{2}:\d{2}/]
-          next if time_formatted.nil?
+          next if event_time_format_is_invalid(time)
           event_id = get_id_from_link(link)
-          if @events_hash.has_key?(event_id)
-            event = @events_hash[event_id]
+          if event_exists?(event_id)
+            event = get_event_from_hash(event_id)
             next if event.reported
             event.time = time
             event.score = score
           else
             event = Event.new(name, time, score, link)
-            @events_hash[event_id] = event
+            save_event_to_hash(event_id, event)
           end
           if event.should_be_reported?
             event.mark_as_reported
@@ -108,8 +107,25 @@ class WebScraper
     [name, time, score, link]
   end
 
+  def event_time_format_is_invalid(event_time)
+    time_formatted = event_time[/\d{2}:\d{2}/]
+    time_formatted.nil?
+  end
+
   def get_id_from_link(link)
     link.split('/')[-2]
+  end
+
+  def event_exists?(event_id)
+    @events_hash.has_key?(event_id)
+  end
+
+  def get_event_from_hash(event_id)
+    @events_hash[event_id]
+  end
+
+  def save_event_to_hash(event_id, event)
+    @events_hash[event_id] = event
   end
 end
 
