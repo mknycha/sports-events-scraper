@@ -23,7 +23,12 @@ puts 'Starting event scraper, hit CTRL+D or Q and then ENTER to quit'
 web_scraper = WebScraper.new
 
 def create_exit_on_input_thread
-  Thread.new { puts 'Goodbye!' && exit if quit? }
+  Thread.new do
+    if quit?
+      puts 'Goodbye!'
+      exit
+    end
+  end
 end
 
 loop do
