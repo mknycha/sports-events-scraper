@@ -52,6 +52,7 @@ class WebScraper
 
   def run
     begin
+      puts '### Started checking events ###'
       setup_driver
       @driver.navigate.to SOCCER_SCORES_PATH
       tables = get_tables
@@ -76,6 +77,7 @@ class WebScraper
           end
         end
       end
+      puts '### Finished checking events ###'
     ensure
       @driver.quit unless @driver.nil?
     end
