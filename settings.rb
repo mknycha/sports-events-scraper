@@ -11,5 +11,7 @@ Settings = OpenStruct.new(
   },
   # Specifies how often scraper is to be run, in seconds.
   # If set to 60, Web Scraper will be checking website every 60 seconds
-  time_interval: 300
+  time_interval: 300,
+  # Info about events will be sent to this email
+  recipient_email: '***REMOVED***'
 )
