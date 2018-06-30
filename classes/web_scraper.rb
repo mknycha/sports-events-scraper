@@ -45,7 +45,9 @@ class WebScraper
   private
 
   def setup_driver
-    caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => [ "disable-infobars" ]})
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+      "chromeOptions" => {"args" => [ "disable-infobars", "headless" ]}
+    )
     @driver = Selenium::WebDriver.for :remote, url: 'http://localhost:4444/wd/hub', desired_capabilities: caps
   end
 
