@@ -31,20 +31,16 @@ class EventsHtmlTable
   end
 
   def html_headers_row
-    html_row = ''
-    html_row << wrap_with_th_tag('Name')
-    html_row << wrap_with_th_tag('Score')
-    html_row << wrap_with_th_tag('Time')
-    html_row << wrap_with_th_tag('Link')
-    html_row
+    '' + wrap_with_th_tag('Name') \
+       + wrap_with_th_tag('Score') \
+       + wrap_with_th_tag('Time') \
+       + wrap_with_th_tag('Link') \
   end
 
   def html_event_row(event)
-    html_row = ''
-    html_row << wrap_with_td_tag(event.name)
-    html_row << wrap_with_td_tag(event.score)
-    html_row << wrap_with_td_tag(event.time)
-    html_row << wrap_with_td_tag(event.link)
-    html_row
+    '' + wrap_with_td_tag(event.name) \
+       + wrap_with_td_tag(event.score) \
+       + wrap_with_td_tag(event.time) \
+       + wrap_with_td_tag(event.link) \
   end
 end
