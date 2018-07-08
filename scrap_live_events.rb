@@ -1,8 +1,6 @@
-require 'selenium-webdriver'
-require 'pry'
+Bundler.require
 require 'dotenv/load'
 require 'net/smtp'
-require 'mail'
 require_relative 'settings'
 require_relative 'classes/event'
 require_relative 'classes/web_scraper'
