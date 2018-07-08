@@ -20,6 +20,10 @@ class EventsHtmlTable
     result.join
   end
 
+  def empty?
+    @data.length < 2
+  end
+
   private
 
   def wrap_with_th_tag(string)
