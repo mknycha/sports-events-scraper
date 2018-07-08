@@ -38,7 +38,7 @@ class WebScraper
           end
         end
       end
-      mailer.send_mail(events_html_table.to_s) unless events_html_table.empty?
+      mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
       puts '### Finished checking events ###'
     ensure
       @driver.quit unless @driver.nil?

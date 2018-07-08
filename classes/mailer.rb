@@ -13,7 +13,7 @@ class Mailer
     end
   end
 
-  def send_mail(events_html_table_as_string)
+  def send_table_by_email(events_html_table_as_string)
     message(events_html_table_as_string).deliver!
   end
 
