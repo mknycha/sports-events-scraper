@@ -16,7 +16,7 @@ class EventsHtmlTable
   def to_s
     result = @data.clone
     result.insert(0, TABLE_OPENING_TAG)
-    result.insert(-1, TABLE_OPENING_TAG)
+    result.insert(-1, TABLE_CLOSING_TAG)
     result.join
   end
 
