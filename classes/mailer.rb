@@ -8,14 +8,6 @@ require_relative 'events_html_table'
 
 class Mailer
   def initialize
-    @events_html_table = EventsHtmlTable.new
-  end
-
-  def add_event_to_mail(event)
-    @events_html_table.add_event(event)
-  end
-
-  def send_mail
     Mail.defaults do
       delivery_method :smtp,
                       address: 'smtp.gmail.com',
@@ -25,7 +17,10 @@ class Mailer
                       authentication: :plain,
                       enable_starttls_auto: true
     end
-    message.deliver!
+  end
+
+  def send_mail(events_html_table_as_string)
+    message(events_html_table_as_string).deliver!
   end
 
   private
@@ -36,8 +31,9 @@ class Mailer
     smtp
   end
 
-  def message
-    message_body = '<h3>Hello! These events might interest you</h3>' + @events_html_table.to_s
+  def message(events_html_table_as_string)
+    message_body = '<h3>Hello! These events might interest you</h3>' +
+                   events_html_table_as_string
     Mail.new do
       to      ::Settings.recipient_email
       from    ENV['EMAIL_ADDRESS']

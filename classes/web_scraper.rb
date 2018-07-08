@@ -13,6 +13,7 @@ class WebScraper
     begin
       puts '### Started checking events ###'
       setup_driver
+      events_html_table = EventsHtmlTable.new
       @driver.navigate.to SOCCER_SCORES_PATH
       tables = get_tables
       tables.each do |table|
@@ -32,6 +33,7 @@ class WebScraper
           end
           if event.should_be_reported?
             event.mark_as_reported
+            events_html_table.add_event(event)
             puts event
           end
         end
