@@ -13,7 +13,7 @@ class WebScraper
     begin
       puts '### Started checking events ###'
       setup_driver
-      events_html_table = EventsHtmlTable.new
+      setup_events_table
       @driver.navigate.to SOCCER_SCORES_PATH
       tables = get_tables
       tables.each do |table|
@@ -33,12 +33,12 @@ class WebScraper
           end
           if event.should_be_reported?
             event.mark_as_reported
-            events_html_table.add_event(event)
+            add_to_events_table(event)
             puts event
           end
         end
       end
-      mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
+      send_events_table
       puts '### Finished checking events ###'
     ensure
       @driver.quit unless @driver.nil?
@@ -52,6 +52,10 @@ class WebScraper
       "chromeOptions" => {"args" => [ "disable-infobars", "headless" ]}
     )
     @driver = Selenium::WebDriver.for :remote, url: 'http://localhost:4444/wd/hub', desired_capabilities: caps
+  end
+
+  def setup_events_table
+    @events_html_table = EventsHtmlTable.new
   end
 
   def get_tables
@@ -92,6 +96,14 @@ class WebScraper
 
   def save_event_to_hash(event_id, event)
     @events_hash[event_id] = event
+  end
+
+  def add_to_events_table(event)
+    @events_html_table.add_event(event)
+  end
+
+  def send_events_table
+    mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
   end
 
   def mailer
