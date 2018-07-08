@@ -34,17 +34,25 @@ class EventsHtmlTable
     "<td>#{string}</td>"
   end
 
+  def wrap_with_tr_tag(string)
+    "<tr>#{string}</tr>"
+  end
+
   def html_headers_row
-    '' + wrap_with_th_tag('Name') \
-       + wrap_with_th_tag('Score') \
-       + wrap_with_th_tag('Time') \
-       + wrap_with_th_tag('Link') \
+    wrap_with_tr_tag(
+      '' + wrap_with_th_tag('Name') \
+         + wrap_with_th_tag('Score') \
+         + wrap_with_th_tag('Time') \
+         + wrap_with_th_tag('Link')
+    )
   end
 
   def html_event_row(event)
-    '' + wrap_with_td_tag(event.name) \
-       + wrap_with_td_tag(event.score) \
-       + wrap_with_td_tag(event.time) \
-       + wrap_with_td_tag(event.link) \
+    wrap_with_tr_tag(
+      '' + wrap_with_td_tag(event.name) \
+         + wrap_with_td_tag(event.score) \
+         + wrap_with_td_tag(event.time) \
+         + wrap_with_td_tag(event.link)
+    )
   end
 end
