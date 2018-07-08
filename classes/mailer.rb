@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
-require 'net/smtp'
-require 'mail'
-require_relative '../settings'
-require_relative 'events_html_table'
-
 class Mailer
   def initialize
     Mail.defaults do
