@@ -31,6 +31,12 @@ describe EventsHtmlTable do
         events_html_table.add_event(event2)
       end
 
+      it 'includes proper html tags as string' do
+        %i[table th tr td].each do |tag|
+          expect(events_html_table.to_s).to include("<#{tag}>", "</#{tag}>")
+        end
+      end
+
       it 'returns formatted table as string, including info about all events added' do
         %i[name score time link].each do |attribute|
           expect(events_html_table.to_s).to include(event1.send(attribute))
