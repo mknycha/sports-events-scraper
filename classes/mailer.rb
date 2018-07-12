@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
 class Mailer
-  def initialize
-    Mail.defaults do
-      delivery_method :smtp,
-                      address: 'smtp.gmail.com',
-                      port: 587,
-                      user_name: ENV['EMAIL_ADDRESS'],
-                      password: ENV['EMAIL_PASSWORD'],
-                      authentication: :plain,
-                      enable_starttls_auto: true
-    end
-  end
-
   def self.send_table_by_email(events_html_table_as_string)
     message(events_html_table_as_string).deliver!
   end
