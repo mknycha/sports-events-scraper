@@ -103,10 +103,6 @@ class WebScraper
   end
 
   def send_events_table
-    mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
-  end
-
-  def mailer
-    @mailer ||= ::Mailer.new
+    ::Mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
   end
 end

@@ -1,6 +1,7 @@
 Bundler.require
 require 'dotenv/load'
 require 'net/smtp'
+require_relative 'mailer_initializer'
 require_relative 'settings'
 require_relative 'classes/event'
 require_relative 'classes/web_scraper'
