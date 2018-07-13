@@ -35,6 +35,11 @@ def create_exit_on_input_thread
   end
 end
 
+trap 'SIGINT' do
+  puts 'Goodbye!'
+  exit 130
+end
+
 loop do
   web_scraper.run
   exit_on_input_thread = create_exit_on_input_thread
