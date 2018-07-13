@@ -34,12 +34,12 @@ class WebScraper
           if event.should_be_reported?
             event.mark_as_reported
             add_to_events_table(event)
-            puts event
+            puts "Found an event ID:#{event_id} Name:#{event.name}"
           end
         end
       end
-      send_events_table
       puts '### Finished checking events ###'
+      send_events_table
     ensure
       @driver.quit unless @driver.nil?
     end
@@ -103,6 +103,9 @@ class WebScraper
   end
 
   def send_events_table
-    ::Mailer.send_table_by_email(@events_html_table.to_s) unless @events_html_table.empty?
+    return  if @events_html_table.empty?
+    puts 'Sending email...'
+    ::Mailer.send_table_by_email(@events_html_table.to_s)
+    puts 'Email sent!'
   end
 end
