@@ -8,7 +8,7 @@ require_relative 'classes/web_scraper'
 require_relative 'classes/events_html_table'
 require_relative 'classes/mailer'
 
-puts 'Starting event scraper, hit CTRL+D or Q and then ENTER to quit'
+puts 'Starting event scraper, hit CTRL+C to quit'
 web_scraper = WebScraper.new
 
 trap 'SIGINT' do
