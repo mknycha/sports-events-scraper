@@ -16,7 +16,11 @@ trap 'SIGINT' do
   exit 130
 end
 
+def sleep_thread
+  Thread.new { sleep Settings.time_interval }
+end
+
 loop do
   web_scraper.run
-  sleep Settings.time_interval
+  sleep_thread.join
 end
