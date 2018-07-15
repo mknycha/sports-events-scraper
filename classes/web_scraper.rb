@@ -14,6 +14,7 @@ class WebScraper
       puts '### Started checking events ###'
       setup_driver
       setup_events_table
+      set_driver_timeout
       @driver.navigate.to SOCCER_SCORES_PATH
       tables = get_tables
       tables.each do |table|
@@ -52,6 +53,10 @@ class WebScraper
       "chromeOptions" => {"args" => [ "disable-infobars", "headless" ]}
     )
     @driver = Selenium::WebDriver.for :remote, url: 'http://localhost:4444/wd/hub', desired_capabilities: caps
+  end
+
+  def set_driver_timeout
+    @driver.manage.timeouts.implicit_wait = 10
   end
 
   def setup_events_table
