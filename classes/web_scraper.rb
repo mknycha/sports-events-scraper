@@ -12,7 +12,7 @@ class WebScraper
 
   def run
     begin
-      print_and_pass_to_logger '### Started checking events ###'
+      print_and_pass_to_logger 'Started checking events'
       setup_driver
       setup_events_table
       set_driver_timeout
@@ -21,7 +21,7 @@ class WebScraper
       tables.each do |table|
         process_table(table)
       end
-      print_and_pass_to_logger '### Finished checking events ###'
+      print_and_pass_to_logger 'Finished checking events'
       send_events_table
     ensure
       @driver.quit unless @driver.nil?
