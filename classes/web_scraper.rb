@@ -15,29 +15,10 @@ class WebScraper
       setup_driver
       setup_events_table
       set_driver_timeout
-      @driver.navigate.to SOCCER_SCORES_PATH
+      visit_page
       tables = get_tables
       tables.each do |table|
-        live_event_rows = get_live_event_rows_from_table(table)
-        live_event_rows.each do |live_event_row|
-          name, time, score, link = get_event_data_from_row(live_event_row)
-          next if event_time_format_is_invalid(time) || time.nil?
-          event_id = get_id_from_link(link)
-          if event_exists?(event_id)
-            event = get_event_from_hash(event_id)
-            next if event.reported
-            event.time = time
-            event.score = score
-          else
-            event = Event.new(name, time, score, link)
-            save_event_to_hash(event_id, event)
-          end
-          if event.should_be_reported?
-            event.mark_as_reported
-            add_to_events_table(event)
-            puts "Found an event ID:#{event_id} Name:#{event.name}"
-          end
-        end
+        process_table(table)
       end
       puts '### Finished checking events ###'
       send_events_table
@@ -57,6 +38,31 @@ class WebScraper
 
   def set_driver_timeout
     @driver.manage.timeouts.implicit_wait = 10
+  end
+
+  def visit_page
+    @driver.navigate.to SOCCER_SCORES_PATH
+  end
+
+  def process_table(table)
+    live_event_rows = get_live_event_rows_from_table(table)
+    live_event_rows.each do |live_event_row|
+      name, time, score, link = get_event_data_from_row(live_event_row)
+      next if event_time_format_is_invalid(time) || time.nil?
+      event_id = get_id_from_link(link)
+      if hash_contains_event?(event_id)
+        event = get_event_from_hash(event_id)
+        event.update_time_and_score(time, score) unless event.reported
+      else
+        event = Event.new(name, time, score, link)
+        save_event_to_hash(event_id, event)
+      end
+      if event.should_be_reported? && !event.reported
+        event.mark_as_reported
+        add_to_events_table(event)
+        puts "Found an event ID:#{event_id} Name:#{event.name}"
+      end
+    end
   end
 
   def setup_events_table
@@ -91,7 +97,7 @@ class WebScraper
     link.split('/')[-2]
   end
 
-  def event_exists?(event_id)
+  def hash_contains_event?(event_id)
     @events_hash.has_key?(event_id)
   end
 
