@@ -25,6 +25,11 @@ class Event
     "TIME: #{time} SCORE: #{score} NAME: #{name} LINK: #{link}"
   end
 
+  def update_time_and_score(time, score)
+    @time = time
+    @score = score
+  end
+
   private
 
   def should_report_time?
