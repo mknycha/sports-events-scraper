@@ -5,8 +5,9 @@ class WebScraper
   SCORE_INDEX = 1
   SOCCER_SCORES_PATH = "http://sports.williamhill.com/bet/en-gb/betlive/9"
 
-  def initialize
+  def initialize(logger)
     @events_hash = {}
+    @logger = logger
   end
 
   def run

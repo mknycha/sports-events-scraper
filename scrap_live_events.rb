@@ -38,7 +38,7 @@ class App
   end
 
   def web_scraper
-    @web_scraper ||= WebScraper.new
+    @web_scraper ||= WebScraper.new(@logger)
   end
 
   def handle_error(err)
