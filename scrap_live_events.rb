@@ -11,11 +11,14 @@ require_relative 'classes/mailer'
 class App
   def run
     puts 'Starting event scraper, hit CTRL+C to quit'
-    web_scraper = WebScraper.new
-
-    loop do
-      web_scraper.run
-      sleep_thread.join
+    begin
+      @logger = initialize_logger
+      loop do
+        web_scraper.run
+        sleep_thread.join
+      end
+    rescue => e # rubocop:disable Style/RescueStandardError
+      handle_error(e)
     end
   end
 
@@ -28,6 +31,24 @@ class App
 
   def sleep_thread
     Thread.new { sleep Settings.time_interval }
+  end
+
+  def initialize_logger
+    Logger.new('logfile.log', 'daily')
+  end
+
+  def web_scraper
+    @web_scraper ||= WebScraper.new
+  end
+
+  def handle_error(err)
+    log_error(err)
+    raise err
+  end
+
+  def log_error(err)
+    @logger.error err.message
+    err.backtrace.each { |line| @logger.error line }
   end
 end
 
