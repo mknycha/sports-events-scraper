@@ -12,7 +12,7 @@ class WebScraper
 
   def run
     begin
-      puts '### Started checking events ###'
+      print_and_pass_to_logger '### Started checking events ###'
       setup_driver
       setup_events_table
       set_driver_timeout
@@ -21,7 +21,7 @@ class WebScraper
       tables.each do |table|
         process_table(table)
       end
-      puts '### Finished checking events ###'
+      print_and_pass_to_logger '### Finished checking events ###'
       send_events_table
     ensure
       @driver.quit unless @driver.nil?
@@ -116,8 +116,13 @@ class WebScraper
 
   def send_events_table
     return  if @events_html_table.empty?
-    puts 'Sending email...'
+    print_and_pass_to_logger 'Sending email...'
     ::Mailer.send_table_by_email(@events_html_table.to_s)
-    puts 'Email sent!'
+    print_and_pass_to_logger 'Email sent!'
+  end
+
+  def print_and_pass_to_logger(message)
+    puts message
+    @logger.info(message)
   end
 end
