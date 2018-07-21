@@ -53,14 +53,19 @@ class WebScraper
       event_id = get_id_from_link(link)
       if hash_contains_event?(event_id)
         event = get_event_from_hash(event_id)
-        event.update_time_and_score(time, score) unless event.reported
+        unless event.reported
+          event.update_time_and_score(time, score)
+          @logger.info "Temp storage: updated event\n#{event.to_s}"
+        end
       else
         event = Event.new(name, time, score, link)
         save_event_to_hash(event_id, event)
+        @logger.info "Temp storage: added event\n#{event.to_s}"
       end
       if event.should_be_reported? && !event.reported
         event.mark_as_reported
         add_to_events_table(event)
+        @logger.info "Table for sending: added event\n#{event.to_s}"
         puts "Found an event ID:#{event_id} Name:#{event.name}"
       end
     end
