@@ -49,7 +49,7 @@ class WebScraper
     live_event_rows = get_live_event_rows_from_table(table)
     live_event_rows.each do |live_event_row|
       name, time, score, link = get_event_data_from_row(live_event_row)
-      next if event_time_format_is_invalid(time) || time.nil?
+      next if event_time_format_is_invalid(time) || time.nil? || score.nil?
       event_id = get_id_from_link(link)
       if hash_contains_event?(event_id)
         event = get_event_from_hash(event_id)
