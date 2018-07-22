@@ -1,97 +1,49 @@
 # frozen_string_literal: true
 
 class WebScraper
-  TIME_INDEX = 0
-  SCORE_INDEX = 1
-  SOCCER_SCORES_PATH = "http://sports.williamhill.com/bet/en-gb/betlive/9"
-
   def initialize(logger)
     @events_hash = {}
     @logger = logger
   end
 
   def run
-    begin
-      print_and_pass_to_logger 'Started checking events'
-      setup_driver
-      setup_events_table
-      set_driver_timeout
-      visit_page
-      tables = get_tables
-      tables.each do |table|
-        process_table(table)
-      end
-      print_and_pass_to_logger 'Finished checking events'
-      send_events_table
-    ensure
-      @driver.quit unless @driver.nil?
+    print_and_pass_to_logger 'Started checking events'
+    setup_events_table
+    live_events_data = WebdriverHandler.new.get_live_events_data
+    live_events_data.each do |event_data_array|
+      name, time, score, link = event_data_array
+      next if event_time_format_is_invalid(time) || time.nil? || score.nil?
+      process_event(name, time, score, link)
     end
+    print_and_pass_to_logger 'Finished checking events'
+    send_events_table
   end
 
   private
-
-  def setup_driver
-    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-      "chromeOptions" => {"args" => [ "disable-infobars", "headless" ]}
-    )
-    @driver = Selenium::WebDriver.for :remote, url: 'http://localhost:4444/wd/hub', desired_capabilities: caps
-  end
-
-  def set_driver_timeout
-    @driver.manage.timeouts.implicit_wait = 10
-  end
-
-  def visit_page
-    @driver.navigate.to SOCCER_SCORES_PATH
-  end
-
-  def process_table(table)
-    live_event_rows = get_live_event_rows_from_table(table)
-    live_event_rows.each do |live_event_row|
-      name, time, score, link = get_event_data_from_row(live_event_row)
-      next if event_time_format_is_invalid(time) || time.nil? || score.nil?
-      event_id = get_id_from_link(link)
-      if hash_contains_event?(event_id)
-        event = get_event_from_hash(event_id)
-        unless event.reported
-          event.update_time_and_score(time, score)
-          @logger.info "Temp storage: updated event\n#{event.to_s}"
-        end
-      else
-        event = Event.new(name, time, score, link)
-        save_event_to_hash(event_id, event)
-        @logger.info "Temp storage: added event\n#{event.to_s}"
-      end
-      if event.should_be_reported? && !event.reported
-        event.mark_as_reported
-        add_to_events_table(event)
-        @logger.info "Table for sending: added event\n#{event.to_s}"
-        puts "Found an event ID:#{event_id} Name:#{event.name}"
-      end
-    end
-  end
 
   def setup_events_table
     @events_html_table = EventsHtmlTable.new
   end
 
-  def get_tables
-    sport_9_types = @driver.find_element(id: 'ip_sport_9_types')
-    sport_9_types.find_elements(class: 'tableData')
-  end
-
-  def get_live_event_rows_from_table(table_element)
-    table_element.find_elements(class: 'rowLive')
-  end
-
-  def get_event_data_from_row(row_element)
-    href_element = row_element.find_element(xpath: './/td/a[@href]')
-    name = href_element.text
-    link = href_element.attribute('href')
-    table_score_elements = row_element.find_elements(class: 'Score')
-    time = table_score_elements[TIME_INDEX]&.text
-    score = table_score_elements[SCORE_INDEX]&.text
-    [name, time, score, link]
+  def process_event(name, time, score, link)
+    event_id = get_id_from_link(link)
+    if hash_contains_event?(event_id)
+      event = get_event_from_hash(event_id)
+      unless event.reported
+        event.update_time_and_score(time, score)
+        @logger.info "Temp storage: updated event\n#{event.to_s}"
+      end
+    else
+      event = Event.new(name, time, score, link)
+      save_event_to_hash(event_id, event)
+      @logger.info "Temp storage: added event\n#{event.to_s}"
+    end
+    if event.should_be_reported? && !event.reported
+      event.mark_as_reported
+      add_to_events_table(event)
+      @logger.info "Table for sending: added event\n#{event.to_s}"
+      puts "Found an event ID:#{event_id} Name:#{event.name}"
+    end
   end
 
   def event_time_format_is_invalid(event_time)
