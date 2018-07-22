@@ -9,7 +9,7 @@ class WebScraper
   def run
     print_and_pass_to_logger 'Started checking events'
     setup_events_table
-    live_events_data = WebdriverHandler.new.get_live_events_data
+    live_events_data = webdriver_handler.get_live_events_data
     live_events_data.each do |event_data_array|
       name, time, score, link = event_data_array
       next if event_time_format_is_invalid(time) || time.nil? || score.nil?
@@ -25,25 +25,28 @@ class WebScraper
     @events_html_table = EventsHtmlTable.new
   end
 
+  def webdriver_handler
+    @webdriver_handler ||= WebdriverHandler.new
+  end
+
   def process_event(name, time, score, link)
     event_id = get_id_from_link(link)
     if hash_contains_event?(event_id)
       event = get_event_from_hash(event_id)
       unless event.reported
         event.update_time_and_score(time, score)
-        @logger.info "Temp storage: updated event\n#{event.to_s}"
+        @logger.info "Temp storage: updated event\n#{event}"
       end
     else
       event = Event.new(name, time, score, link)
       save_event_to_hash(event_id, event)
-      @logger.info "Temp storage: added event\n#{event.to_s}"
+      @logger.info "Temp storage: added event\n#{event}"
     end
-    if event.should_be_reported? && !event.reported
-      event.mark_as_reported
-      add_to_events_table(event)
-      @logger.info "Table for sending: added event\n#{event.to_s}"
-      puts "Found an event ID:#{event_id} Name:#{event.name}"
-    end
+    return unless event.should_be_reported? && !event.reported
+    event.mark_as_reported
+    add_to_events_table(event)
+    @logger.info "Table for sending: added event\n#{event}"
+    puts "Found an event ID:#{event_id} Name:#{event.name}"
   end
 
   def event_time_format_is_invalid(event_time)
@@ -56,7 +59,7 @@ class WebScraper
   end
 
   def hash_contains_event?(event_id)
-    @events_hash.has_key?(event_id)
+    @events_hash.key?(event_id)
   end
 
   def get_event_from_hash(event_id)
@@ -72,7 +75,7 @@ class WebScraper
   end
 
   def send_events_table
-    return  if @events_html_table.empty?
+    return if @events_html_table.empty?
     print_and_pass_to_logger 'Sending email...'
     ::Mailer.send_table_by_email(@events_html_table.to_s)
     print_and_pass_to_logger 'Email sent!'
