@@ -9,7 +9,13 @@ class WebScraper
   def run
     setup_events_table
     print_and_pass_to_logger 'Checking events'
-    live_events_data = webdriver_handler.get_live_events_data
+    begin
+      live_events_data = webdriver_handler.get_live_events_data
+    rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
+      @logger.warn error.message
+      puts 'Table with live events or its children not found - see logs for details'
+      return
+    end
     print_and_pass_to_logger 'Finished checking events'
     @logger.info 'Processing events data'
     live_events_data.each do |event_data_array|
