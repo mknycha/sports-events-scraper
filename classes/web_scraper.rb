@@ -11,13 +11,13 @@ class WebScraper
     print_and_pass_to_logger 'Checking events'
     live_events_data = webdriver_handler.get_live_events_data
     print_and_pass_to_logger 'Finished checking events'
-    @logger.info 'Processing events data'
+    print_and_pass_to_logger 'Processing events data'
     live_events_data.each do |event_data_array|
       name, time, score, link = event_data_array
       next if event_time_format_is_invalid(time) || time.nil? || score.nil?
       process_event(name, time, score, link)
     end
-    @logger.info 'Finished processing events data'
+    print_and_pass_to_logger 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
   rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
     handle_no_such_element_error(error)
