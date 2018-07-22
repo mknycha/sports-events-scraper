@@ -7,16 +7,18 @@ class WebScraper
   end
 
   def run
-    print_and_pass_to_logger 'Started checking events'
     setup_events_table
+    print_and_pass_to_logger 'Checking events'
     live_events_data = webdriver_handler.get_live_events_data
+    print_and_pass_to_logger 'Finished checking events'
+    @logger.info 'Processing events data'
     live_events_data.each do |event_data_array|
       name, time, score, link = event_data_array
       next if event_time_format_is_invalid(time) || time.nil? || score.nil?
       process_event(name, time, score, link)
     end
-    print_and_pass_to_logger 'Finished checking events'
-    send_events_table
+    @logger.info 'Finished processing events data'
+    send_events_table_and_log_info unless @events_html_table.empty?
   end
 
   private
@@ -74,9 +76,8 @@ class WebScraper
     @events_html_table.add_event(event)
   end
 
-  def send_events_table
-    return if @events_html_table.empty?
-    print_and_pass_to_logger 'Sending email...'
+  def send_events_table_and_log_info
+    print_and_pass_to_logger 'Sending email'
     ::Mailer.send_table_by_email(@events_html_table.to_s)
     print_and_pass_to_logger 'Email sent!'
   end
