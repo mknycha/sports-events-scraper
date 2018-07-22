@@ -6,7 +6,7 @@ class Event
   attr_writer :time, :score
 
   def initialize(name, time, score, link)
-    @name = name
+    @name = name.squeeze(' ')
     @time = time
     @score = score
     @link = link
