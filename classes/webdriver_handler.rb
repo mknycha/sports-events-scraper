@@ -31,7 +31,7 @@ class WebdriverHandler
   end
 
   def set_driver_timeout
-    @driver.manage.timeouts.implicit_wait = 10
+    @driver.manage.timeouts.implicit_wait = 30
   end
 
   def visit_page
