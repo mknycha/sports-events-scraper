@@ -6,6 +6,8 @@ require_relative 'settings'
 Dir['classes/*.rb'].each { |file| require_relative file }
 
 class App
+  @retries = 0
+
   def run
     puts 'Starting event scraper, hit CTRL+C to quit'
     begin
@@ -15,8 +17,13 @@ class App
         sleep_thread.join
       end
     rescue Net::ReadTimeout => timeout_err
+      puts timeout_err.message
       log_error timeout_err
-      retry
+      if @retries < 3
+        @retries += 1
+        puts 'Retrying...'
+        retry
+      end
     rescue => e # rubocop:disable Style/RescueStandardError
       handle_error(e)
     end
