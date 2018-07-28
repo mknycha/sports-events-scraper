@@ -14,6 +14,9 @@ class App
         web_scraper.run
         sleep_thread.join
       end
+    rescue Net::ReadTimeout => timeout_err
+      log_error timeout_err
+      retry
     rescue => e # rubocop:disable Style/RescueStandardError
       handle_error(e)
     end
