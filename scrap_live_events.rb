@@ -6,7 +6,9 @@ require_relative 'settings'
 Dir['classes/*.rb'].each { |file| require_relative file }
 
 class App
-  @retries = 0
+  def initialize
+    @retries = 0
+  end
 
   def run
     puts 'Starting event scraper, hit CTRL+C to quit'
