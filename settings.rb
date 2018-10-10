@@ -5,6 +5,9 @@ Settings = OpenStruct.new(
     # If live event time is after this number of minutes,
     # it will be qualified for reporting
     after_minutes: 45,
+    # If live event time is after this number of minutes,
+    # it will not be qualified for reporting
+    before_minutes: 60,
     # If the goal difference is equal to this number (absolute value),
     # it will be qualified for reporting
     goal_difference: 1

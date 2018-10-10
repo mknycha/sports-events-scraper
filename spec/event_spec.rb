@@ -3,7 +3,7 @@ require_relative '../settings'
 
 describe Event do
   let(:reporting_conditions) do
-    { after_minutes: 10, goal_difference: 3 }
+    { after_minutes: 10, before_minutes: 20, goal_difference: 3 }
   end
   let(:event) do
     Event.new('Falubaz vs Stal Gorzow', '11:01', '1-4', 'https://link.costam')
@@ -22,8 +22,16 @@ describe Event do
       end
     end
 
-    context 'when event time does not fall into reporting conditions' do
+    context 'when event time does not meet the requirement of after_minutes setting' do
       before { event.time = '9:55' }
+
+      it 'returns false' do
+        expect(event.send(:should_report_time?)).to be_falsey
+      end
+    end
+
+    context 'when event time does not meet the requirement of before_minutes setting' do
+      before { event.time = '21:05' }
 
       it 'returns false' do
         expect(event.send(:should_report_time?)).to be_falsey

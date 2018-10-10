@@ -33,8 +33,9 @@ class Event
   private
 
   def should_report_time?
-    minutes = @time.split(':').first
-    minutes.to_i >= Settings.reporting_conditions[:after_minutes]
+    minutes = @time.split(':').first.to_i
+    minutes >= Settings.reporting_conditions[:after_minutes] &&
+      minutes <= Settings.reporting_conditions[:before_minutes]
   end
 
   def should_report_score?
