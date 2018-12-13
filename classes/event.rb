@@ -2,8 +2,9 @@
 
 # Represents an event data that will be stored in events_hash
 class Event
-  attr_reader :name, :time, :score, :link, :reported
-  attr_writer :time, :score
+  attr_reader :name, :link, :reported
+  attr_accessor :time, :score, :ball_possession, :attacks,
+                :shots_on_target, :shots_off_target, :corners
 
   def initialize(name, time, score, link)
     @name = name.squeeze(' ')
@@ -17,8 +18,12 @@ class Event
     @reported = true
   end
 
-  def should_be_reported?
+  def should_check_details?
     should_report_time? && should_report_score?
+  end
+
+  def should_be_reported?
+    true # Pass the logic later to some class for checking details
   end
 
   def to_s
