@@ -8,8 +8,9 @@ class WebScraper
 
   def run
     setup_events_table
+    setup_webdriver_handler
     print_and_pass_to_logger 'Checking events'
-    live_events_data = webdriver_handler.get_live_events_data
+    live_events_data = @webdriver_handler.get_live_events_data
     print_and_pass_to_logger 'Finished checking events'
     print_and_pass_to_logger 'Processing events data'
     live_events_data.each do |event_data_array|
@@ -21,6 +22,8 @@ class WebScraper
     send_events_table_and_log_info unless @events_html_table.empty?
   rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
     handle_no_such_element_error(error)
+  ensure
+    @webdriver_handler.quit_driver
   end
 
   private
@@ -29,8 +32,8 @@ class WebScraper
     @events_html_table = EventsHtmlTable.new
   end
 
-  def webdriver_handler
-    @webdriver_handler ||= WebdriverHandler.new
+  def setup_webdriver_handler
+    @webdriver_handler = WebdriverHandler.new
   end
 
   def process_event(name, time, score, link)

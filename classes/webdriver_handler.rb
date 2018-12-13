@@ -5,9 +5,12 @@ class WebdriverHandler
   SCORE_INDEX = 1
   SOCCER_SCORES_PATH = "http://sports.williamhill.com/bet/en-gb/betlive/9"
 
-  def get_live_events_data
+  def initialize
     setup_driver
     set_driver_timeout
+  end
+
+  def get_live_events_data
     visit_page
     results = []
     get_tables.each do |table|
@@ -17,7 +20,9 @@ class WebdriverHandler
       end
     end
     results
-  ensure
+  end
+
+  def quit_driver
     @driver.quit unless @driver.nil?
   end
 

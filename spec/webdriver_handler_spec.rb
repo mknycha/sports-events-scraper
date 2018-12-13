@@ -2,7 +2,7 @@
 
 describe WebdriverHandler do
   let(:test_page_path) { 'https://secure-refuge-50060.herokuapp.com' }
-  let(:subject) { described_class.new.get_live_events_data }
+  let!(:webdriver_handler) { described_class.new }
   let(:expected_data) do
     [
       [
@@ -25,6 +25,6 @@ describe WebdriverHandler do
   end
 
   it 'return properly parsed events data' do
-    expect(subject).to eq(expected_data)
+    expect(webdriver_handler.get_live_events_data).to eq(expected_data)
   end
 end
