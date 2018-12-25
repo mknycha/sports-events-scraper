@@ -22,6 +22,26 @@ class WebdriverHandler
     results
   end
 
+  def link_to_event_stats_page(event_link)
+    @driver.navigate.to event_link
+    iframe_element = @driver.find_element(id: 'scoreboard_frame').find_element(tag_name: 'iframe')
+    iframe_element.property('src')
+  end
+
+  def get_event_stats(detailed_page_link)
+    @driver.navigate.to detailed_page_link
+    general_stats_wrapper = @driver.find_element(id: 'stats_wrapper')
+    stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
+    stat_wrappers.each_with_object({}) do |el, result|
+      key = el.find_element(class: 'img').attribute('class').split(' _').last.to_sym
+      value = {
+        home: el.find_element(class: 'home').text.to_i,
+        away: el.find_element(class: 'away').text.to_i
+      }
+      result[key] = value
+    end
+  end
+
   def quit_driver
     @driver.quit unless @driver.nil?
   end
