@@ -41,11 +41,15 @@ describe WebdriverHandler do
     let(:expected_link) do
       'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza/stats'
     end
-    let(:link_to_event) { 'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza' }
+    let(:link_to_event) do
+      'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza'
+    end
 
     it 'return link to the page with stats' do
       VCR.use_cassette('link_to_event_stats_page') do
-        expect(webdriver_handler.link_to_event_stats_page(link_to_event)).to eq(expected_link)
+        expect(webdriver_handler.link_to_event_stats_page(link_to_event)).to eq(
+          expected_link
+        )
       end
     end
   end
