@@ -18,7 +18,14 @@ Bundler.require
 require 'dotenv/load'
 require 'net/smtp'
 require './settings'
+require 'vcr'
+
 Dir['./classes/*.rb'].each { |file| require file }
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.hook_into :webmock
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
