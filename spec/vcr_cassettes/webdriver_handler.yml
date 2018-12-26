@@ -1,0 +1,113 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session
+    body:
+      encoding: UTF-8
+      string: '{"desiredCapabilities":{"browserName":"chrome","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":false,"nativeEvents":false,"rotatable":false,"chromeOptions":{"args":["disable-infobars","headless"]}},"capabilities":{"firstMatch":[{"browserName":"chrome"}]}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '307'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Dec 2018 17:58:08 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1058'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status": 0,
+          "sessionId": "0443dd7c5feaa1d343d0b8d957c5e4e1",
+          "value": {
+            "acceptInsecureCerts": false,
+            "acceptSslCerts": false,
+            "applicationCacheEnabled": false,
+            "browserConnectionEnabled": false,
+            "browserName": "chrome",
+            "chrome": {
+              "chromedriverVersion": "2.40.565383 (76257d1ab79276b2d53ee976b2c3e3b9f335cde7)",
+              "userDataDir": "\u002ftmp\u002f.org.chromium.Chromium.On9KIG"
+            },
+            "cssSelectorsEnabled": true,
+            "databaseEnabled": false,
+            "handlesAlerts": true,
+            "hasTouchScreen": false,
+            "javascriptEnabled": true,
+            "locationContextEnabled": true,
+            "mobileEmulationEnabled": false,
+            "nativeEvents": true,
+            "networkConnectionEnabled": false,
+            "pageLoadStrategy": "normal",
+            "platform": "Linux",
+            "rotatable": false,
+            "setWindowRect": true,
+            "takesHeapSnapshot": true,
+            "takesScreenshot": true,
+            "unexpectedAlertBehaviour": "",
+            "version": "67.0.3396.99",
+            "webStorageEnabled": true,
+            "webdriver.remote.sessionid": "0443dd7c5feaa1d343d0b8d957c5e4e1"
+          }
+        }
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:10 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/0443dd7c5feaa1d343d0b8d957c5e4e1/timeouts/implicit_wait
+    body:
+      encoding: UTF-8
+      string: '{"ms":30000}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '12'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"0443dd7c5feaa1d343d0b8d957c5e4e1","status":0,"value":null}'
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:10 GMT
+recorded_with: VCR 4.0.0

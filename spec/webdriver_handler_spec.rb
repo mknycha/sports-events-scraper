@@ -2,7 +2,11 @@
 
 describe WebdriverHandler do
   let(:test_page_path) { 'https://secure-refuge-50060.herokuapp.com' }
-  let!(:webdriver_handler) { described_class.new }
+  let!(:webdriver_handler) do
+    VCR.use_cassette('webdriver_handler') do
+      described_class.new
+    end
+  end
 
   before do
     stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
@@ -27,7 +31,9 @@ describe WebdriverHandler do
     end
 
     it 'return properly parsed events data' do
-      expect(webdriver_handler.get_live_events_data).to eq(expected_data)
+      VCR.use_cassette('get_live_events_data') do
+        expect(webdriver_handler.get_live_events_data).to eq(expected_data)
+      end
     end
   end
 
@@ -38,7 +44,9 @@ describe WebdriverHandler do
     let(:link_to_event) { 'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza' }
 
     it 'return link to the page with stats' do
-      expect(webdriver_handler.link_to_event_stats_page(link_to_event)).to eq(expected_link)
+      VCR.use_cassette('link_to_event_stats_page') do
+        expect(webdriver_handler.link_to_event_stats_page(link_to_event)).to eq(expected_link)
+      end
     end
   end
 
@@ -72,7 +80,9 @@ describe WebdriverHandler do
     end
 
     it 'returns the parsed stats' do
-      expect(webdriver_handler.get_event_stats(stats_page)).to include(expected_hash)
+      VCR.use_cassette('get_event_stats') do
+        expect(webdriver_handler.get_event_stats(stats_page)).to include(expected_hash)
+      end
     end
   end
 end

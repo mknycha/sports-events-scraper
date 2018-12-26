@@ -1,0 +1,151 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/0443dd7c5feaa1d343d0b8d957c5e4e1/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '96'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"0443dd7c5feaa1d343d0b8d957c5e4e1","status":0,"value":null}'
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:28 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/0443dd7c5feaa1d343d0b8d957c5e4e1/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"scoreboard_frame"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '41'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"0443dd7c5feaa1d343d0b8d957c5e4e1","status":0,"value":{"ELEMENT":"0.5419320640643639-1"}}'
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:28 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/0443dd7c5feaa1d343d0b8d957c5e4e1/element/0.5419320640643639-1/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"tag name","value":"iframe"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"0443dd7c5feaa1d343d0b8d957c5e4e1","status":0,"value":{"ELEMENT":"0.5419320640643639-2"}}'
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:28 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/0443dd7c5feaa1d343d0b8d957c5e4e1/execute
+    body:
+      encoding: UTF-8
+      string: '{"script":"return arguments[0][arguments[1]]","args":[{"ELEMENT":"0.5419320640643639-2"},"src"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '96'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '162'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"0443dd7c5feaa1d343d0b8d957c5e4e1","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza/stats"}'
+    http_version: 
+  recorded_at: Wed, 26 Dec 2018 17:58:28 GMT
+recorded_with: VCR 4.0.0
