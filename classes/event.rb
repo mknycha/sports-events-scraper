@@ -3,7 +3,7 @@
 # Represents an event data that will be stored in events_hash
 class Event
   attr_reader :name, :link, :reported
-  attr_accessor :time, :score, :ball_possession, :attacks,
+  attr_accessor :link_to_stats, :time, :score, :ball_possession, :attacks,
                 :shots_on_target, :shots_off_target, :corners
 
   ATTRIBUTES_TO_ADAPT = {
