@@ -71,4 +71,43 @@ describe Event do
       end
     end
   end
+
+  describe '#update_details_from_scraped_attrs' do
+    let(:attrs) do
+      {
+        possession: {
+          home: 43,
+          away: 57
+        },
+        danger: {
+          home: 3,
+          away: 2
+        },
+        shotsontarget: {
+          home: 2,
+          away: 0
+        },
+        shotsofftarget: {
+          home: 1,
+          away: 3
+        },
+        corners: {
+          home: 0,
+          away: 2
+        }
+      }
+    end
+    let(:action) do
+      event.update_details_from_scraped_attrs(attrs)
+    end
+
+    it 'updates the event details' do
+      action
+      expect(event.ball_possession).to eq(attrs[:possession])
+      expect(event.attacks).to eq(attrs[:danger])
+      expect(event.shots_on_target).to eq(attrs[:shotsontarget])
+      expect(event.shots_off_target).to eq(attrs[:shotsofftarget])
+      expect(event.corners).to eq(attrs[:corners])
+    end
+  end
 end

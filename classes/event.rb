@@ -6,6 +6,14 @@ class Event
   attr_accessor :time, :score, :ball_possession, :attacks,
                 :shots_on_target, :shots_off_target, :corners
 
+  ATTRIBUTES_TO_ADAPT = {
+    ball_possession: :possession,
+    attacks: :danger,
+    shots_on_target: :shotsontarget,
+    shots_off_target: :shotsofftarget,
+    corners: :corners
+  }.freeze
+
   def initialize(name, time, score, link)
     @name = name.squeeze(' ')
     @time = time
@@ -16,6 +24,16 @@ class Event
 
   def mark_as_reported
     @reported = true
+  end
+
+  def update_details_from_scraped_attrs(attrs)
+    ATTRIBUTES_TO_ADAPT.each do |event_attr, parsed_attr|
+      send("#{event_attr}=", attrs[parsed_attr])
+    end
+    @attacks = attrs[:danger]
+    @shots_on_target = attrs[:shotsontarget]
+    @shots_off_target = attrs[:shotsofftarget]
+    @corners = attrs[:corners]
   end
 
   def should_check_details?
