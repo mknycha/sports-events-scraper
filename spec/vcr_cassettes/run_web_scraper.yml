@@ -1,0 +1,5980 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session
+    body:
+      encoding: UTF-8
+      string: '{"desiredCapabilities":{"browserName":"chrome","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":false,"nativeEvents":false,"rotatable":false,"chromeOptions":{"args":["disable-infobars","headless"]}},"capabilities":{"firstMatch":[{"browserName":"chrome"}]}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '307'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 04 Jan 2019 18:27:09 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1058'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status": 0,
+          "sessionId": "ec990bf7b2a4e84dbf79f2fef49671ae",
+          "value": {
+            "acceptInsecureCerts": false,
+            "acceptSslCerts": false,
+            "applicationCacheEnabled": false,
+            "browserConnectionEnabled": false,
+            "browserName": "chrome",
+            "chrome": {
+              "chromedriverVersion": "2.40.565383 (76257d1ab79276b2d53ee976b2c3e3b9f335cde7)",
+              "userDataDir": "\u002ftmp\u002f.org.chromium.Chromium.rgWu4m"
+            },
+            "cssSelectorsEnabled": true,
+            "databaseEnabled": false,
+            "handlesAlerts": true,
+            "hasTouchScreen": false,
+            "javascriptEnabled": true,
+            "locationContextEnabled": true,
+            "mobileEmulationEnabled": false,
+            "nativeEvents": true,
+            "networkConnectionEnabled": false,
+            "pageLoadStrategy": "normal",
+            "platform": "Linux",
+            "rotatable": false,
+            "setWindowRect": true,
+            "takesHeapSnapshot": true,
+            "takesScreenshot": true,
+            "unexpectedAlertBehaviour": "",
+            "version": "67.0.3396.99",
+            "webStorageEnabled": true,
+            "webdriver.remote.sessionid": "ec990bf7b2a4e84dbf79f2fef49671ae"
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:09 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/timeouts/implicit_wait
+    body:
+      encoding: UTF-8
+      string: '{"ms":30000}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '12'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:09 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '51'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"ip_sport_9_types"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '41'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '101'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.295625179320665-1"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-1/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"tableData"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '42'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '137'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-2"},{"ELEMENT":"0.295625179320665-3"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-2/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"rowLive"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '40'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '103'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-4"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//td/a[@href]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '42'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '101'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.295625179320665-5"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-5/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '95'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"West
+        Brom   v   Brentford"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-5/attribute/href
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '152'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-4/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"Score"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '38'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '137'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-6"},{"ELEMENT":"0.295625179320665-7"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-6/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '75'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"53:03"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-7/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1-0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-3/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"rowLive"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '40'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '137'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-8"},{"ELEMENT":"0.295625179320665-9"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//td/a[@href]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '42'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.295625179320665-10"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:37 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-10/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '99'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"Dep.
+        Riestra   v   JJ Urquiza"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-10/attribute/href
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '156'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-8/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"Score"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '38'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '139'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-11"},{"ELEMENT":"0.295625179320665-12"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-11/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '75'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"45:00"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-12/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"2-0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//td/a[@href]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '42'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.295625179320665-13"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-13/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '101'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"Barracas
+        Central   v   All Boys"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-13/attribute/href
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '158'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-9/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"Score"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '38'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '139'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.295625179320665-14"},{"ELEMENT":"0.295625179320665-15"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-14/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '75'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"54:00"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.295625179320665-15/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0-1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:38 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '92'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:52 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"scoreboard_frame"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '41'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.0454012954623062-1"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:52 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.0454012954623062-1/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"tag name","value":"iframe"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.0454012954623062-2"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:52 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/execute
+    body:
+      encoding: UTF-8
+      string: '{"script":"return arguments[0][arguments[1]]","args":[{"ELEMENT":"0.0454012954623062-2"},"src"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '96'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '158'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford/stats"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:52 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford/stats"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '98'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:53 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"stats_wrapper"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '38'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '106'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-1"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:53 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-1/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"stat-wrapper"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '45'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '461'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.00016700677248704388-2"},{"ELEMENT":"0.00016700677248704388-3"},{"ELEMENT":"0.00016700677248704388-4"},{"ELEMENT":"0.00016700677248704388-5"},{"ELEMENT":"0.00016700677248704388-6"},{"ELEMENT":"0.00016700677248704388-7"},{"ELEMENT":"0.00016700677248704388-8"},{"ELEMENT":"0.00016700677248704388-9"},{"ELEMENT":"0.00016700677248704388-10"},{"ELEMENT":"0.00016700677248704388-11"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:53 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-12"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:53 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-12/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '88'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotsontarget"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-13"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-13/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-14"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-14/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-15"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-15/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '89'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotsofftarget"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-16"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-16/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-17"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-17/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"3"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-18"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-18/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '88'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotswoodwork"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-19"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-19/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-20"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-20/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-21"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-21/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '81'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _danger"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-22"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-22/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"3"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-23"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-23/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"6"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-24"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-24/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '82'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _corners"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-25"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-25/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-26"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-26/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-27"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-27/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '84'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _freekicks"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-28"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-28/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-29"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-29/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-30"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-30/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '83'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _goalkick"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-31"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-31/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-32"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-32/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"7"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:54 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-33"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-33/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '83'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _throwins"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-34"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-34/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"16"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-35"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-35/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"17"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-36"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-36/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '84'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _penalties"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-37"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-37/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-38"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-38/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-39"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-39/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '85'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _possession"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-40"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-40/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"55%"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '107'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.00016700677248704388-41"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.00016700677248704388-41/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"45%"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:27:55 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '98'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:01 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"scoreboard_frame"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '41'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.9664335801879274-1"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:01 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.9664335801879274-1/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"tag name","value":"iframe"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.9664335801879274-2"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:01 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/execute
+    body:
+      encoding: UTF-8
+      string: '{"script":"return arguments[0][arguments[1]]","args":[{"ELEMENT":"0.9664335801879274-2"},"src"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '96'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '164'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys/stats"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:01 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys/stats"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '104'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"id","value":"stats_wrapper"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '38'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '101'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-1"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-1/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"stat-wrapper"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '45'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '411'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":[{"ELEMENT":"0.474032866106344-2"},{"ELEMENT":"0.474032866106344-3"},{"ELEMENT":"0.474032866106344-4"},{"ELEMENT":"0.474032866106344-5"},{"ELEMENT":"0.474032866106344-6"},{"ELEMENT":"0.474032866106344-7"},{"ELEMENT":"0.474032866106344-8"},{"ELEMENT":"0.474032866106344-9"},{"ELEMENT":"0.474032866106344-10"},{"ELEMENT":"0.474032866106344-11"}]}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-12"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-12/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '88'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotsontarget"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-13"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-13/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"2"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-2/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-14"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-14/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-15"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-15/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '89'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotsofftarget"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-16"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-16/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"3"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-3/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-17"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-17/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"2"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-18"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-18/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '88'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _shotswoodwork"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-19"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-19/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-4/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-20"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-20/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-21"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-21/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '81'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _danger"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-22"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-22/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"7"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-5/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-23"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-23/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"3"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-24"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-24/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '82'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _corners"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-25"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-25/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"2"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-6/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-26"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-26/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-27"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-27/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '84'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _freekicks"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-28"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-28/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-7/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-29"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-29/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-30"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-30/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '83'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _goalkick"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-31"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:03 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-31/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"1"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-8/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-32"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-32/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"7"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-33"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-33/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '83'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _throwins"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-34"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-34/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"16"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-9/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-35"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-35/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"17"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-36"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-36/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '84'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _penalties"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-37"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-37/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-10/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-38"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-38/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '71'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"0"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"img"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '36'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-39"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-39/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '85'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"img
+        _possession"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"home"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-40"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-40/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"62%"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: post
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-11/element
+    body:
+      encoding: UTF-8
+      string: '{"using":"class name","value":"away"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Content-Length:
+      - '37'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '102'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":{"ELEMENT":"0.474032866106344-41"}}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae/element/0.474032866106344-41/text
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '73'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":"38%"}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+- request:
+    method: delete
+    uri: http://localhost:4444/wd/hub/session/ec990bf7b2a4e84dbf79f2fef49671ae
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '72'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"ec990bf7b2a4e84dbf79f2fef49671ae","status":0,"value":null}'
+    http_version: 
+  recorded_at: Fri, 04 Jan 2019 18:28:04 GMT
+recorded_with: VCR 4.0.0
