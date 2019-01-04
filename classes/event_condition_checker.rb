@@ -13,9 +13,6 @@ class EventConditionChecker
   }.freeze
 
   def self.should_be_reported?(event)
-    # move this to parser and test separately
-    # It would be better to change the format in which stats are saved for an event
-    # E.g. Event can have attribute like home_details
     score_arr = event.score.split('-')
     goals_home = score_arr.first.to_i
     goals_away = score_arr.last.to_i
@@ -36,11 +33,8 @@ class EventConditionChecker
       stats = event.send(attribute.to_s)
       attributes_values[attribute] = formula(stats[losing_team], stats[winning_team])
     end
-    sum = 0 # There is definitely a better way to sum this
-    ATTRIBUTES_COEFFICIENTS.each do |attribute, coefficient|
-      sum += coefficient * attributes_values[attribute]
-    end
-    sum > 1.45
+    function_value = ATTRIBUTES_COEFFICIENTS.sum { |attribute, coefficient| coefficient * attributes_values[attribute] }
+    function_value > 1.45
   end
 
   class << self
