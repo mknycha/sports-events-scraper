@@ -32,11 +32,11 @@ class Event
     end
   end
 
-  def should_check_details?
+  def time_and_score_reportable?
     should_report_time? && should_report_score?
   end
 
-  def should_be_reported?
+  def details_reportable?
     EventConditionChecker.should_be_reported?(self)
   end
 

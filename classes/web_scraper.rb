@@ -49,7 +49,18 @@ class WebScraper
       save_event_to_hash(event_id, event)
       @logger.info "Temp storage: added event\n#{event}"
     end
-    return unless event.should_be_reported? && !event.reported
+    return unless event.time_and_score_reportable? && !event.reported
+
+    @logger.info "Checking details for event: \n#{event}"
+    unless event.link_to_stats
+      event.link_to_stats = @webdriver_handler.link_to_event_stats_page(
+        event.link
+      )
+    end
+    stats = @webdriver_handler.get_event_stats(event.link_to_stats)
+    event.update_details_from_scraped_attrs(stats)
+    return unless event.details_reportable?
+
     event.mark_as_reported
     add_to_events_table(event)
     @logger.info "Table for sending: added event\n#{event}"
