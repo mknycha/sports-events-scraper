@@ -30,10 +30,6 @@ class Event
     ATTRIBUTES_TO_ADAPT.each do |event_attr, parsed_attr|
       send("#{event_attr}=", attrs[parsed_attr])
     end
-    @attacks = attrs[:danger]
-    @shots_on_target = attrs[:shotsontarget]
-    @shots_off_target = attrs[:shotsofftarget]
-    @corners = attrs[:corners]
   end
 
   def should_check_details?
