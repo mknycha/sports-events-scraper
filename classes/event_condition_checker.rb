@@ -17,7 +17,7 @@ class EventConditionChecker
   # is 1 when there are no shots. See excel sheet
   INTERCEPT = 0.15
 
-  def self.should_be_reported?(event)
+  def self.event_model_value(event)
     @event = event
     winning_team = nil
     losing_team = nil
@@ -31,7 +31,11 @@ class EventConditionChecker
     stats = parse_event_stats
     calc_values = calculate_attributes_values(stats, winning_team, losing_team)
     function_value = calculate_function_value(calc_values)
-    function_value + INTERCEPT > 1.45
+    function_value + INTERCEPT
+  end
+
+  def self.should_be_reported?(event)
+    event_model_value(event) > 1.45
   end
 
   class << self

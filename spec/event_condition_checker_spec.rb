@@ -47,19 +47,32 @@ describe EventConditionChecker do
     end
   end
 
+  def should_be_reported?(event)
+    described_class.should_be_reported?(event)
+  end
+
+  def event_model_value(event)
+    described_class.event_model_value(event)
+  end
+
   describe '#should_be_reported?' do
     context 'when losing team does not fulfill the reporting conditions' do
       it 'returns false' do
-        expect(described_class.should_be_reported?(event_not_reportable_a)).to be_falsey
-        expect(described_class.should_be_reported?(event_not_reportable_b)).to be_falsey
-        expect(described_class.should_be_reported?(event_not_reportable_c)).to be_falsey
+        expect(should_be_reported?(event_not_reportable_a)).to be_falsey
+        expect(event_model_value(event_not_reportable_a).round(4)).to eq(0.9563)
+        expect(should_be_reported?(event_not_reportable_b)).to be_falsey
+        expect(event_model_value(event_not_reportable_b).round(4)).to eq(1.3755)
+        expect(should_be_reported?(event_not_reportable_c)).to be_falsey
+        expect(event_model_value(event_not_reportable_c).round(4)).to eq(1.4467)
       end
     end
 
     context 'when losing team meets the reporting conditions' do
       it 'returns true' do
-        expect(described_class.should_be_reported?(event_reportable_a)).to be_truthy
-        expect(described_class.should_be_reported?(event_reportable_b)).to be_truthy
+        expect(should_be_reported?(event_reportable_a)).to be_truthy
+        expect(event_model_value(event_reportable_a).round(4)).to eq(1.4588)
+        expect(should_be_reported?(event_reportable_b)).to be_truthy
+        expect(event_model_value(event_reportable_b).round(4)).to eq(1.4637)
       end
     end
   end
