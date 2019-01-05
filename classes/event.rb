@@ -41,7 +41,7 @@ class Event
   end
 
   def should_be_reported?
-    true # Pass the logic later to some class for checking details
+    EventConditionChecker.should_be_reported?(self)
   end
 
   def to_s
