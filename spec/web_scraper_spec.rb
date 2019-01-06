@@ -10,24 +10,33 @@ describe WebScraper do
   before do
     allow(logger).to receive(:info)
     stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
-    Mail::TestMailer.deliveries.clear
   end
 
   describe '#run' do
     let(:action) do
-      VCR.use_cassette('run_web_scraper') do
+      VCR.use_cassette('web_scraper_run') do
         web_scraper.run
       end
     end
 
-    it 'sends an email' do
-      action
-      expect(Mail::TestMailer.deliveries.length).to eq(1)
-    end
+    context 'for an event that fulfills the conditions of time and score \
+             and in terms of stats' do
+      it 'sends it in an email' do
+        expect(action).to have_sent_email.matching_body(/Barracas Central v All Boys/)
+      end
 
-    it 'reports an event that fulfills the conditions of time and score \
-        and in terms of stats' do
-      expect(action).to have_sent_email.matching_body(/Barracas Central v All Boys/)
+      context 'when the event was already reported' do
+        before do
+          action
+          Mail::TestMailer.deliveries.clear
+        end
+
+        it 'does not report already reported event' do
+          expect(action).not_to have_sent_email.matching_body(
+            /Barracas Central v All Boys/
+          )
+        end
+      end
     end
 
     it 'does not report an event that fulfills the conditions of time and score, \
