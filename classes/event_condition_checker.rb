@@ -19,6 +19,8 @@ class EventConditionChecker
 
   def self.event_model_value(event)
     @event = event
+    return 0.0 if any_attribute_for_calculation_missing?(event)
+
     winning_team = nil
     losing_team = nil
     if goals_home > goals_away
@@ -40,6 +42,10 @@ class EventConditionChecker
 
   class << self
     private
+
+    def any_attribute_for_calculation_missing?(event)
+      ATTRIBUTES_TO_READ.any? { |attribute| event.send(attribute).nil? }
+    end
 
     def goals_home
       score_arr.first.to_i
