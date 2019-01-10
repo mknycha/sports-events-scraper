@@ -1,13 +1,5 @@
 require 'mail'
 require 'dotenv/load'
-require_relative '../settings'
-require_relative '../classes/event'
-require_relative '../classes/events_html_table'
-require_relative '../classes/mailer'
-
-Mail.defaults do
-  delivery_method :test
-end
 
 describe Mailer do
   include Mail::Matchers
