@@ -2,7 +2,7 @@
 
 class WebScraper
   def initialize(logger)
-    @events_hash = {}
+    @events_storage = EventsStorage.new(logger)
     @logger = logger
   end
 
@@ -16,6 +16,7 @@ class WebScraper
     live_events_data.each do |event_data_array|
       name, time, score, link = event_data_array
       next if event_time_format_is_invalid(time) || time.nil? || score.nil?
+
       process_event(name, time, score, link)
     end
     print_and_pass_to_logger 'Finished processing events data'
@@ -37,26 +38,11 @@ class WebScraper
   end
 
   def process_event(name, time, score, link)
-    event_id = get_id_from_link(link)
-    if hash_contains_event?(event_id)
-      event = get_event_from_hash(event_id)
-      unless event.reported
-        event.update_time_and_score(time, score)
-        @logger.info "Temp storage: updated event\n#{event}"
-      end
-    else
-      event = Event.new(name, time, score, link)
-      save_event_to_hash(event_id, event)
-      @logger.info "Temp storage: added event\n#{event}"
-    end
-    return unless event.time_and_score_reportable? && !event.reported
+    event = @events_storage.save_or_update_event(name, time, score, link)
+    return unless should_check_event_details?(event)
 
     @logger.info "Checking details for event: \n#{event}"
-    unless event.link_to_stats
-      event.link_to_stats = @webdriver_handler.link_to_event_stats_page(
-        event.link
-      )
-    end
+    event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
     stats = @webdriver_handler.get_event_stats(event.link_to_stats)
     event.update_details_from_scraped_attrs(stats)
     return unless event.details_reportable?
@@ -64,28 +50,16 @@ class WebScraper
     event.mark_as_reported
     add_to_events_table(event)
     @logger.info "Table for sending: added event\n#{event}"
-    puts "Found an event ID:#{event_id} Name:#{event.name}"
+    puts "Found an event - #{event}"
+  end
+
+  def should_check_event_details?(event)
+    event.time_and_score_reportable? && !event.reported
   end
 
   def event_time_format_is_invalid(event_time)
     time_formatted = event_time[/\d{2}:\d{2}/]
     time_formatted.nil?
-  end
-
-  def get_id_from_link(link)
-    link.split('/')[-2]
-  end
-
-  def hash_contains_event?(event_id)
-    @events_hash.key?(event_id)
-  end
-
-  def get_event_from_hash(event_id)
-    @events_hash[event_id]
-  end
-
-  def save_event_to_hash(event_id, event)
-    @events_hash[event_id] = event
   end
 
   def add_to_events_table(event)
