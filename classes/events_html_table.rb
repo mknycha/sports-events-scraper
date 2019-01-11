@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class EventsHtmlTable
-  TABLE_OPENING_TAG = '<table>'.freeze
-  TABLE_CLOSING_TAG = '</table>'.freeze
-
   def initialize
     @data = []
     @data.push(html_headers_row)
@@ -14,10 +11,7 @@ class EventsHtmlTable
   end
 
   def to_s
-    result = @data.clone
-    result.insert(0, TABLE_OPENING_TAG)
-    result.insert(-1, TABLE_CLOSING_TAG)
-    result.join
+    wrap_with_tag(:table, @data.clone.join)
   end
 
   def empty?
@@ -26,40 +20,28 @@ class EventsHtmlTable
 
   private
 
-  def wrap_with_th_tag(string)
-    "<th>#{string}</th>"
-  end
-
-  def wrap_with_td_tag(string)
-    "<td>#{string}</td>"
-  end
-
-  def wrap_with_tr_tag(string)
-    "<tr>#{string}</tr>"
+  def wrap_with_tag(html_tag, content)
+    "<#{html_tag}>#{content}</#{html_tag}>"
   end
 
   def html_headers_row
-    wrap_with_tr_tag(
-      [
-        wrap_with_th_tag('Name'),
-        wrap_with_th_tag('Score'),
-        wrap_with_th_tag('Time'),
-        wrap_with_th_tag('Model score'),
-        wrap_with_th_tag('Link')
-      ].join
-    )
+    wrap_with_tag(:tr, [
+      wrap_with_tag(:th, 'Name'),
+      wrap_with_tag(:th, 'Score'),
+      wrap_with_tag(:th, 'Time'),
+      wrap_with_tag(:th, 'Model score'),
+      wrap_with_tag(:th, 'Link')
+    ].join)
   end
 
   def html_event_row(event)
-    wrap_with_tr_tag(
-      [
-        wrap_with_td_tag(event.name),
-        wrap_with_td_tag(event.score),
-        wrap_with_td_tag(event.time),
-        wrap_with_td_tag(model_score(event)),
-        wrap_with_td_tag(event.link_to_stats)
-      ].join
-    )
+    wrap_with_tag(:tr, [
+      wrap_with_tag(:td, event.name),
+      wrap_with_tag(:td, event.score),
+      wrap_with_tag(:td, event.time),
+      wrap_with_tag(:td, model_score(event)),
+      wrap_with_tag(:td, event.link_to_stats)
+    ].join)
   end
 
   def model_score(event)
