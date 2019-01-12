@@ -23,7 +23,7 @@ class EventConditionChecker
 
     winning_team = nil
     losing_team = nil
-    if goals_home > goals_away
+    if event.goals_home > event.goals_away
       winning_team = :home
       losing_team = :away
     else
@@ -45,18 +45,6 @@ class EventConditionChecker
 
     def any_attribute_for_calculation_missing?(event)
       ATTRIBUTES_TO_READ.any? { |attribute| event.send(attribute).nil? }
-    end
-
-    def goals_home
-      score_arr.first.to_i
-    end
-
-    def goals_away
-      score_arr.last.to_i
-    end
-
-    def score_arr
-      @event.score.split('-')
     end
 
     def calculate_function_value(values)

@@ -49,6 +49,14 @@ class Event
     @score = score
   end
 
+  def goals_home
+    score_arr.first.to_i
+  end
+
+  def goals_away
+    score_arr.last.to_i
+  end
+
   private
 
   def should_report_time?
@@ -58,10 +66,11 @@ class Event
   end
 
   def should_report_score?
-    score_arr = @score.split('-')
-    goals_team_a = score_arr.first.to_i
-    goals_team_b = score_arr.last.to_i
-    (goals_team_a - goals_team_b).abs ==
+    (goals_home - goals_away).abs ==
       Settings.reporting_conditions[:goal_difference]
+  end
+
+  def score_arr
+    @score.split('-')
   end
 end
