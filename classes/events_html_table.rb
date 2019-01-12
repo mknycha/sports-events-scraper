@@ -39,12 +39,12 @@ class EventsHtmlTable
       wrap_with_tag(:td, event.name),
       wrap_with_tag(:td, event.score),
       wrap_with_tag(:td, event.time),
-      wrap_with_tag(:td, model_score(event)),
+      wrap_with_tag(:td, formatted_model_score(event)),
       wrap_with_tag(:td, event.link_to_stats)
     ].join)
   end
 
-  def model_score(event)
-    EventConditionChecker.event_model_value(event)
+  def formatted_model_score(event)
+    format('%0.2f', EventConditionChecker.event_model_value(event))
   end
 end
