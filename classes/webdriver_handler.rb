@@ -24,6 +24,9 @@ class WebdriverHandler
 
   def link_to_event_stats_page(event_link)
     @driver.navigate.to event_link
+    while scoreboard_frame_doesnt_exist?
+      @driver.navigate.refresh
+    end
     iframe_element = @driver.find_element(id: 'scoreboard_frame').find_element(tag_name: 'iframe')
     iframe_element.property('src')
   end
@@ -80,5 +83,9 @@ class WebdriverHandler
     time = table_score_elements[TIME_INDEX]&.text
     score = table_score_elements[SCORE_INDEX]&.text
     [name, time, score, link]
+  end
+
+  def scoreboard_frame_doesnt_exist?
+    !@driver.page_source.include? 'scoreboard_frame'
   end
 end
