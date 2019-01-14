@@ -16,7 +16,7 @@ describe WebdriverHandler do
     let(:expected_data) do
       [
         [
-          'West Brom   v   Brentford', '53:03', '0-0',
+          'West Brom   v   Brentford', '53:03', '1-0',
           'https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford'
         ],
         [
@@ -24,7 +24,7 @@ describe WebdriverHandler do
           'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza'
         ],
         [
-          'Barracas Central   v   All Boys', '54:00', '0-2',
+          'Barracas Central   v   All Boys', '54:00', '0-1',
           'https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys'
         ]
       ]
