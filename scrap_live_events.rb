@@ -18,9 +18,9 @@ class App
         web_scraper.run
         sleep_thread.join
       end
-    rescue Net::ReadTimeout => timeout_err
-      puts timeout_err.message
-      log_error timeout_err
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::StaleElementReferenceError => err
+      puts err.message
+      log_error err
       if @retries < 3
         @retries += 1
         puts 'Retrying...'
