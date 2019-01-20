@@ -43,7 +43,7 @@ class App
   end
 
   def initialize_logger
-    Logger.new('logfile.log', 'daily')
+    Logger.new('logs/logfile.log')
   end
 
   def web_scraper
