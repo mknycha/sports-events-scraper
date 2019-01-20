@@ -46,6 +46,15 @@ describe EventConditionChecker do
       event.corners = { away: 4, home: 2 }
     end
   end
+  let(:event_reportable_c) do
+    Event.new('E vs F', '54:01', '0-1', 'https://link.costam').tap do |event|
+      event.ball_possession = { home: 80, away: 20 }
+      event.attacks = { home: 42, away: 20 }
+      event.shots_on_target = { home: 0, away: 2 }
+      event.shots_off_target = { home: 5, away: 5 }
+      event.corners = { home: 4, away: 1 }
+    end
+  end
 
   def should_be_reported?(event)
     described_class.should_be_reported?(event)
@@ -73,6 +82,8 @@ describe EventConditionChecker do
         expect(event_model_value(event_reportable_a).round(4)).to eq(1.4588)
         expect(should_be_reported?(event_reportable_b)).to be_truthy
         expect(event_model_value(event_reportable_b).round(4)).to eq(1.4637)
+        expect(should_be_reported?(event_reportable_c)).to be_truthy
+        expect(event_model_value(event_reportable_c).round(4)).to eq(1.52)
       end
     end
   end
