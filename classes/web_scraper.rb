@@ -41,15 +41,16 @@ class WebScraper
     event = @events_storage.save_or_update_event(name, time, score, link)
     return unless should_check_event_details?(event)
 
-    @logger.info "Checking details for event: \n#{event}"
+    @logger.info "Scraping details for an event:\n#{event}"
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
     stats = @webdriver_handler.get_event_stats(event.link_to_stats)
     event.update_details_from_scraped_attrs(stats)
+    @logger.info "Checking details for an event:\n#{event}\nDetails:\n#{event.readable_details}"
     return unless event.details_reportable?
 
     event.mark_as_reported
     add_to_events_table(event)
-    @logger.info "Table for sending: added event\n#{event}"
+    @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
     puts "Found an event - #{event}"
   end
 

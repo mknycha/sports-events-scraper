@@ -44,6 +44,15 @@ class Event
     "TIME: #{time} SCORE: #{score} NAME: #{name} LINK: #{link}"
   end
 
+  def readable_details
+    details = "BALL_POSSESSION: #{parse_to_string ball_possession} "
+    details += "ATTACKS: #{parse_to_string attacks} "
+    details += "SHOTS_ON_TARGET: #{parse_to_string shots_on_target} "
+    details += "SHOTS_OFF_TARGET: #{parse_to_string shots_off_target} "
+    details += "CORNERS: #{parse_to_string corners}"
+    details
+  end
+
   def update_time_and_score(time, score)
     @time = time
     @score = score
@@ -72,5 +81,11 @@ class Event
 
   def score_arr
     @score.split('-')
+  end
+
+  def parse_to_string(attribute)
+    return nil unless attribute.is_a?(Hash)
+
+    "#{attribute[:home]}-#{attribute[:away]}"
   end
 end
