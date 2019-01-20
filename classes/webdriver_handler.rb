@@ -46,7 +46,7 @@ class WebdriverHandler
   end
 
   def quit_driver
-    @driver.quit unless @driver.nil?
+    @driver&.quit
   end
 
   private

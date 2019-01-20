@@ -24,7 +24,7 @@ class WebScraper
   rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
     handle_no_such_element_error(error)
   ensure
-    @webdriver_handler.quit_driver
+    @webdriver_handler&.quit_driver
   end
 
   private
