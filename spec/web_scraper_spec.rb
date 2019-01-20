@@ -48,5 +48,20 @@ describe WebScraper do
         nor stats condition' do
       expect(action).not_to have_sent_email.matching_body(/Dep. Riestra v JJ Urquiza/)
     end
+
+    context 'when there are events with an invalid format' do
+      let(:test_page_path) do
+        'https://secure-refuge-50060.herokuapp.com/invalid_format_events'
+      end
+
+      before do
+        stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
+      end
+
+      it 'does not try to process those events' do
+        expect(web_scraper).to receive(:process_event).once
+        action
+      end
+    end
   end
 end

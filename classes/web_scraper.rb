@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class WebScraper
+  VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/
+  VALID_SCORE_FORMAT = /\A\d-\d\z/
+
   def initialize(logger)
     @events_storage = EventsStorage.new(logger)
     @logger = logger
@@ -15,7 +18,7 @@ class WebScraper
     print_and_pass_to_logger 'Processing events data'
     live_events_data.each do |event_data_array|
       name, time, score, link = event_data_array
-      next if event_time_format_is_invalid(time) || time.nil? || score.nil?
+      next if value_is_invalid?(time, VALID_TIME_FORMAT) || value_is_invalid?(score, VALID_SCORE_FORMAT)
 
       process_event(name, time, score, link)
     end
@@ -58,9 +61,9 @@ class WebScraper
     event.time_and_score_reportable? && !event.reported
   end
 
-  def event_time_format_is_invalid(event_time)
-    time_formatted = event_time[/\d{2}:\d{2}/]
-    time_formatted.nil?
+  def value_is_invalid?(value, valid_format_regex)
+    value_formatted = value[valid_format_regex]
+    value_formatted.nil?
   end
 
   def add_to_events_table(event)
