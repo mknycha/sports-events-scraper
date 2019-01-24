@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/url
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/url
     body:
       encoding: UTF-8
       string: '{"url":"https://secure-refuge-50060.herokuapp.com"}'
@@ -34,12 +34,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":null}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":null}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element
     body:
       encoding: UTF-8
       string: '{"using":"id","value":"ip_sport_9_types"}'
@@ -71,12 +71,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":{"ELEMENT":"0.35906209263910815-1"}}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":{"ELEMENT":"0.35429359908610847-1"}}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-1/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-1/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"tableData"}'
@@ -108,12 +108,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-2"},{"ELEMENT":"0.35906209263910815-3"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-2"},{"ELEMENT":"0.35429359908610847-3"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-2/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-2/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"rowLive"}'
@@ -145,12 +145,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-4"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-4"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-4/element
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-4/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//td/a[@href]"}'
@@ -182,12 +182,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":{"ELEMENT":"0.35906209263910815-5"}}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":{"ELEMENT":"0.35429359908610847-5"}}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-5/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-5/text
     body:
       encoding: US-ASCII
       string: ''
@@ -219,13 +219,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"West
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"West
         Brom   v   Brentford"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-5/attribute/href
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-5/attribute/href
     body:
       encoding: US-ASCII
       string: ''
@@ -257,12 +257,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13798748/West+Brom+v+Brentford"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:44 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-4/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-4/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"Score"}'
@@ -294,12 +294,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-6"},{"ELEMENT":"0.35906209263910815-7"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-6"},{"ELEMENT":"0.35429359908610847-7"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-6/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-6/text
     body:
       encoding: US-ASCII
       string: ''
@@ -331,12 +331,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"53:03"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"53:03"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-7/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-7/text
     body:
       encoding: US-ASCII
       string: ''
@@ -368,12 +368,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"1-0"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"1-0"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-3/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-3/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"rowLive"}'
@@ -405,12 +405,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-8"},{"ELEMENT":"0.35906209263910815-9"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-8"},{"ELEMENT":"0.35429359908610847-9"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-8/element
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-8/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//td/a[@href]"}'
@@ -442,12 +442,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":{"ELEMENT":"0.35906209263910815-10"}}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":{"ELEMENT":"0.35429359908610847-10"}}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-10/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-10/text
     body:
       encoding: US-ASCII
       string: ''
@@ -479,13 +479,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"Dep.
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"Dep.
         Riestra   v   JJ Urquiza"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-10/attribute/href
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-10/attribute/href
     body:
       encoding: US-ASCII
       string: ''
@@ -517,12 +517,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-8/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-8/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"Score"}'
@@ -554,12 +554,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-11"},{"ELEMENT":"0.35906209263910815-12"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-11"},{"ELEMENT":"0.35429359908610847-12"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-11/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-11/text
     body:
       encoding: US-ASCII
       string: ''
@@ -591,12 +591,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"45:00"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"45:00"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-12/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-12/text
     body:
       encoding: US-ASCII
       string: ''
@@ -628,12 +628,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"2-0"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"2-0"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-9/element
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-9/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//td/a[@href]"}'
@@ -665,12 +665,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":{"ELEMENT":"0.35906209263910815-13"}}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":{"ELEMENT":"0.35429359908610847-13"}}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-13/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-13/text
     body:
       encoding: US-ASCII
       string: ''
@@ -702,13 +702,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"Barracas
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"Barracas
         Central   v   All Boys"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-13/attribute/href
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-13/attribute/href
     body:
       encoding: US-ASCII
       string: ''
@@ -740,12 +740,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-9/elements
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-9/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"Score"}'
@@ -777,12 +777,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":[{"ELEMENT":"0.35906209263910815-14"},{"ELEMENT":"0.35906209263910815-15"}]}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":[{"ELEMENT":"0.35429359908610847-14"},{"ELEMENT":"0.35429359908610847-15"}]}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-14/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-14/text
     body:
       encoding: US-ASCII
       string: ''
@@ -814,12 +814,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"54:00"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"54:00"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/0b481dbaf964619ea9994077316ee675/element/0.35906209263910815-15/text
+    uri: http://localhost:4444/wd/hub/session/c63d569a4a6e798454e587f1404ac39a/element/0.35429359908610847-15/text
     body:
       encoding: US-ASCII
       string: ''
@@ -851,7 +851,7 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"0b481dbaf964619ea9994077316ee675","status":0,"value":"0-1"}'
+      string: '{"sessionId":"c63d569a4a6e798454e587f1404ac39a","status":0,"value":"0-1"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 20:40:22 GMT
+  recorded_at: Thu, 24 Jan 2019 18:34:45 GMT
 recorded_with: VCR 4.0.0
