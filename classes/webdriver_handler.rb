@@ -33,16 +33,9 @@ class WebdriverHandler
 
   def get_event_stats(detailed_page_link)
     @driver.navigate.to detailed_page_link
-    general_stats_wrapper = @driver.find_element(id: 'stats_wrapper')
-    stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
-    stat_wrappers.each_with_object({}) do |el, result|
-      key = el.find_element(class: 'img').attribute('class').split(' _').last.to_sym
-      value = {
-        home: el.find_element(class: 'home').text.to_i,
-        away: el.find_element(class: 'away').text.to_i
-      }
-      result[key] = value
-    end
+    stats_hash = all_stats_for_second_half
+    stats_hash[:possession] = possession_stats_for_whole_match
+    stats_hash
   end
 
   def quit_driver
@@ -87,5 +80,35 @@ class WebdriverHandler
 
   def scoreboard_frame_doesnt_exist?
     !@driver.page_source.include? 'scoreboard_frame'
+  end
+
+  def all_stats_for_second_half
+    @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']").click
+    stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
+    stat_wrappers.each_with_object({}) do |element, result|
+      key = element.find_element(class: 'img').attribute('class').split(' _').last.to_sym
+      result[key] = stat_values_home_and_away(element)
+    end
+  end
+
+  def possession_stats_for_whole_match
+    @driver.find_element(xpath: ".//li[@data-period='TOTAL']").click
+    element = general_stats_wrapper.find_element(xpath: ".//div[@data-stat='possession']")
+    stat_values_home_and_away(element)
+  end
+
+  def general_stats_wrapper
+    @driver.find_element(id: 'stats_wrapper')
+  end
+
+  def stat_values_home_and_away(stats_element)
+    {
+      home: stat_number_value(stats_element, 'home'),
+      away: stat_number_value(stats_element, 'away')
+    }
+  end
+
+  def stat_number_value(stats_element, class_name)
+    stats_element.find_element(class: class_name).text.to_i
   end
 end
