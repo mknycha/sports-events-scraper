@@ -62,6 +62,7 @@ class WebScraper
   end
 
   def value_is_invalid?(value, valid_format_regex)
+    return true if value.nil?
     value_formatted = value[valid_format_regex]
     value_formatted.nil?
   end
