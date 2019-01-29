@@ -83,7 +83,9 @@ class WebdriverHandler
   end
 
   def all_stats_for_second_half
-    @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']").click
+    second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
+    wait_until_active second_half_tab_button
+    second_half_tab_button.click
     stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
     stat_wrappers.each_with_object({}) do |element, result|
       key = element.find_element(class: 'img').attribute('class').split(' _').last.to_sym
@@ -95,6 +97,10 @@ class WebdriverHandler
     @driver.find_element(xpath: ".//li[@data-period='TOTAL']").click
     element = general_stats_wrapper.find_element(xpath: ".//div[@data-stat='possession']")
     stat_values_home_and_away(element)
+  end
+
+  def wait_until_active(element)
+    Selenium::WebDriver::Wait.new.until { !element.attribute('class').include?('inactive') }
   end
 
   def general_stats_wrapper
