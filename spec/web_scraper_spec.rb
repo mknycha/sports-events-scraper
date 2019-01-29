@@ -14,7 +14,7 @@ describe WebScraper do
   describe '#run' do
     let(:test_page_path) { 'https://secure-refuge-50060.herokuapp.com' }
     let(:action) do
-      VCR.use_cassette('web_scraper_run') do
+      VCR.use_cassette('web_scraper_spec/web_scraper_run') do
         web_scraper.run
       end
     end
@@ -54,7 +54,7 @@ describe WebScraper do
         'https://secure-refuge-50060.herokuapp.com/invalid_format_events'
       end
       let(:action) do
-        VCR.use_cassette('web_scraper_run_for_invalid_format_events') do
+        VCR.use_cassette('web_scraper_spec/web_scraper_run_for_invalid_format_events') do
           web_scraper.run
         end
       end
