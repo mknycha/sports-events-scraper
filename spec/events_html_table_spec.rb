@@ -22,16 +22,14 @@ describe EventsHtmlTable do
 
     context 'when there are some events in the table' do
       let(:event1) do
-        Event.new('FC Barcelona vs AC Milan', '12:34', '1-2', 'https://link.to.event')
+        Event.new('FC Barcelona vs AC Milan', '12:34', '1-2', 'https://link.to.event/1')
       end
       let(:event2) do
         Event.new('FC Barcelona vs Legia Warszawa', '66:34', '3-7',
-                  'https://link.to.event')
+                  'https://link.to.event/2')
       end
 
       before do
-        event1.link_to_stats = 'https://event/1/stats'
-        event2.link_to_stats = 'https://event/2/stats'
         events_html_table.add_event(event1)
         events_html_table.add_event(event2)
       end
@@ -43,7 +41,7 @@ describe EventsHtmlTable do
       end
 
       it 'returns formatted table as string, including info about all events added' do
-        %i[name score time link_to_stats].each do |attribute|
+        %i[name score time link].each do |attribute|
           expect(events_html_table.to_s).to include(event1.send(attribute),
                                                     event2.send(attribute))
         end

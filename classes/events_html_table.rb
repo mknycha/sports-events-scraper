@@ -40,7 +40,7 @@ class EventsHtmlTable
       wrap_with_tag(:td, event.score),
       wrap_with_tag(:td, event.time),
       wrap_with_tag(:td, formatted_model_score(event)),
-      wrap_with_tag(:td, event.link_to_stats)
+      wrap_with_tag(:td, event.link)
     ].join)
   end
 
