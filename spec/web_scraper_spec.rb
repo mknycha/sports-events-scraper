@@ -49,6 +49,10 @@ describe WebScraper do
       expect(action).not_to have_sent_email.matching_body(/Dep. Riestra v JJ Urquiza/)
     end
 
+    it 'does not report an event for which second half is unavailable' do
+      expect(action).not_to have_sent_email.matching_body(/Central Cordoba v Platense/)
+    end
+
     context 'when there are events with an invalid format' do
       let(:test_page_path) do
         'https://secure-refuge-50060.herokuapp.com/invalid_format_events'
