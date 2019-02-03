@@ -26,6 +26,10 @@ describe WebdriverHandler do
         [
           'Barracas Central   v   All Boys', '54:00', '0-1',
           'https://secure-refuge-50060.herokuapp.com/betting/e/13819672/Barracas+Central+v+All+Boys'
+        ],
+        [
+          'Central Cordoba   v   Platense', '53:14', '0-1',
+          'https://secure-refuge-50060.herokuapp.com/betting/e/14069191/Central+Cordoba+v+Platense'
         ]
       ]
     end
@@ -86,6 +90,32 @@ describe WebdriverHandler do
     it 'returns the parsed stats' do
       VCR.use_cassette('webdriver_handler_spec/get_event_stats') do
         expect(webdriver_handler.get_event_stats(stats_page)).to include(expected_hash)
+      end
+    end
+  end
+
+  describe '#second_half_unavailable?' do
+    context 'for an event with second half tab available' do
+      let(:stats_page) do
+        'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza/stats'
+      end
+
+      it 'returns false' do
+        VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_13819684') do
+          expect(webdriver_handler.second_half_unavailable?(stats_page)).to be_falsey
+        end
+      end
+    end
+
+    context 'for an event with second half tab unavailable' do
+      let(:stats_page) do
+        'https://secure-refuge-50060.herokuapp.com/betting/e/14069191/Central+Cordoba+v+Platense/stats'
+      end
+
+      it 'returns true' do
+        VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_14069191') do
+          expect(webdriver_handler.second_half_unavailable?(stats_page)).to be_truthy
+        end
       end
     end
   end

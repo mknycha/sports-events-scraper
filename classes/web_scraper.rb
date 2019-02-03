@@ -44,8 +44,12 @@ class WebScraper
     event = @events_storage.save_or_update_event(name, time, score, link)
     return unless should_check_event_details?(event)
 
-    @logger.info "Scraping details for an event:\n#{event}"
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
+    if @webdriver_handler.second_half_unavailable?(event.link_to_stats)
+      @logger.info "Second half is not available for an event \n#{event}"
+      return
+    end
+    @logger.info "Scraping details for an event:\n#{event}"
     stats = @webdriver_handler.get_event_stats(event.link_to_stats)
     event.update_details_from_scraped_attrs(stats)
     @logger.info "Checking details for an event:\n#{event}\nDetails:\n#{event.readable_details}"

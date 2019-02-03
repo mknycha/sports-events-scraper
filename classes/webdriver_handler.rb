@@ -31,6 +31,12 @@ class WebdriverHandler
     iframe_element.property('src')
   end
 
+  def second_half_unavailable?(detailed_page_link)
+    @driver.navigate.to detailed_page_link
+    second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
+    second_half_tab_button.attribute('class').include?('inactive')
+  end
+
   def get_event_stats(detailed_page_link)
     @driver.navigate.to detailed_page_link
     stats_hash = all_stats_for_second_half
@@ -84,7 +90,6 @@ class WebdriverHandler
 
   def all_stats_for_second_half
     second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
-    wait_until_active second_half_tab_button
     second_half_tab_button.click
     stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
     stat_wrappers.each_with_object({}) do |element, result|
@@ -97,10 +102,6 @@ class WebdriverHandler
     @driver.find_element(xpath: ".//li[@data-period='TOTAL']").click
     element = general_stats_wrapper.find_element(xpath: ".//div[@data-stat='possession']")
     stat_values_home_and_away(element)
-  end
-
-  def wait_until_active(element)
-    Selenium::WebDriver::Wait.new.until { !element.attribute('class').include?('inactive') }
   end
 
   def general_stats_wrapper
