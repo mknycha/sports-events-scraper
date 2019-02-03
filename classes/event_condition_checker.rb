@@ -16,6 +16,7 @@ class EventConditionChecker
   # Intercept is 0.15, because formula caluclated for 'shots blocked'
   # is 1 when there are no shots. See excel sheet
   INTERCEPT = 0.15
+  MODEL_VALUE_CUTOFF = 1.45
 
   def self.event_model_value(event)
     @event = event
@@ -37,7 +38,7 @@ class EventConditionChecker
   end
 
   def self.should_be_reported?(event)
-    event_model_value(event) > 1.45
+    event_model_value(event) > MODEL_VALUE_CUTOFF
   end
 
   class << self

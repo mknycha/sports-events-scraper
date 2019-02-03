@@ -5,8 +5,14 @@ describe WebScraper do
 
   let(:logger) { Logger.new(STDOUT) }
   let(:web_scraper) { described_class.new(logger) }
+  let(:reporting_conditions) do
+    { after_minutes: 53, before_minutes: 57, goal_difference: 1 }
+  end
 
   before do
+    allow(Settings).to receive(:reporting_conditions).and_return(
+      reporting_conditions
+    )
     allow(logger).to receive(:info)
     stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
   end
