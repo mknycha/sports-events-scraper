@@ -45,7 +45,7 @@ class WebScraper
     return unless should_check_event_details?(event)
 
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
-    if @webdriver_handler.second_half_unavailable?(event.link_to_stats)
+    unless @webdriver_handler.second_half_available?(event.link_to_stats)
       @logger.info "Second half is not available for an event \n#{event}"
       return
     end

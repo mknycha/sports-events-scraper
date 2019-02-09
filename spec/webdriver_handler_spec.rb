@@ -94,15 +94,15 @@ describe WebdriverHandler do
     end
   end
 
-  describe '#second_half_unavailable?' do
+  describe '#second_half_available?' do
     context 'for an event with second half tab available' do
       let(:stats_page) do
         'https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza/stats'
       end
 
-      it 'returns false' do
+      it 'returns true' do
         VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_13819684') do
-          expect(webdriver_handler.second_half_unavailable?(stats_page)).to be_falsey
+          expect(webdriver_handler.second_half_available?(stats_page)).to be_truthy
         end
       end
     end
@@ -112,9 +112,9 @@ describe WebdriverHandler do
         'https://secure-refuge-50060.herokuapp.com/betting/e/14069191/Central+Cordoba+v+Platense/stats'
       end
 
-      it 'returns true' do
+      it 'returns false' do
         VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_14069191') do
-          expect(webdriver_handler.second_half_unavailable?(stats_page)).to be_truthy
+          expect(webdriver_handler.second_half_available?(stats_page)).to be_falsey
         end
       end
     end

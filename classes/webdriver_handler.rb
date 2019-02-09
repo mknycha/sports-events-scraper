@@ -31,10 +31,15 @@ class WebdriverHandler
     iframe_element.property('src')
   end
 
-  def second_half_unavailable?(detailed_page_link)
+  def second_half_available?(detailed_page_link)
     @driver.navigate.to detailed_page_link
+    scoreboard = @driver.find_element(id: 'scoreboard')
     second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
-    second_half_tab_button.attribute('class').include?('inactive')
+    Selenium::WebDriver::Wait.new(timeout: 3).until do
+      !second_half_tab_button.attribute('class').include?('inactive')
+    end
+  rescue Selenium::WebDriver::Error::TimeOutError => _err
+    return false
   end
 
   def get_event_stats(detailed_page_link)
@@ -90,6 +95,9 @@ class WebdriverHandler
 
   def all_stats_for_second_half
     second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
+    Selenium::WebDriver::Wait.new.until do
+      !second_half_tab_button.attribute('class').include?('inactive')
+    end
     second_half_tab_button.click
     stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
     stat_wrappers.each_with_object({}) do |element, result|
