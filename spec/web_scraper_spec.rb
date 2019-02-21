@@ -20,7 +20,7 @@ describe WebScraper do
   describe '#run' do
     let(:test_page_path) { 'https://secure-refuge-50060.herokuapp.com' }
     let(:action) do
-      VCR.use_cassette('web_scraper_spec/web_scraper_run') do
+      VCR.use_cassette('web_scraper_spec/web_scraper_run', allow_playback_repeats: true) do
         web_scraper.run
       end
     end

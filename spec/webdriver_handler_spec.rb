@@ -101,7 +101,7 @@ describe WebdriverHandler do
       end
 
       it 'returns true' do
-        VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_13819684') do
+        VCR.use_cassette('webdriver_handler_spec/second_half_available_id_13819684') do
           expect(webdriver_handler.second_half_available?(stats_page)).to be_truthy
         end
       end
@@ -113,7 +113,7 @@ describe WebdriverHandler do
       end
 
       it 'returns false' do
-        VCR.use_cassette('webdriver_handler_spec/second_half_unavailable_id_14069191') do
+        VCR.use_cassette('webdriver_handler_spec/second_half_available_id_14069191', allow_playback_repeats: true) do
           expect(webdriver_handler.second_half_available?(stats_page)).to be_falsey
         end
       end

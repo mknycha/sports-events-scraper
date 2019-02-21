@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/url
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/url
     body:
       encoding: UTF-8
       string: '{"url":"https://secure-refuge-50060.herokuapp.com/betting/e/13819684/Dep.+Riestra+v+JJ+Urquiza/stats"}'
@@ -34,12 +34,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":null}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":null}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:51 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//li[@data-period=''SECOND_HALF'']"}'
@@ -71,12 +71,49 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-1"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-1"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
+- request:
+    method: get
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-1/attribute/class
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.12.0 (ruby macosx)
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '70'
+      Server:
+      - Jetty(9.4.7.v20170914)
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":""}'
+    http_version: 
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-1/click
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-1/click
     body:
       encoding: UTF-8
       string: "{}"
@@ -108,12 +145,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":null}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":null}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element
     body:
       encoding: UTF-8
       string: '{"using":"id","value":"stats_wrapper"}'
@@ -145,12 +182,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-2"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-2"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-2/elements
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-2/elements
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"stat-wrapper"}'
@@ -182,12 +219,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":[{"ELEMENT":"0.17631229664072823-3"},{"ELEMENT":"0.17631229664072823-4"},{"ELEMENT":"0.17631229664072823-5"},{"ELEMENT":"0.17631229664072823-6"},{"ELEMENT":"0.17631229664072823-7"},{"ELEMENT":"0.17631229664072823-8"},{"ELEMENT":"0.17631229664072823-9"},{"ELEMENT":"0.17631229664072823-10"},{"ELEMENT":"0.17631229664072823-11"},{"ELEMENT":"0.17631229664072823-12"}]}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":[{"ELEMENT":"0.32633292057313623-3"},{"ELEMENT":"0.32633292057313623-4"},{"ELEMENT":"0.32633292057313623-5"},{"ELEMENT":"0.32633292057313623-6"},{"ELEMENT":"0.32633292057313623-7"},{"ELEMENT":"0.32633292057313623-8"},{"ELEMENT":"0.32633292057313623-9"},{"ELEMENT":"0.32633292057313623-10"},{"ELEMENT":"0.32633292057313623-11"},{"ELEMENT":"0.32633292057313623-12"}]}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-3/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-3/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -219,12 +256,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-13"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-13"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-13/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-13/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -256,13 +293,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _shotsontarget"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-3/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-3/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -294,12 +331,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-14"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-14"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:28 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-14/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-14/text
     body:
       encoding: US-ASCII
       string: ''
@@ -331,12 +368,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"2"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"2"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-3/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-3/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -368,12 +405,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-15"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-15"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-15/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-15/text
     body:
       encoding: US-ASCII
       string: ''
@@ -405,12 +442,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-4/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-4/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -442,12 +479,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-16"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-16"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-16/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-16/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -479,13 +516,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _shotsofftarget"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-4/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-4/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -517,12 +554,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-17"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-17"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-17/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-17/text
     body:
       encoding: US-ASCII
       string: ''
@@ -554,12 +591,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"1"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"1"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-4/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-4/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -591,12 +628,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-18"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-18"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-18/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-18/text
     body:
       encoding: US-ASCII
       string: ''
@@ -628,12 +665,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"3"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"3"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-5/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-5/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -665,12 +702,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-19"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-19"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-19/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-19/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -702,13 +739,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _shotswoodwork"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-5/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-5/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -740,12 +777,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-20"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-20"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-20/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-20/text
     body:
       encoding: US-ASCII
       string: ''
@@ -777,12 +814,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"1"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"1"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-5/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-5/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -814,12 +851,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-21"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-21"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-21/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-21/text
     body:
       encoding: US-ASCII
       string: ''
@@ -851,12 +888,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-6/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-6/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -888,12 +925,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-22"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-22"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-22/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-22/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -925,13 +962,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _danger"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-6/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-6/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -963,12 +1000,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-23"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-23"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-23/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-23/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1000,12 +1037,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"3"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"3"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-6/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-6/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -1037,12 +1074,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-24"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-24"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-24/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-24/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1074,12 +1111,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"2"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"2"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-7/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-7/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -1111,12 +1148,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-25"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-25"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-25/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-25/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -1148,13 +1185,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _corners"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-7/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-7/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -1186,12 +1223,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-26"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-26"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-26/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-26/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1223,12 +1260,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-7/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-7/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -1260,12 +1297,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-27"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-27"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:52 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-27/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-27/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1297,12 +1334,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"2"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"2"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-8/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-8/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -1334,12 +1371,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-28"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-28"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-28/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-28/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -1371,13 +1408,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _freekicks"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-8/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-8/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -1409,12 +1446,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-29"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-29"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-29/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-29/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1446,12 +1483,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-8/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-8/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -1483,12 +1520,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-30"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-30"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-30/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-30/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1520,12 +1557,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-9/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-9/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -1557,12 +1594,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-31"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-31"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-31/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-31/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -1594,13 +1631,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _goalkick"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-9/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-9/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -1632,12 +1669,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-32"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-32"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-32/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-32/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1669,12 +1706,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"1"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"1"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-9/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-9/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -1706,12 +1743,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-33"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-33"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-33/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-33/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1743,12 +1780,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"7"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"7"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-10/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-10/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -1780,12 +1817,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-34"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-34"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-34/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-34/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -1817,13 +1854,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _throwins"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-10/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-10/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -1855,12 +1892,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-35"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-35"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-35/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-35/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1892,12 +1929,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"16"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"16"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-10/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-10/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -1929,12 +1966,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-36"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-36"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-36/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-36/text
     body:
       encoding: US-ASCII
       string: ''
@@ -1966,12 +2003,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"17"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"17"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-11/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-11/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -2003,12 +2040,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-37"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-37"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:29 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-37/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-37/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -2040,13 +2077,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _penalties"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-11/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-11/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -2078,12 +2115,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-38"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-38"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-38/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-38/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2115,12 +2152,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-11/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-11/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -2152,12 +2189,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-39"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-39"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-39/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-39/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2189,12 +2226,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"0"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"0"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-12/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-12/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"img"}'
@@ -2226,12 +2263,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-40"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-40"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-40/attribute/class
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-40/attribute/class
     body:
       encoding: US-ASCII
       string: ''
@@ -2263,13 +2300,13 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"img
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"img
         _possession"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-12/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-12/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -2301,12 +2338,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-41"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-41"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-41/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-41/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2338,12 +2375,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":""}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":""}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-12/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-12/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -2375,12 +2412,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-42"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-42"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-42/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-42/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2412,12 +2449,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":""}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":""}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//li[@data-period=''TOTAL'']"}'
@@ -2449,12 +2486,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-43"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-43"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-43/click
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-43/click
     body:
       encoding: UTF-8
       string: "{}"
@@ -2486,12 +2523,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":null}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":null}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element
     body:
       encoding: UTF-8
       string: '{"using":"id","value":"stats_wrapper"}'
@@ -2523,12 +2560,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-2"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-2"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-2/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-2/element
     body:
       encoding: UTF-8
       string: '{"using":"xpath","value":".//div[@data-stat=''possession'']"}'
@@ -2560,12 +2597,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-44"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-44"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:53 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-44/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-44/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"home"}'
@@ -2597,12 +2634,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-41"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-41"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:54 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-41/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-41/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2634,12 +2671,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"43%"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"43%"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:54 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-44/element
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-44/element
     body:
       encoding: UTF-8
       string: '{"using":"class name","value":"away"}'
@@ -2671,12 +2708,12 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":{"ELEMENT":"0.17631229664072823-42"}}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":{"ELEMENT":"0.32633292057313623-42"}}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:54 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 - request:
     method: get
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/element/0.17631229664072823-42/text
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/element/0.32633292057313623-42/text
     body:
       encoding: US-ASCII
       string: ''
@@ -2708,7 +2745,7 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":"57%"}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":"57%"}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:54 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:30 GMT
 recorded_with: VCR 4.0.0

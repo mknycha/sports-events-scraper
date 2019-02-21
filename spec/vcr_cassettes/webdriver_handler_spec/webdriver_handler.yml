@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 03 Feb 2019 12:31:41 GMT
+      - Thu, 21 Feb 2019 16:41:19 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Cache-Control:
@@ -39,7 +39,7 @@ http_interactions:
       string: |-
         {
           "status": 0,
-          "sessionId": "64e30b3bc29b922a0abe7451f46d1aef",
+          "sessionId": "929563fdd4692b51f96d857e66a3c052",
           "value": {
             "acceptInsecureCerts": false,
             "acceptSslCerts": false,
@@ -48,7 +48,7 @@ http_interactions:
             "browserName": "chrome",
             "chrome": {
               "chromedriverVersion": "2.40.565383 (76257d1ab79276b2d53ee976b2c3e3b9f335cde7)",
-              "userDataDir": "\u002ftmp\u002f.org.chromium.Chromium.5Dk5nQ"
+              "userDataDir": "\u002ftmp\u002f.org.chromium.Chromium.yEYGWl"
             },
             "cssSelectorsEnabled": true,
             "databaseEnabled": false,
@@ -68,14 +68,14 @@ http_interactions:
             "unexpectedAlertBehaviour": "",
             "version": "67.0.3396.99",
             "webStorageEnabled": true,
-            "webdriver.remote.sessionid": "64e30b3bc29b922a0abe7451f46d1aef"
+            "webdriver.remote.sessionid": "929563fdd4692b51f96d857e66a3c052"
           }
         }
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:41 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:19 GMT
 - request:
     method: post
-    uri: http://localhost:4444/wd/hub/session/64e30b3bc29b922a0abe7451f46d1aef/timeouts/implicit_wait
+    uri: http://localhost:4444/wd/hub/session/929563fdd4692b51f96d857e66a3c052/timeouts/implicit_wait
     body:
       encoding: UTF-8
       string: '{"ms":30000}'
@@ -107,7 +107,7 @@ http_interactions:
       - Jetty(9.4.7.v20170914)
     body:
       encoding: UTF-8
-      string: '{"sessionId":"64e30b3bc29b922a0abe7451f46d1aef","status":0,"value":null}'
+      string: '{"sessionId":"929563fdd4692b51f96d857e66a3c052","status":0,"value":null}'
     http_version: 
-  recorded_at: Sun, 03 Feb 2019 12:31:41 GMT
+  recorded_at: Thu, 21 Feb 2019 16:41:19 GMT
 recorded_with: VCR 4.0.0
