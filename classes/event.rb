@@ -45,11 +45,13 @@ class Event
   end
 
   def readable_details
+    model_value = EventConditionChecker.event_model_value(self)
     details = "BALL_POSSESSION: #{parse_to_string ball_possession} "
     details += "ATTACKS: #{parse_to_string attacks} "
     details += "SHOTS_ON_TARGET: #{parse_to_string shots_on_target} "
     details += "SHOTS_OFF_TARGET: #{parse_to_string shots_off_target} "
-    details += "CORNERS: #{parse_to_string corners}"
+    details += "CORNERS: #{parse_to_string corners} "
+    details += "MODEL SCORE: #{format('%.2f', model_value)}"
     details
   end
 
