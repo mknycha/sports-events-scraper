@@ -14,6 +14,7 @@ class App
     puts 'Starting event scraper, hit CTRL+C to quit'
     begin
       @logger = initialize_logger
+      @logger.info('Starting...')
       loop do
         web_scraper.run
         sleep_thread.join
