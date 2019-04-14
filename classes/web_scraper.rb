@@ -13,14 +13,13 @@ class WebScraper
     setup_events_table
     setup_webdriver_handler
     print_and_pass_to_logger 'Checking events'
-    live_events_data = get_live_events_data
+    events_ids = @webdriver_handler.find_event_ids
+    check_live_events_and_update_storage(events_ids)
     print_and_pass_to_logger 'Finished checking events'
     print_and_pass_to_logger 'Processing events data'
-    live_events_data.each do |event_data_array|
-      name, time, score, link = event_data_array
-      next if value_is_invalid?(time, VALID_TIME_FORMAT) || value_is_invalid?(score, VALID_SCORE_FORMAT)
-
-      process_event(name, time, score, link)
+    events_ids.each do |event_id|
+      event = @events_storage.find_event(event_id)
+      process_event(event)
     end
     print_and_pass_to_logger 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
@@ -40,18 +39,17 @@ class WebScraper
     @webdriver_handler = WebdriverHandler.new
   end
 
-  def get_live_events_data
-    @webdriver_handler.find_event_ids.map do |event_id|
+  def check_live_events_and_update_storage(event_ids)
+    event_ids.each do |event_id|
       details = @webdriver_handler.find_event_details(event_id)
       if details.nil?
         print_and_pass_to_logger "Event with ID \'#{event_id}\' could not be found. It may have ended"
       end
-      details
-    end.compact
+      @events_storage.save_or_update_event(event_id, details)
+    end
   end
 
-  def process_event(name, time, score, link)
-    event = @events_storage.save_or_update_event(name, time, score, link)
+  def process_event(event)
     return unless should_check_event_details?(event)
 
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
@@ -73,12 +71,6 @@ class WebScraper
 
   def should_check_event_details?(event)
     event.time_and_score_reportable? && !event.reported
-  end
-
-  def value_is_invalid?(value, valid_format_regex)
-    return true if value.nil?
-    value_formatted = value[valid_format_regex]
-    value_formatted.nil?
   end
 
   def add_to_events_table(event)

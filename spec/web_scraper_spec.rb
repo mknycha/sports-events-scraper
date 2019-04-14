@@ -8,21 +8,118 @@ describe WebScraper do
   let(:reporting_conditions) do
     { after_minutes: 53, before_minutes: 57, goal_difference: 1 }
   end
+  let(:webdriver_handler) { instance_double('WebdriverHandler') }
+  let(:event_1_id) { 'OB_EV14441801' }
+  let(:event_2_id) { 'OB_EV14441802' }
+  let(:event_3_id) { 'OB_EV14441803' }
+  let(:event_4_id) { 'OB_EV14441804' }
+  let(:event_1_details) do
+    ['West Brom v Brentford', '53:03', '1-0', "fake-site/link/to/event/#{event_1_id}"]
+  end
+  let(:event_2_details) do
+    ['Dep. Riestra v JJ Urquiza', '45:00', '2-0', "fake-site/link/to/event/#{event_2_id}"]
+  end
+  let(:event_3_details) do
+    ['Barracas Central v All Boys', '54:00', '0-1',
+     "fake-site/link/to/event/#{event_3_id}"]
+  end
+  let(:event_4_details) do
+    ['Central Cordoba v Platense', '53:14', '0-1',
+     "fake-site/link/to/event/#{event_4_id}"]
+  end
+  let(:event_1_stats) do
+    {
+      possession: { home: 55, away: 45 },
+      danger: { home: 3, away: 6 },
+      shotsontarget: { home: 1, away: 0 },
+      shotsofftarget: { home: 1, away: 3 },
+      corners: { home: 0, away: 1 }
+    }
+  end
+  let(:event_2_stats) do
+    {
+      possession: { home: 43, away: 57 },
+      danger: { home: 3, away: 2 },
+      shotsontarget: { home: 2, away: 0 },
+      shotsofftarget: { home: 1, away: 3 },
+      corners: { home: 0, away: 2 }
+    }
+  end
+  let(:event_3_stats) do
+    {
+      possession: { home: 62, away: 38 },
+      danger: { home: 7, away: 3 },
+      shotsontarget: { home: 2, away: 0 },
+      shotsofftarget: { home: 3, away: 2 },
+      corners: { home: 2, away: 1 }
+    }
+  end
+  let(:event_4_stats) do
+    {
+      possession: { home: 62, away: 38 },
+      danger: { home: 7, away: 3 },
+      shotsontarget: { home: 2, away: 0 },
+      shotsofftarget: { home: 10, away: 2 },
+      corners: { home: 2, away: 1 }
+    }
+  end
 
   before do
     allow(Settings).to receive(:reporting_conditions).and_return(
       reporting_conditions
     )
     allow(logger).to receive(:info)
-    stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
+    allow(WebdriverHandler).to receive(:new).and_return(webdriver_handler)
+    allow(webdriver_handler).to receive(:find_event_ids).and_return(
+      [event_1_id, event_2_id, event_3_id, event_4_id]
+    )
+
+    allow(webdriver_handler).to receive(:find_event_details)
+      .with(event_1_id).and_return(event_1_details)
+    allow(webdriver_handler).to receive(:find_event_details)
+      .with(event_2_id).and_return(event_2_details)
+    allow(webdriver_handler).to receive(:find_event_details)
+      .with(event_3_id).and_return(event_3_details)
+    allow(webdriver_handler).to receive(:find_event_details)
+      .with(event_4_id).and_return(event_4_details)
+
+    allow(webdriver_handler).to receive(:link_to_event_stats_page)
+      .with("fake-site/link/to/event/#{event_1_id}")
+      .and_return("fake-site/link/to/event/#{event_1_id}/stats")
+    allow(webdriver_handler).to receive(:link_to_event_stats_page)
+      .with("fake-site/link/to/event/#{event_2_id}")
+      .and_return("fake-site/link/to/event/#{event_2_id}/stats")
+    allow(webdriver_handler).to receive(:link_to_event_stats_page)
+      .with("fake-site/link/to/event/#{event_3_id}")
+      .and_return("fake-site/link/to/event/#{event_3_id}/stats")
+    allow(webdriver_handler).to receive(:link_to_event_stats_page)
+      .with("fake-site/link/to/event/#{event_4_id}")
+      .and_return("fake-site/link/to/event/#{event_4_id}/stats")
+
+    allow(webdriver_handler).to receive(:second_half_available?)
+      .with("fake-site/link/to/event/#{event_1_id}/stats").and_return(true)
+    allow(webdriver_handler).to receive(:second_half_available?)
+      .with("fake-site/link/to/event/#{event_2_id}/stats").and_return(true)
+    allow(webdriver_handler).to receive(:second_half_available?)
+      .with("fake-site/link/to/event/#{event_3_id}/stats").and_return(true)
+    allow(webdriver_handler).to receive(:second_half_available?)
+      .with("fake-site/link/to/event/#{event_4_id}/stats").and_return(false)
+
+    allow(webdriver_handler).to receive(:get_event_stats)
+      .with("fake-site/link/to/event/#{event_1_id}/stats").and_return(event_1_stats)
+    allow(webdriver_handler).to receive(:get_event_stats)
+      .with("fake-site/link/to/event/#{event_2_id}/stats").and_return(event_2_stats)
+    allow(webdriver_handler).to receive(:get_event_stats)
+      .with("fake-site/link/to/event/#{event_3_id}/stats").and_return(event_3_stats)
+    allow(webdriver_handler).to receive(:get_event_stats)
+      .with("fake-site/link/to/event/#{event_4_id}/stats").and_return(event_4_stats)
+
+    allow(webdriver_handler).to receive(:quit_driver)
   end
 
   describe '#run' do
-    let(:test_page_path) { 'https://secure-refuge-50060.herokuapp.com' }
     let(:action) do
-      VCR.use_cassette('web_scraper_spec/web_scraper_run', allow_playback_repeats: true) do
-        web_scraper.run
-      end
+      web_scraper.run
     end
 
     context 'for an event that fulfills the conditions of time and score \
@@ -57,26 +154,6 @@ describe WebScraper do
 
     it 'does not report an event for which second half is unavailable' do
       expect(action).not_to have_sent_email.matching_body(/Central Cordoba v Platense/)
-    end
-
-    context 'when there are events with an invalid format' do
-      let(:test_page_path) do
-        'https://secure-refuge-50060.herokuapp.com/invalid_format_events'
-      end
-      let(:action) do
-        VCR.use_cassette('web_scraper_spec/web_scraper_run_for_invalid_format_events') do
-          web_scraper.run
-        end
-      end
-
-      before do
-        stub_const('WebdriverHandler::SOCCER_SCORES_PATH', test_page_path)
-      end
-
-      it 'does not try to process those events' do
-        expect(web_scraper).to receive(:process_event).once
-        action
-      end
     end
   end
 end

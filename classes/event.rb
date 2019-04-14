@@ -13,6 +13,8 @@ class Event
     shots_off_target: :shotsofftarget,
     corners: :corners
   }.freeze
+  VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/.freeze
+  VALID_SCORE_FORMAT = /\A\d-\d\z/.freeze
 
   def initialize(name, time, score, link)
     @name = name.squeeze(' ')
@@ -20,6 +22,11 @@ class Event
     @score = score
     @link = link
     @reported = false
+  end
+
+  def valid?
+    !value_is_invalid?(@time, VALID_TIME_FORMAT) &&
+      !value_is_invalid?(@score, VALID_SCORE_FORMAT)
   end
 
   def mark_as_reported
@@ -69,6 +76,13 @@ class Event
   end
 
   private
+
+  def value_is_invalid?(value, valid_format_regex)
+    return true if value.nil?
+
+    value_formatted = value[valid_format_regex]
+    value_formatted.nil?
+  end
 
   def should_report_time?
     minutes = @time.split(':').first.to_i

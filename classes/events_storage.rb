@@ -6,32 +6,29 @@ class EventsStorage
     @logger = logger
   end
 
-  def save_or_update_event(name, time, score, link)
-    event_id = parse_event_id(link)
+  def save_or_update_event(event_id, (name, time, score, link))
     if event_exists?(event_id)
       event = find_event(event_id)
       event.update_time_and_score(time, score)
       @logger.info "Temp storage: updated event\n#{event}"
     else
       event = Event.new(name, time, score, link)
-      save_event(event_id, event)
-      @logger.info "Temp storage: added event\n#{event}"
+      if event.valid?
+        save_event(event_id, event)
+        @logger.info "Temp storage: added event\n#{event}"
+      end
     end
     event
   end
 
-  private
-
-  def parse_event_id(link)
-    link.split('/')[-2]
+  def find_event(event_id)
+    @events_hash[event_id]
   end
+
+  private
 
   def event_exists?(event_id)
     @events_hash.key?(event_id)
-  end
-
-  def find_event(event_id)
-    @events_hash[event_id]
   end
 
   def save_event(event_id, event)
