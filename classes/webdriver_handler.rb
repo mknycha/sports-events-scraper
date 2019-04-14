@@ -2,24 +2,32 @@
 
 class WebdriverHandler
   TIME_INDEX = 0
-  SCORE_INDEX = 1
-  SOCCER_SCORES_PATH = "http://sports.williamhill.com/bet/en-gb/betlive/9"
+  NAME_INDEX = 1
+  SCORE_INDEX_A = 2
+  SCORE_INDEX_B = 3
+
+  SOCCER_SCORES_PATH = "https://sports.williamhill.com/betting/en-gb/in-play/football"
 
   def initialize
     setup_driver
     set_driver_timeout
   end
 
-  def get_live_events_data
+  def find_event_ids
     visit_page
-    results = []
-    get_tables.each do |table|
-      live_event_rows = get_live_event_rows_from_table(table)
-      live_event_rows.each do |row_element|
-        results << get_event_data_from_row(row_element)
-      end
-    end
-    results
+    @driver.find_elements(class: 'event').map { |event_el| event_el.attribute('id') }
+  end
+
+  def find_event_details(event_id)
+    event = @driver.find_element(id: event_id)
+    event_details = event.text.split("\n")
+    link = event.find_element(tag_name: 'a').attribute('href')
+    name = event_details[NAME_INDEX]
+    time = event_details[TIME_INDEX]
+    score = "#{event_details[SCORE_INDEX_A]}-#{event_details[SCORE_INDEX_B]}"
+    [name, time, score, link]
+  rescue Selenium::WebDriver::Error::NoSuchElementError => _
+    return nil
   end
 
   def link_to_event_stats_page(event_link)
@@ -68,25 +76,6 @@ class WebdriverHandler
 
   def visit_page
     @driver.navigate.to SOCCER_SCORES_PATH
-  end
-
-  def get_tables
-    sport_9_types = @driver.find_element(id: 'ip_sport_9_types')
-    sport_9_types.find_elements(class: 'tableData')
-  end
-
-  def get_live_event_rows_from_table(table_element)
-    table_element.find_elements(class: 'rowLive')
-  end
-
-  def get_event_data_from_row(row_element)
-    href_element = row_element.find_element(xpath: './/td/a[@href]')
-    name = href_element.text
-    link = href_element.attribute('href')
-    table_score_elements = row_element.find_elements(class: 'Score')
-    time = table_score_elements[TIME_INDEX]&.text
-    score = table_score_elements[SCORE_INDEX]&.text
-    [name, time, score, link]
   end
 
   def scoreboard_frame_doesnt_exist?

@@ -13,7 +13,7 @@ class WebScraper
     setup_events_table
     setup_webdriver_handler
     print_and_pass_to_logger 'Checking events'
-    live_events_data = @webdriver_handler.get_live_events_data
+    live_events_data = get_live_events_data
     print_and_pass_to_logger 'Finished checking events'
     print_and_pass_to_logger 'Processing events data'
     live_events_data.each do |event_data_array|
@@ -38,6 +38,16 @@ class WebScraper
 
   def setup_webdriver_handler
     @webdriver_handler = WebdriverHandler.new
+  end
+
+  def get_live_events_data
+    @webdriver_handler.find_event_ids.map do |event_id|
+      details = @webdriver_handler.find_event_details(event_id)
+      if details.nil?
+        print_and_pass_to_logger "Event with ID \'#{event_id}\' could not be found. It may have ended"
+      end
+      details
+    end.compact
   end
 
   def process_event(name, time, score, link)
