@@ -12,17 +12,17 @@ class WebScraper
   def run
     setup_events_table
     setup_webdriver_handler
-    print_and_pass_to_logger 'Checking events'
+    @logger.info 'Checking events'
     events_ids = @webdriver_handler.find_event_ids
     check_live_events_and_update_storage(events_ids)
-    print_and_pass_to_logger 'Finished checking events'
-    print_and_pass_to_logger 'Processing events data'
+    @logger.info 'Finished checking events'
+    @logger.info 'Processing events data'
     # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
       process_event(event) unless event.nil?
     end
-    print_and_pass_to_logger 'Finished processing events data'
+    @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
   rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
     handle_no_such_element_error(error)
@@ -44,7 +44,7 @@ class WebScraper
     event_ids.each do |event_id|
       details = @webdriver_handler.find_event_details(event_id)
       if details.nil?
-        print_and_pass_to_logger "Event with ID \'#{event_id}\' could not be found. It may have ended"
+        @logger.info "Event with ID \'#{event_id}\' could not be found. It may have ended"
         next
       end
       @events_storage.save_or_update_event(event_id, details)
@@ -68,7 +68,6 @@ class WebScraper
     event.mark_as_reported
     add_to_events_table(event)
     @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
-    puts "Found an event - #{event}"
   end
 
   def should_check_event_details?(event)
@@ -80,18 +79,13 @@ class WebScraper
   end
 
   def send_events_table_and_log_info
-    print_and_pass_to_logger 'Sending email'
+    @logger.info 'Sending email'
     ::Mailer.send_table_by_email(@events_html_table.to_s)
-    print_and_pass_to_logger 'Email sent!'
-  end
-
-  def print_and_pass_to_logger(message)
-    puts message
-    @logger.info(message)
+    @logger.info 'Email sent!'
   end
 
   def handle_no_such_element_error(error)
+    @logger.warn 'Table with live events or its children not found - see logs for details'
     @logger.warn error.message
-    puts 'Table with live events or its children not found - see logs for details'
   end
 end
