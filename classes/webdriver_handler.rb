@@ -77,7 +77,8 @@ class WebdriverHandler
     options.add_argument('--single-process')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--homedir=/tmp')
-    @driver = Selenium::WebDriver.for :chrome, driver_path: ENV['DRIVER_PATH'], options: options
+    service = Selenium::WebDriver::Service.chrome(path: ENV['DRIVER_PATH'])
+    @driver = Selenium::WebDriver.for :chrome, service: service, options: options
     @driver.manage.timeouts.implicit_wait = 30
   end
 
