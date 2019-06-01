@@ -41,7 +41,9 @@ class App
   end
 
   def initialize_logger
-    Logger.new('logs/logfile.log')
+    # rubocop:disable Lint/UselessAssignment
+    Logger.new('logs/logfile.log', shift_age = 0, shift_size = 10_000_000)
+    # rubocop:enable Lint/UselessAssignment
   end
 
   def web_scraper
