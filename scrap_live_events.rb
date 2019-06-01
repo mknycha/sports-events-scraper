@@ -22,11 +22,8 @@ class App
     rescue Net::ReadTimeout, Selenium::WebDriver::Error::StaleElementReferenceError => err
       puts err.message
       log_error err
-      if @retries < 3
-        @retries += 1
-        puts 'Retrying...'
-        retry
-      end
+      puts 'Retrying...'
+      retry
     rescue => e # rubocop:disable Style/RescueStandardError
       handle_error(e)
     end

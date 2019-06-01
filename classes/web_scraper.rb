@@ -17,9 +17,10 @@ class WebScraper
     check_live_events_and_update_storage(events_ids)
     print_and_pass_to_logger 'Finished checking events'
     print_and_pass_to_logger 'Processing events data'
+    # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      process_event(event)
+      process_event(event) unless event.nil?
     end
     print_and_pass_to_logger 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
@@ -44,6 +45,7 @@ class WebScraper
       details = @webdriver_handler.find_event_details(event_id)
       if details.nil?
         print_and_pass_to_logger "Event with ID \'#{event_id}\' could not be found. It may have ended"
+        next
       end
       @events_storage.save_or_update_event(event_id, details)
     end
