@@ -14,7 +14,7 @@ class App
   def run
     @logger.info 'Starting event scraper, hit CTRL+C to quit'
     begin
-      loop do
+      while Time.now < finish_time
         web_scraper.run
         sleep_thread.join
       end
@@ -50,6 +50,10 @@ class App
   def log_error(err)
     @logger.error err.message
     err.backtrace.each { |line| @logger.error line }
+  end
+
+  def finish_time
+    Time.local(Time.now.year, Time.now.month, Time.now.day, 17)
   end
 end
 
