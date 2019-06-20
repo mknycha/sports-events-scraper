@@ -1,0 +1,22 @@
+# This is a sample build configuration for Ruby.
+# Check our guides at https://confluence.atlassian.com/x/8r-5Mw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: ruby:2.4.6
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - bundler
+        script: # Modify the commands below to build your repository.
+          - apt-get update
+          - apt-get install -y zip
+          - bundle install
+          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb
+          - python codedeploy_deploy.py
+
+definitions:
+  caches:
+    bundler: ./vendor
