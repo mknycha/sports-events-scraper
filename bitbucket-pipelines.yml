@@ -15,7 +15,7 @@ pipelines:
           - bundle install
     - step:
         name: Deploy
-        image: python:3.5.1
+        image: python:3.7.3
         script:
           - apt-get update
           - apt-get install -y zip
