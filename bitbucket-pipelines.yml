@@ -3,22 +3,25 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.6
 
 pipelines:
   default:
     - step:
+        name: Bundle
+        image: ruby:2.4.6
         caches:
           - bundler
-        script: # Modify the commands below to build your repository.
+        script:
+          - bundle install
+    - step:
+        name: Deploy
+        image: python:3.5.1
+        script:
           - apt-get update
           - apt-get install -y zip
-          - apt-get install python-pip
-          - bundle install
-          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb
           - pip install boto3==1.3.0
+          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb
           - python codedeploy_deploy.py
-
 definitions:
   caches:
     bundler: ./vendor
