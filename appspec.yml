@@ -1,7 +1,7 @@
-version: 0.0
+version: 0.1
 os: linux
 files:
-  - source: app.rb
+  - source: scrap_live_events.rb
     destination: /home/ec2-user/
 hooks:
   BeforeInstall:
