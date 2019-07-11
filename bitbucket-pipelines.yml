@@ -20,7 +20,7 @@ pipelines:
           - apt-get update
           - apt-get install -y zip
           - pip install boto3==1.3.0
-          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb scripts/
+          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb scripts/ appspec.yml
           - python codedeploy_deploy.py
 definitions:
   caches:

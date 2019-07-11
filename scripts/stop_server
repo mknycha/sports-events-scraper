@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pkill -f "ruby scrap_live_events.rb"
