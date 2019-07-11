@@ -7,18 +7,12 @@
 pipelines:
   default:
     - step:
-        name: Bundle
+        name: Bundle and tests
         image: ruby:2.4.6
         caches:
           - bundler
         script:
           - bundle install
-    - step:
-        name: Rspec
-        image: ruby:2.4.6
-        caches:
-          - bundler
-        script:
           - bundle exec rspec
     - step:
         name: Deploy
