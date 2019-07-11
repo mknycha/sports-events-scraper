@@ -1,5 +1,4 @@
 require 'mail'
-require 'dotenv/load'
 
 describe Mailer do
   include Mail::Matchers
@@ -7,6 +6,8 @@ describe Mailer do
   before do
     Mail::TestMailer.deliveries.clear
     allow(Settings).to receive(:recipient_email).and_return(recipient_email)
+    allow(ENV).to receive(:[]).with('EMAIL_ADDRESS')
+                              .and_return('fake.sender.address@example.com')
   end
 
   let(:recipient_email) { 'fake.email@example.com' }
