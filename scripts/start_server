@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/ec2-user
+bundle exec ruby /home/ec2-user/scrap_live_events.rb > /dev/null 2>&1 &

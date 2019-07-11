@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /home/ec2-user
+yum update -y
+yum install ruby24 -y
+yum install ruby24-devel.x86_64 -y
+yum install gcc-c++ -y
+alternatives --set ruby /usr/bin/ruby2.4
+gem2.4 install bundler --bindir /usr/bin
