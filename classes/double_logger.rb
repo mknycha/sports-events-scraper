@@ -2,9 +2,7 @@
 
 class DoubleLogger < Logger
   def initialize
-    # rubocop:disable Lint/UselessAssignment
-    @file_logger = Logger.new('logs/logfile.log', shift_age = 0, shift_size = 10_000_000)
-    # rubocop:enable Lint/UselessAssignment
+    @file_logger = Logger.new('logs/logfile.log', 'daily')
     @stdout_logger = Logger.new(STDOUT)
   end
 
