@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dotenv'
+gem 'json'
 gem 'mail'
 gem 'pry'
 gem 'selenium-webdriver'
