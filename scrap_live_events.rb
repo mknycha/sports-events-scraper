@@ -53,7 +53,7 @@ class App
   end
 
   def finish_time
-    Time.local(Time.now.year, Time.now.month, Time.now.day, 17)
+    Time.local(Time.now.year, Time.now.month, Time.now.day, 22, 30)
   end
 end
 
