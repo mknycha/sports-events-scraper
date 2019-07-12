@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
 class EventConditionChecker
-  ATTRIBUTES_TO_CALCULATE_WITH_FORMULA = %i[attacks shots_on_target
-                                            shots_off_target corners team_at_home].freeze
-  ATTRIBUTES_TO_READ = %i[attacks shots_on_target
-                          shots_off_target corners ball_possession].freeze
+  ATTRIBUTES_TO_CALCULATE_WITH_FORMULA = %i[attacks shots_off_target corners team_at_home].freeze
+  ATTRIBUTES_TO_READ = %i[attacks shots_off_target corners ball_possession].freeze
   ATTRIBUTES_COEFFICIENTS = {
     possession: 0.017,
     attacks: 0.13,
-    shots_on_target: 0.2,
     shots_off_target: 0.15,
     corners: 0.1,
     team_at_home: 0.1
