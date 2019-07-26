@@ -14,6 +14,7 @@ class EventConditionChecker
   # is 1 when there are no shots. See excel sheet
   INTERCEPT = 0.15
   MODEL_VALUE_CUTOFF = 1.45
+  BALL_POSSESSION_ADVANTAGE_PERCENTAGE = 60
 
   def self.event_model_value(event)
     @event = event
@@ -61,7 +62,7 @@ class EventConditionChecker
 
     def calculate_attributes_values(stats, winning_team, losing_team)
       attributes_values = {}
-      attributes_values[:possession] = stats.dig(:ball_possession, losing_team) - 50
+      attributes_values[:possession] = stats.dig(:ball_possession, losing_team) - BALL_POSSESSION_ADVANTAGE_PERCENTAGE
       ATTRIBUTES_TO_CALCULATE_WITH_FORMULA.each do |attribute|
         attributes_values[attribute] = formula(stats.dig(attribute, losing_team),
                                                stats.dig(attribute, winning_team))
