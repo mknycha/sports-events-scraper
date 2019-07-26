@@ -1,84 +1,101 @@
 # frozen_string_literal: true
 
 describe EventConditionChecker do
-  let(:event_not_reportable_a) do
-    Event.new('A vs B', '54:01', '0-1', 'https://link.costam').tap do |event|
-      event.ball_possession = { home: 45, away: 55 }
-      event.attacks = { home: 6, away: 3 }
-      event.shots_off_target = { home: 3, away: 1 }
-      event.corners = { home: 1, away: 0 }
-    end
+  before do
+    stub_const('EventConditionChecker::ATTRIBUTES_COEFFICIENTS', stubbed_attrs)
   end
-  let(:event_not_reportable_b) do
-    Event.new('B vs A', '54:01', '1-0', 'https://link.costam').tap do |event|
-      event.ball_possession = { home: 38, away: 62 }
-      event.attacks = { home: 3, away: 7 }
-      event.shots_off_target = { home: 2, away: 8 }
-      event.corners = { home: 1, away: 5 }
-    end
-  end
-  let(:event_not_reportable_c) do
-    Event.new('C vs D', '54:01', '1-0', 'https://link.costam').tap do |event|
-      event.ball_possession = { away: 70, home: 30 }
-      event.attacks = { away: 10, home: 4 }
-      event.shots_off_target = { away: 7, home: 2 }
-      event.corners = { away: 4, home: 2 }
-    end
-  end
-  let(:event_not_reportable_d) do
-    Event.new('A vs B', '54:01', '0-1', 'https://link.costam').tap do |event|
-      event.ball_possession = { home: 62, away: 38 }
-      event.attacks = { home: 7, away: 3 }
-      event.shots_off_target = { home: 3, away: 2 }
-      event.corners = { home: 2, away: 1 }
-    end
-  end
-  let(:event_reportable_a) do
-    Event.new('C vs D', '54:01', '1-0', 'https://link.costam').tap do |event|
-      event.ball_possession = { away: 71, home: 29 }
-      event.attacks = { away: 8, home: 4 }
-      event.shots_off_target = { away: 10, home: 2 }
-      event.corners = { away: 7, home: 2 }
-    end
-  end
-  let(:event_reportable_b) do
-    Event.new('E vs F', '54:01', '0-1', 'https://link.costam').tap do |event|
-      event.ball_possession = { home: 80, away: 20 }
-      event.attacks = { home: 42, away: 20 }
-      event.shots_off_target = { home: 5, away: 3 }
-      event.corners = { home: 4, away: 1 }
-    end
-  end
-
-  def should_be_reported?(event)
-    described_class.should_be_reported?(event)
+  let(:stubbed_attrs) do
+    {
+      possession: 0.017,
+      attacks: 0.13,
+      shots_off_target: 0.15,
+      corners: 0.1,
+      team_at_home: 0.1
+    }
   end
 
   def event_model_value(event)
     described_class.event_model_value(event)
   end
 
-  describe '#should_be_reported?' do
-    context 'when losing team does not fulfill the reporting conditions' do
-      it 'returns false' do
-        expect(should_be_reported?(event_not_reportable_a)).to be_falsey
-        expect(event_model_value(event_not_reportable_a).round(4)).to eq(0.823)
-        expect(should_be_reported?(event_not_reportable_b)).to be_falsey
-        expect(event_model_value(event_not_reportable_b).round(4)).to eq(1.263)
-        expect(should_be_reported?(event_not_reportable_c)).to be_falsey
-        expect(event_model_value(event_not_reportable_c).round(4)).to eq(1.3042)
-        expect(should_be_reported?(event_not_reportable_d)).to be_falsey
-        expect(event_model_value(event_not_reportable_d).round(4)).to eq(1.0588)
+  def formula(value_team_a, value_team_b)
+    ((value_team_a * 0.5) + 1) / ((value_team_b * 0.5) + 1)
+  end
+
+  def formula_change(base_event, modified_event, attribute_name)
+    formula(modified_event.send(attribute_name)[:home], modified_event.send(attribute_name)[:away]) - formula(base_event.send(attribute_name)[:home], base_event.send(attribute_name)[:away])
+  end
+
+  describe '#event_model_value' do
+    let(:base_event) do
+      Event.new('A vs B', '54:01', '0-1', 'https://link.costam').tap do |event|
+        event.ball_possession = { home: 45, away: 55 }
+        event.attacks = { home: 1, away: 0 }
+        event.shots_off_target = { home: 3, away: 1 }
+        event.corners = { home: 1, away: 0 }
       end
     end
 
-    context 'when losing team meets the reporting conditions' do
-      it 'returns true' do
-        expect(should_be_reported?(event_reportable_a)).to be_truthy
-        expect(event_model_value(event_reportable_a).round(4)).to eq(1.4653)
-        expect(should_be_reported?(event_reportable_b)).to be_truthy
-        expect(event_model_value(event_reportable_b).round(4)).to eq(1.48)
+    let(:losing_away_team_event) do
+      Event.new('A vs B', '54:01', '1-0', 'https://link.costam').tap do |event|
+        event.ball_possession = { home: 55, away: 45 }
+        event.attacks = { home: 0, away: 1 }
+        event.shots_off_target = { home: 1, away: 3 }
+        event.corners = { home: 0, away: 1 }
       end
+    end
+
+    it 'includes possession stat in the calculation' do
+      modified_event = base_event.clone
+      modified_event.ball_possession = { home: 30, away: 70 }
+      new_model_value = event_model_value(modified_event)
+      old_model_value = event_model_value(base_event)
+      possesion_change = modified_event.ball_possession[:away] - base_event.ball_possession[:away]
+      expect(old_model_value - possesion_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:possession]).to equal(
+        new_model_value
+      )
+    end
+
+    it 'includes attacks stat in the calculation' do
+      modified_event = base_event.clone
+      modified_event.attacks = { home: 2, away: 0 }
+      new_model_value = event_model_value(modified_event)
+      old_model_value = event_model_value(base_event)
+      attacks_change = formula_change(base_event, modified_event, 'attacks')
+      expect(old_model_value + attacks_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:attacks]).to equal(
+        new_model_value
+      )
+    end
+
+    it 'includes shots_off_target stat in the calculation' do
+      modified_event = base_event.clone
+      modified_event.shots_off_target = { home: 2, away: 0 }
+      new_model_value = event_model_value(modified_event)
+      old_model_value = event_model_value(base_event)
+      shots_off_target_change = formula_change(base_event, modified_event, 'shots_off_target')
+      expect(old_model_value + shots_off_target_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:shots_off_target]).to equal(
+        new_model_value.round(3)
+      )
+    end
+
+    it 'includes corners stat in the calculation' do
+      modified_event = base_event.clone
+      modified_event.corners = { home: 2, away: 0 }
+      new_model_value = event_model_value(modified_event)
+      old_model_value = event_model_value(base_event)
+      corners_change = formula_change(base_event, modified_event, 'corners')
+      expect(old_model_value + corners_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:corners]).to equal(
+        new_model_value
+      )
+    end
+
+    it 'includes team_at_home in the calculation' do
+      team_away_value = event_model_value(losing_away_team_event)
+      team_at_home_value = event_model_value(base_event)
+      team_at_home_change = formula(1, 0) - formula(0, 1)
+      expect(team_at_home_value - team_at_home_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:team_at_home]).to equal(
+        team_away_value
+      )
     end
   end
 end
