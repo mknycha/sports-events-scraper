@@ -21,6 +21,7 @@ require './settings'
 require 'vcr'
 
 Dir['./classes/*.rb'].each { |file| require file }
+Dir['./classes/models/*.rb'].each { |file| require file }
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
@@ -30,6 +31,13 @@ end
 Mail.defaults do
   delivery_method :test
 end
+
+def db_configuration
+  db_configuration_file = File.join(File.expand_path('..', __FILE__), '..', 'db', 'config.yml')
+  YAML.load(File.read(db_configuration_file))
+end
+ 
+ActiveRecord::Base.establish_connection(db_configuration["test"])
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

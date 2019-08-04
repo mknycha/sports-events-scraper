@@ -4,6 +4,7 @@ require 'net/smtp'
 require_relative 'mailer_initializer'
 require_relative 'settings'
 Dir['classes/*.rb'].each { |file| require_relative file }
+Dir['classes/models/*.rb'].each { |file| require_relative file }
 
 class App
   def initialize
