@@ -12,11 +12,11 @@ files:
   - source: Gemfile.lock
     destination: /home/ec2-user/
   - source: classes/
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/classes/
   - source: bin/
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/bin/
   - source: db/
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/db/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
