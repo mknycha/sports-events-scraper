@@ -51,7 +51,7 @@ describe EventConditionChecker do
       new_model_value = event_model_value(modified_event)
       old_model_value = event_model_value(base_event)
       possesion_change = modified_event.ball_possession[:away] - base_event.ball_possession[:away]
-      expect(old_model_value - possesion_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:possession]).to equal(
+      expect(old_model_value - possesion_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:possession]).to eq(
         new_model_value
       )
     end
@@ -62,9 +62,8 @@ describe EventConditionChecker do
       new_model_value = event_model_value(modified_event)
       old_model_value = event_model_value(base_event)
       attacks_change = formula_change(base_event, modified_event, 'attacks')
-      expect(old_model_value + attacks_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:attacks]).to equal(
-        new_model_value
-      )
+      expected_value = old_model_value + attacks_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:attacks]
+      expect(expected_value).to eq(new_model_value.round(3))
     end
 
     it 'includes shots_off_target stat in the calculation' do
@@ -73,8 +72,8 @@ describe EventConditionChecker do
       new_model_value = event_model_value(modified_event)
       old_model_value = event_model_value(base_event)
       shots_off_target_change = formula_change(base_event, modified_event, 'shots_off_target')
-      expect(old_model_value + shots_off_target_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:shots_off_target]).to equal(
-        new_model_value.round(3)
+      expect(old_model_value + shots_off_target_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:shots_off_target]).to eq(
+        new_model_value
       )
     end
 
@@ -84,7 +83,7 @@ describe EventConditionChecker do
       new_model_value = event_model_value(modified_event)
       old_model_value = event_model_value(base_event)
       corners_change = formula_change(base_event, modified_event, 'corners')
-      expect(old_model_value + corners_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:corners]).to equal(
+      expect(old_model_value + corners_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:corners]).to eq(
         new_model_value
       )
     end
@@ -93,7 +92,7 @@ describe EventConditionChecker do
       team_away_value = event_model_value(losing_away_team_event)
       team_at_home_value = event_model_value(base_event)
       team_at_home_change = formula(1, 0) - formula(0, 1)
-      expect(team_at_home_value - team_at_home_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:team_at_home]).to equal(
+      expect(team_at_home_value - team_at_home_change * EventConditionChecker::ATTRIBUTES_COEFFICIENTS[:team_at_home]).to eq(
         team_away_value
       )
     end
