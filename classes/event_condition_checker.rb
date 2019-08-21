@@ -14,7 +14,7 @@ class EventConditionChecker
   # is 1 when there are no shots. See excel sheet
   INTERCEPT = 0.15
   MODEL_VALUE_CUTOFF = 1.45
-  BALL_POSSESSION_ADVANTAGE_PERCENTAGE = 60
+  BALL_POSSESSION_ADVANTAGE_PERCENTAGE = 50
 
   def self.event_model_value(event)
     @event = event
