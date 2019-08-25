@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+class StatsReadingError; end
+
 class WebdriverHandler
   TIME_INDEX = 0
   NAME_INDEX = 1
@@ -105,6 +107,10 @@ class WebdriverHandler
       key = element.find_element(class: 'img').attribute('class').split(' _').last.to_sym
       result[key] = stat_values_home_and_away(element)
     end
+  rescue Selenium::WebDriver::Error::TimeoutError => _e
+    msg = 'Stats for particular event could not read, \
+           looks like an issue on provider\'s website'
+    raise StatsReadingError, msg
   end
 
   def possession_stats_for_whole_match

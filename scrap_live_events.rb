@@ -19,7 +19,7 @@ class App
         web_scraper.run
         sleep_thread.join
       end
-    rescue Net::ReadTimeout, Selenium::WebDriver::Error::StaleElementReferenceError => err
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::StaleElementReferenceError, StatsReadingError => err
       log_error err
       @logger.info 'Retrying...'
       retry
