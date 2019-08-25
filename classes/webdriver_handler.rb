@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class StatsReadingError; end
+class StatsReadingError < StandardError; end
 
 class WebdriverHandler
   TIME_INDEX = 0
@@ -108,8 +108,8 @@ class WebdriverHandler
       result[key] = stat_values_home_and_away(element)
     end
   rescue Selenium::WebDriver::Error::TimeoutError => _e
-    msg = 'Stats for particular event could not read, \
-           looks like an issue on provider\'s website'
+    msg = 'Stats for particular event could not read, ' \
+          "looks like an issue on provider's website"
     raise StatsReadingError, msg
   end
 
