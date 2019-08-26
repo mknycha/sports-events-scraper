@@ -21,33 +21,17 @@ class EventConditionChecker
     @event = event
     return 0.0 if any_attribute_for_calculation_missing?(event)
 
-    winning_team = nil
-    losing_team = nil
-    if event.goals_home > event.goals_away
-      winning_team = :home
-      losing_team = :away
-    else
-      winning_team = :away
-      losing_team = :home
-    end
     stats = parse_event_stats
-    calc_values = calculate_attributes_values(stats, winning_team, losing_team)
+    calc_values = calculate_attributes_values(stats, event.winning_team,
+                                              event.losing_team)
     function_value = calculate_function_value(calc_values)
     function_value + INTERCEPT
   end
 
   def self.should_be_reported?(event)
-    winning_team = nil
-    losing_team = nil
-    if event.goals_home > event.goals_away
-      winning_team = :home
-      losing_team = :away
-    else
-      winning_team = :away
-      losing_team = :home
-    end
     event_model_value(event) > MODEL_VALUE_CUTOFF &&
-      event.ball_possession[losing_team] > BALL_POSSESSION_ADVANTAGE_PERCENTAGE_CUTOFF
+      event.ball_possession[event.losing_team] >
+        BALL_POSSESSION_ADVANTAGE_PERCENTAGE_CUTOFF
   end
 
   class << self
