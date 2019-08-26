@@ -19,6 +19,8 @@ require 'dotenv/load'
 require 'net/smtp'
 require './settings'
 require 'vcr'
+require 'simplecov'
+SimpleCov.start
 
 Dir['./classes/*.rb'].each { |file| require file }
 Dir['./classes/models/*.rb'].each { |file| require file }
