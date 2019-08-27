@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
+class StatsReadingError < StandardError; end
+
 class WebdriverHandler
   TIME_INDEX = 0
   NAME_INDEX = 1
   SCORE_INDEX_A = 2
   SCORE_INDEX_B = 3
 
-  SOCCER_SCORES_PATH = "https://sports.williamhill.com/betting/en-gb/in-play/football"
+  SOCCER_SCORES_PATH = 'https://sports.williamhill.com/betting/en-gb/in-play/football'
 
   def initialize
     setup_driver
-    set_driver_timeout
   end
 
   def find_event_ids
@@ -26,28 +27,28 @@ class WebdriverHandler
     time = event_details[TIME_INDEX]
     score = "#{event_details[SCORE_INDEX_A]}-#{event_details[SCORE_INDEX_B]}"
     [name, time, score, link]
-  rescue Selenium::WebDriver::Error::NoSuchElementError => _
-    return nil
+  rescue Selenium::WebDriver::Error::NoSuchElementError => _e
+    nil
   end
 
   def link_to_event_stats_page(event_link)
     @driver.navigate.to event_link
-    while scoreboard_frame_doesnt_exist?
-      @driver.navigate.refresh
-    end
-    iframe_element = @driver.find_element(id: 'scoreboard_frame').find_element(tag_name: 'iframe')
+    @driver.navigate.refresh while scoreboard_frame_doesnt_exist?
+    iframe_element = @driver.find_element(id: 'scoreboard_frame')
+                            .find_element(tag_name: 'iframe')
     iframe_element.property('src')
   end
 
   def second_half_available?(detailed_page_link)
     @driver.navigate.to detailed_page_link
-    scoreboard = @driver.find_element(id: 'scoreboard')
-    second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
+    second_half_tab_button = @driver.find_element(
+      xpath: ".//li[@data-period='SECOND_HALF']"
+    )
     Selenium::WebDriver::Wait.new(timeout: 3).until do
       !second_half_tab_button.attribute('class').include?('inactive')
     end
-  rescue Selenium::WebDriver::Error::TimeOutError => _err
-    return false
+  rescue Selenium::WebDriver::Error::TimeOutError => _e
+    false
   end
 
   def get_event_stats(detailed_page_link)
@@ -64,6 +65,12 @@ class WebdriverHandler
   private
 
   def setup_driver
+    service = Selenium::WebDriver::Service.chrome(path: ENV['DRIVER_PATH'])
+    @driver = Selenium::WebDriver.for :chrome, service: service, options: driver_options
+    @driver.manage.timeouts.implicit_wait = 30
+  end
+
+  def driver_options
     options = Selenium::WebDriver::Chrome::Options.new(binary: ENV['BINARY_PATH'])
     options.add_argument('--headless')
     options.add_argument('--disable-gpu')
@@ -77,13 +84,7 @@ class WebdriverHandler
     options.add_argument('--single-process')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--homedir=/tmp')
-    service = Selenium::WebDriver::Service.chrome(path: ENV['DRIVER_PATH'])
-    @driver = Selenium::WebDriver.for :chrome, service: service, options: options
-    @driver.manage.timeouts.implicit_wait = 30
-  end
-
-  def set_driver_timeout
-    @driver.manage.timeouts.implicit_wait = 30
+    options
   end
 
   def visit_page
@@ -95,7 +96,9 @@ class WebdriverHandler
   end
 
   def all_stats_for_second_half
-    second_half_tab_button = @driver.find_element(xpath: ".//li[@data-period='SECOND_HALF']")
+    second_half_tab_button = @driver.find_element(
+      xpath: ".//li[@data-period='SECOND_HALF']"
+    )
     Selenium::WebDriver::Wait.new.until do
       !second_half_tab_button.attribute('class').include?('inactive')
     end
@@ -105,6 +108,10 @@ class WebdriverHandler
       key = element.find_element(class: 'img').attribute('class').split(' _').last.to_sym
       result[key] = stat_values_home_and_away(element)
     end
+  rescue Selenium::WebDriver::Error::TimeoutError => _e
+    msg = 'Stats for particular event could not read, ' \
+          "looks like an issue on provider's website"
+    raise StatsReadingError, msg
   end
 
   def possession_stats_for_whole_match

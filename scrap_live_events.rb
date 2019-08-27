@@ -19,8 +19,10 @@ class App
         web_scraper.run
         sleep_thread.join
       end
-    rescue Net::ReadTimeout, Selenium::WebDriver::Error::StaleElementReferenceError => err
-      log_error err
+    rescue Net::ReadTimeout,
+           Selenium::WebDriver::Error::StaleElementReferenceError,
+           StatsReadingError => e
+      log_error e
       @logger.info 'Retrying...'
       retry
     rescue => e # rubocop:disable Style/RescueStandardError
