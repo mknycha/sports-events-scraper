@@ -11,7 +11,7 @@ class ReportedEvent < ActiveRecord::Base
             :shots_on_target_home, :shots_on_target_away,
             :shots_off_target_home, :shots_off_target_away,
             :corners_home, :corners_away, presence: true
-  validates :losing_team_scored_next, inclusion: { in: TEAM_SCORED_NEXT_ALLOWED_VALUES }
+  validates :losing_team_scored_next, inclusion: { in: TEAM_SCORED_NEXT_ALLOWED_VALUES }, allow_nil: true
 
   def self.from_event(event)
     new.tap do |reported|

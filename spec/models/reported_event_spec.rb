@@ -37,5 +37,21 @@ describe ReportedEvent do
       expect(reported_event.corners_home).to eq(1)
       expect(reported_event.corners_away).to eq(0)
     end
+
+    context 'with no event_id assigned' do
+      it 'returns event that is not valid' do
+        expect(reported_event.valid?).to be_falsey
+      end
+    end
+
+    context 'with event_id assigned' do
+      before do
+        reported_event.event_id = 'OB_EV14932257'
+      end
+
+      it 'returns event that is valid' do
+        expect(reported_event.valid?).to be_truthy
+      end
+    end
   end
 end
