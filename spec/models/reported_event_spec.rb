@@ -16,13 +16,16 @@ describe ReportedEvent do
     end
     let(:reported_event) { ReportedEvent.from_event(event) }
 
-    it 'properly assigns event attributes' do
+    it 'properly assigns event base attributes' do
       expect(reported_event.team_home).to eq('Liverpool')
       expect(reported_event.team_away).to eq('Man City')
       expect(reported_event.reporting_time).to eq('54:06')
       expect(reported_event.score_home).to eq(1)
       expect(reported_event.score_away).to eq(0)
       expect(reported_event.link).to eq(link)
+    end
+
+    it 'properly assigns event stats attributes' do
       expect(reported_event.ball_possession_home).to eq(45)
       expect(reported_event.ball_possession_away).to eq(55)
       expect(reported_event.attacks_home).to eq(1)

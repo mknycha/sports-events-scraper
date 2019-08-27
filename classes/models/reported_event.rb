@@ -15,23 +15,19 @@ class ReportedEvent < ActiveRecord::Base
 
   def self.from_event(event)
     new.tap do |reported|
-      reported.team_home, reported.team_away = event.name.split(
-        EVENT_NAME_DELIMITER
-      )
+      reported.team_home, reported.team_away = event.name.split(EVENT_NAME_DELIMITER)
       reported.reporting_time = event.time
       reported.score_home = event.score_home
       reported.score_away = event.score_away
       reported.link = event.link
-      reported.ball_possession_home = event.ball_possession[:home]
-      reported.ball_possession_away = event.ball_possession[:away]
-      reported.attacks_home = event.attacks[:home]
-      reported.attacks_away = event.attacks[:away]
-      reported.shots_on_target_home = event.shots_on_target[:home]
-      reported.shots_on_target_away = event.shots_on_target[:away]
-      reported.shots_off_target_home = event.shots_off_target[:home]
-      reported.shots_off_target_away = event.shots_off_target[:away]
-      reported.corners_home = event.corners[:home]
-      reported.corners_away = event.corners[:away]
+      reported.assign_fields_from_hashes(event)
+    end
+  end
+
+  def assign_fields_from_hashes(event)
+    %w[ball_possession attacks shots_on_target shots_off_target corners].each do |field|
+      send("#{field}_home=", event.send(field)[:home])
+      send("#{field}_away=", event.send(field)[:away])
     end
   end
 end
