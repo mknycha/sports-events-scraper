@@ -3,6 +3,7 @@ require 'dotenv/load'
 require 'net/smtp'
 require_relative 'mailer_initializer'
 require_relative 'settings'
+require_relative 'db/configuration_helper'
 Dir['classes/*.rb'].each { |file| require_relative file }
 Dir['classes/models/*.rb'].each { |file| require_relative file }
 
@@ -10,6 +11,8 @@ class App
   def initialize
     @retries = 0
     @logger = DoubleLogger.new
+    db_configuration = Database::ConfigurationHelper.db_configuration[ENV['RUBY_ENV']]
+    ActiveRecord::Base.establish_connection(db_configuration)
   end
 
   def run
