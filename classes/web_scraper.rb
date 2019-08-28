@@ -20,7 +20,7 @@ class WebScraper
     # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      process_event(event) unless event.nil?
+      save_and_report_event(event) if event.present? && event_should_be_reported?(event)
     end
     @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
@@ -51,26 +51,31 @@ class WebScraper
     end
   end
 
-  def process_event(event)
-    return unless should_check_event_details?(event)
+  def save_and_report_event(event)
+    event.mark_as_reported
+    add_to_events_table(event)
+    @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
+    @logger.info "Saving event to the database: \n#{event}\nDetails:\n#{event.readable_details}"
+  end
+
+  def event_should_be_reported?(event)
+    return false unless event_details_should_be_checked?(event)
 
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
     unless @webdriver_handler.second_half_available?(event.link_to_stats)
       @logger.info "Second half is not available for an event \n#{event}"
-      return
+      return false
     end
     @logger.info "Scraping details for an event:\n#{event}"
     stats = @webdriver_handler.get_event_stats(event.link_to_stats)
     event.update_details_from_scraped_attrs(stats)
     @logger.info "Checking details for an event:\n#{event}\nDetails:\n#{event.readable_details}"
-    return unless event.details_reportable?
+    return false unless event.details_reportable?
 
-    event.mark_as_reported
-    add_to_events_table(event)
-    @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
+    true
   end
 
-  def should_check_event_details?(event)
+  def event_details_should_be_checked?(event)
     event.time_and_score_reportable? && !event.reported
   end
 
