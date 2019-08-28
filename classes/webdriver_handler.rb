@@ -47,7 +47,7 @@ class WebdriverHandler
     Selenium::WebDriver::Wait.new(timeout: 3).until do
       !second_half_tab_button.attribute('class').include?('inactive')
     end
-  rescue Selenium::WebDriver::Error::TimeOutError => _e
+  rescue Selenium::WebDriver::Error::TimeoutError => _e
     false
   end
 
