@@ -12,22 +12,24 @@ pipelines:
         caches:
           - bundler
         script:
-          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines_scraper_test
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - bundle install
           - bundle exec rake db:setup
           - bundle exec rake db:test:prepare
           - bundle exec rspec
         services:
           - postgres
-    - step:
-        name: Deploy
-        image: python:3.7.3
-        script:
-          - apt-get update
-          - apt-get install -y zip
-          - pip install boto3==1.3.0
-          - zip -r /tmp/artifact.zip settings.rb scrap_live_events.rb load_files.rb mailer_initializer.rb appspec.yml Gemfile Gemfile.lock Rakefile bin/ classes/ scripts/ db/
-          - python codedeploy_deploy.py
+  branches:
+    master:
+      - step:
+          name: Deploy
+          image: python:3.7.3
+          script:
+            - apt-get update
+            - apt-get install -y zip
+            - pip install boto3==1.3.0
+            - zip -r /tmp/artifact.zip settings.rb scrap_live_events.rb load_files.rb mailer_initializer.rb appspec.yml Gemfile Gemfile.lock Rakefile bin/ classes/ scripts/ db/
+            - python codedeploy_deploy.py
 definitions:
   caches:
     bundler: ./vendor
@@ -35,6 +37,6 @@ definitions:
     postgres:
       image: postgres
       environment:
-        POSTGRES_DB: pipelines_scraper_test
-        POSTGRES_USER: test_user
-        POSTGRES_PASSWORD: test_user_password
+        POSTGRES_DB: 'pipelines'
+        POSTGRES_USER: 'test_user'
+        POSTGRES_PASSWORD: 'test_user_password'
