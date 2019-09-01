@@ -12,17 +12,29 @@ pipelines:
         caches:
           - bundler
         script:
+          - export RAILS_ENV=test
           - bundle install
+          - bundle exec rake db:migrate
           - bundle exec rspec
-    - step:
-        name: Deploy
-        image: python:3.7.3
-        script:
-          - apt-get update
-          - apt-get install -y zip
-          - pip install boto3==1.3.0
-          - zip -r /tmp/artifact.zip Gemfile Gemfile.lock Rakefile bin/ classes/ settings.rb scrap_live_events.rb mailer_initializer.rb scripts/ appspec.yml db/
-          - python codedeploy_deploy.py
+        services:
+          - postgres
+  branches:
+    master:
+      - step:
+          name: Deploy
+          image: python:3.7.3
+          script:
+            - apt-get update
+            - apt-get install -y zip
+            - pip install boto3==1.3.0
+            - zip -r /tmp/artifact.zip settings.rb scrap_live_events.rb load_files.rb mailer_initializer.rb appspec.yml Gemfile Gemfile.lock Rakefile bin/ classes/ scripts/ db/
+            - python codedeploy_deploy.py
 definitions:
   caches:
     bundler: ./vendor
+  services:
+    postgres:
+      image: postgres:9.6
+      environment:
+        POSTGRES_DB: 'web_scraper_test'
+        POSTGRES_USER: 'web_scraper_test'

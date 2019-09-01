@@ -1,10 +1,9 @@
 Bundler.require
-require 'dotenv/load'
-require 'net/smtp'
+require_relative 'load_files'
 require_relative 'mailer_initializer'
-require_relative 'settings'
-Dir['classes/*.rb'].each { |file| require_relative file }
-Dir['classes/models/*.rb'].each { |file| require_relative file }
+
+db_configuration = Database::ConfigurationHelper.db_configuration[ENV['RUBY_ENV']]
+ActiveRecord::Base.establish_connection(db_configuration)
 
 class App
   def initialize
