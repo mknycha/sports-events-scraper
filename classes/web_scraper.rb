@@ -67,7 +67,7 @@ class WebScraper
   end
 
   def event_should_be_reported?(event)
-    return false unless event_details_should_be_checked?(event)
+    return false unless event_stats_should_be_checked?(event)
 
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
     unless @webdriver_handler.second_half_available?(event.link_to_stats)
@@ -83,7 +83,7 @@ class WebScraper
     true
   end
 
-  def event_details_should_be_checked?(event)
+  def event_stats_should_be_checked?(event)
     event.time_and_score_reportable? && !event.reported
   end
 
