@@ -6,7 +6,7 @@ describe ReportedEvent do
       'https://sports.williamhill.com/betting/en-gb/football/OB_EV14932257/liverpool-vs-man-city'
     end
     let(:event) do
-      Event.new('Liverpool vs Man City', '54:06', '1-0', link).tap do |event|
+      Event.new('Liverpool v Man City', '54:06', '1-0', link).tap do |event|
         event.ball_possession = { home: 45, away: 55 }
         event.attacks = { home: 1, away: 0 }
         event.shots_on_target = { home: 1, away: 2 }

@@ -2,7 +2,7 @@
 
 class ReportedEvent < ActiveRecord::Base
   TEAM_SCORED_NEXT_ALLOWED_VALUES = %w[yes no error].freeze
-  EVENT_NAME_DELIMITER = ' vs '
+  EVENT_NAME_DELIMITER = ' v '
   validates :event_id, presence: true, uniqueness: true
   validates :team_home, :team_away, :link, :reporting_time,
             :score_home, :score_away,
