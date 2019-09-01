@@ -62,7 +62,7 @@ class WebScraper
     if reported_event.save
       @logger.info 'Saved event'
     else
-      @logger.warn "Event could not be saved! \n#{reported_event.errors.full_messages}"
+      @logger.warn "Event could not be saved! Errors: \n#{reported_event.errors.full_messages}"
     end
   end
 
