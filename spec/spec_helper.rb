@@ -15,14 +15,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 Bundler.require
-require 'dotenv/load'
-require 'net/smtp'
-require './settings'
+require './load_files'
 require 'vcr'
-require './db/configuration_helper.rb'
-
-Dir['./classes/*.rb'].each { |file| require file }
-Dir['./classes/models/*.rb'].each { |file| require file }
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
