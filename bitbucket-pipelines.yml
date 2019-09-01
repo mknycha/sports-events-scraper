@@ -12,10 +12,9 @@ pipelines:
         caches:
           - bundler
         script:
-          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - export RAILS_ENV=test
           - bundle install
-          - bundle exec rake db:setup
-          - bundle exec rake db:test:prepare
+          - bundle exec rake db:migrate
           - bundle exec rspec
         services:
           - postgres
@@ -35,8 +34,7 @@ definitions:
     bundler: ./vendor
   services:
     postgres:
-      image: postgres
+      image: postgres:9.6
       environment:
-        POSTGRES_DB: 'pipelines'
-        POSTGRES_USER: 'test_user'
-        POSTGRES_PASSWORD: 'test_user_password'
+        POSTGRES_DB: 'web_scraper_test'
+        POSTGRES_USER: 'web_scraper_test'

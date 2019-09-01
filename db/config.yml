@@ -11,6 +11,7 @@ development:
 test: &test
   <<: *default
   database: web_scraper_test
+  user: web_scraper_test
 
 production:
   <<: *default
