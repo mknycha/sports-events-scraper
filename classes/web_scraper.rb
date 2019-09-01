@@ -20,7 +20,7 @@ class WebScraper
     # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      save_and_report_event(event) if event.present? && event_should_be_reported?(event)
+      save_and_report_event(event, event_id) if event.present? && event_should_be_reported?(event)
     end
     @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
@@ -51,11 +51,18 @@ class WebScraper
     end
   end
 
-  def save_and_report_event(event)
+  def save_and_report_event(event, event_id)
     event.mark_as_reported
     add_to_events_table(event)
     @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
     @logger.info "Saving event to the database: \n#{event}\nDetails:\n#{event.readable_details}"
+    reported_event = ReportedEvent.from_event(event)
+    reported_event.event_id = event_id
+    if reported_event.save
+      @logger.info 'Saved event'
+    else
+      @logger.warn "Event could not be saved! \n#{reported_event.errors.full_messages}"
+    end
   end
 
   def event_should_be_reported?(event)
