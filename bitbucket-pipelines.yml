@@ -12,8 +12,13 @@ pipelines:
         caches:
           - bundler
         script:
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines_scraper_test
           - bundle install
+          - bundle exec rake db:setup
+          - bundle exec rake db:test:prepare
           - bundle exec rspec
+        services:
+          - postgres
     - step:
         name: Deploy
         image: python:3.7.3
@@ -26,3 +31,10 @@ pipelines:
 definitions:
   caches:
     bundler: ./vendor
+  services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_DB: pipelines_scraper_test
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_user_password
