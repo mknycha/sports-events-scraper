@@ -54,8 +54,9 @@ class WebScraper
   def save_and_report_event(event, event_id)
     event.mark_as_reported
     add_to_events_table(event)
-    @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
-    @logger.info "Saving event to the database: \n#{event}\nDetails:\n#{event.readable_details}"
+    msg_common = "\n#{event}\nDetails:\n#{event.readable_details}"
+    @logger.info "Table for sending: added event:#{msg_common}"
+    @logger.info "Saving event to the database: #{msg_common}"
     reported_event = ReportedEvent.from_event(event)
     reported_event.event_id = event_id
     if reported_event.save
