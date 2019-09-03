@@ -67,12 +67,20 @@ class Event
     @score = score
   end
 
-  def goals_home
+  def score_home
     score_arr.first.to_i
   end
 
-  def goals_away
+  def score_away
     score_arr.last.to_i
+  end
+
+  def winning_team
+    score_home > score_away ? :home : :away
+  end
+
+  def losing_team
+    winning_team == :home ? :away : :home
   end
 
   private
@@ -91,7 +99,7 @@ class Event
   end
 
   def should_report_score?
-    (goals_home - goals_away).abs ==
+    (score_home - score_away).abs ==
       Settings.reporting_conditions[:goal_difference]
   end
 

@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class CreateReportedEvents < ActiveRecord::Migration[5.2]
-  def change
+  def change # rubocop:disable Metrics/AbcSize
     create_table :reported_events do |t|
       t.string :event_id, null: false
       t.string :team_home, null: false
       t.string :team_away, null: false
       t.string :link, null: false
       t.string :link_to_stats
-      t.string :time, null: false
+      t.string :reporting_time, null: false
       t.integer :score_home, null: false, default: 0
       t.integer :score_away, null: false, default: 0
-      t.integer :possession_percentage_home, null: false, default: 0
-      t.integer :possession_percentage_away, null: false, default: 0
+      t.integer :ball_possession_home, null: false, default: 0
+      t.integer :ball_possession_away, null: false, default: 0
       t.integer :attacks_home, null: false, default: 0
       t.integer :attacks_away, null: false, default: 0
       t.integer :shots_on_target_home, null: false, default: 0

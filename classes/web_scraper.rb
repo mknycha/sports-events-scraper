@@ -20,7 +20,7 @@ class WebScraper
     # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      process_event(event) unless event.nil?
+      save_and_report_event(event, event_id) if event.present? && event_should_be_reported?(event)
     end
     @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
@@ -51,26 +51,39 @@ class WebScraper
     end
   end
 
-  def process_event(event)
-    return unless should_check_event_details?(event)
+  def save_and_report_event(event, event_id)
+    event.mark_as_reported
+    add_to_events_table(event)
+    msg_common = "\n#{event}\nDetails:\n#{event.readable_details}"
+    @logger.info "Table for sending: added event:#{msg_common}"
+    @logger.info "Saving event to the database: #{msg_common}"
+    reported_event = ReportedEvent.from_event(event)
+    reported_event.event_id = event_id
+    if reported_event.save
+      @logger.info 'Saved event'
+    else
+      @logger.warn "Event could not be saved! Errors: \n#{reported_event.errors.full_messages}"
+    end
+  end
+
+  def event_should_be_reported?(event)
+    return false unless event_stats_should_be_checked?(event)
 
     event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
     unless @webdriver_handler.second_half_available?(event.link_to_stats)
       @logger.info "Second half is not available for an event \n#{event}"
-      return
+      return false
     end
     @logger.info "Scraping details for an event:\n#{event}"
     stats = @webdriver_handler.get_event_stats(event.link_to_stats)
     event.update_details_from_scraped_attrs(stats)
     @logger.info "Checking details for an event:\n#{event}\nDetails:\n#{event.readable_details}"
-    return unless event.details_reportable?
+    return false unless event.details_reportable?
 
-    event.mark_as_reported
-    add_to_events_table(event)
-    @logger.info "Table for sending: added event:\n#{event}\nDetails:\n#{event.readable_details}"
+    true
   end
 
-  def should_check_event_details?(event)
+  def event_stats_should_be_checked?(event)
     event.time_and_score_reportable? && !event.reported
   end
 
