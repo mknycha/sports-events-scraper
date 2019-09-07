@@ -83,18 +83,13 @@ class WebdriverHandler
 
   def driver_options
     options = Selenium::WebDriver::Chrome::Options.new(binary: ENV['BINARY_PATH'])
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--window-size=1280x1696')
-    options.add_argument('--disable-application-cache')
-    options.add_argument('--disable-infobars')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--hide-scrollbars')
-    options.add_argument('--enable-logging')
-    options.add_argument('--log-level=0')
-    options.add_argument('--single-process')
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--homedir=/tmp')
+    arguments = %w[--headless --disable-gpu --window-size=1280x1696
+                   --disable-application-cache --disable-infobars --no-sandbox
+                   --hide-scrollbars --enable-logging --log-level=0 --single-process
+                   --ignore-certificate-errors --homedir=/tmp]
+    arguments.each do |argument|
+      options.add_argument(argument)
+    end
     options
   end
 
@@ -107,13 +102,7 @@ class WebdriverHandler
   end
 
   def all_stats_for_second_half
-    second_half_tab_button = @driver.find_element(
-      xpath: ".//li[@data-period='SECOND_HALF']"
-    )
-    Selenium::WebDriver::Wait.new.until do
-      !second_half_tab_button.attribute('class').include?('inactive')
-    end
-    second_half_tab_button.click
+    navigate_to_second_half_tab
     stat_wrappers = general_stats_wrapper.find_elements(class: 'stat-wrapper')
     stat_wrappers.each_with_object({}) do |element, result|
       key = element.find_element(class: 'img').attribute('class').split(' _').last.to_sym
@@ -123,6 +112,16 @@ class WebdriverHandler
     msg = 'Stats for particular event could not read, ' \
           "looks like an issue on provider's website"
     raise StatsReadingError, msg
+  end
+
+  def navigate_to_second_half_tab
+    second_half_tab_button = @driver.find_element(
+      xpath: ".//li[@data-period='SECOND_HALF']"
+    )
+    Selenium::WebDriver::Wait.new.until do
+      !second_half_tab_button.attribute('class').include?('inactive')
+    end
+    second_half_tab_button.click
   end
 
   def possession_stats_for_whole_match
