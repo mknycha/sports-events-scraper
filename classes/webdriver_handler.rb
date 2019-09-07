@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'net/http'
+
 class StatsReadingError < StandardError; end
 
 class WebdriverHandler
@@ -18,6 +20,12 @@ class WebdriverHandler
     sleep 2
     visit_page
     @driver.find_elements(class: 'event').map { |event_el| event_el.attribute('id') }
+  end
+
+  def request_blocked?
+    uri = URI(SOCCER_SCORES_PATH)
+    res = Net::HTTP.get_response(uri)
+    res.code == '403'
   end
 
   def find_event_details(event_id)
