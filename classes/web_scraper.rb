@@ -18,12 +18,11 @@ class WebScraper
     events_ids = @webdriver_handler.find_event_ids
     if events_ids.empty?
       @logger.warn 'There were no events found'
-      raise Error, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
+      raise ::Exception, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
     end
     check_live_events_and_update_storage(events_ids)
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'
-    # Later it should iterate thorugh all unfinished events (that could be exposed through events storage)
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
       save_and_report_event(event, event_id) if event.present? && event_should_be_reported?(event)
