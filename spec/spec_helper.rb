@@ -17,6 +17,8 @@
 Bundler.require
 require './load_files'
 require 'vcr'
+require 'simplecov'
+SimpleCov.start
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'

@@ -3,6 +3,8 @@
 class WebScraper
   VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/
   VALID_SCORE_FORMAT = /\A\d-\d\z/
+  REQUEST_BLOCKED_ERROR_MSG = 'Current machine was blocked, ' \
+                              'further scraping is not possible'
 
   def initialize(logger)
     @events_storage = EventsStorage.new(logger)
@@ -14,6 +16,10 @@ class WebScraper
     setup_webdriver_handler
     @logger.info 'Checking events'
     events_ids = @webdriver_handler.find_event_ids
+    if events_ids.empty?
+      @logger.warn 'There were no events found'
+      raise Error, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
+    end
     check_live_events_and_update_storage(events_ids)
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'

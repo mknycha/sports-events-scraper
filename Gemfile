@@ -11,6 +11,7 @@ gem 'standalone_migrations'
 
 group :test do
   gem 'rspec'
+  gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
 end
