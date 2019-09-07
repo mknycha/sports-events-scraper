@@ -41,8 +41,12 @@ class WebdriverHandler
   end
 
   def link_to_event_stats_page(event_link)
+    sleep 1
     @driver.navigate.to event_link
-    @driver.navigate.refresh while scoreboard_frame_doesnt_exist?
+    while scoreboard_frame_doesnt_exist?
+      sleep 1
+      @driver.navigate.refresh
+    end
     iframe_element = @driver.find_element(id: 'scoreboard_frame')
                             .find_element(tag_name: 'iframe')
     iframe_element.property('src')
