@@ -15,6 +15,7 @@ class WebdriverHandler
   end
 
   def find_event_ids
+    sleep 2
     visit_page
     @driver.find_elements(class: 'event').map { |event_el| event_el.attribute('id') }
   end
@@ -40,6 +41,7 @@ class WebdriverHandler
   end
 
   def second_half_available?(detailed_page_link)
+    sleep 1
     @driver.navigate.to detailed_page_link
     second_half_tab_button = @driver.find_element(
       xpath: ".//li[@data-period='SECOND_HALF']"
@@ -52,6 +54,7 @@ class WebdriverHandler
   end
 
   def get_event_stats(detailed_page_link)
+    sleep 1
     @driver.navigate.to detailed_page_link
     stats_hash = all_stats_for_second_half
     stats_hash[:possession] = possession_stats_for_whole_match
