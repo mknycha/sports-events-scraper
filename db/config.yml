@@ -3,6 +3,8 @@ default: &default
   encoding: unicode
   pool: 5
   host: localhost
+  user: <%= ENV['POSTGRESQL_USER'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
 
 development:
   <<: *default
@@ -11,7 +13,6 @@ development:
 test: &test
   <<: *default
   database: web_scraper_test
-  user: web_scraper_test
 
 production:
   <<: *default

@@ -1,3 +1,4 @@
 #!/bin/bash
 
 pkill -f "bundle exec ruby scrap_live_events.rb"
+pkill -f "ruby scrap_live_events.rb"
