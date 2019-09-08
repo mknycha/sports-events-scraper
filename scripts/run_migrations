@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /home/ec2-user
-bundle exec rake db:migrate
+RUBY_ENV=production bundle exec rake db:migrate
