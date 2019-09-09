@@ -21,6 +21,10 @@ class WebScraper
       raise ::Exception, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
     end
     check_live_events_and_update_storage(events_ids)
+    ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
+      updated_event = @events_storage.find_event(reported_event.event_id)
+      check_if_losing_team_scored_next(reported_event, updated_event)
+    end
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'
     events_ids.each do |event_id|
@@ -105,5 +109,30 @@ class WebScraper
   def handle_no_such_element_error(error)
     @logger.warn 'Table with live events or its children not found - see logs for details'
     @logger.warn error.message
+  end
+
+  def check_if_losing_team_scored_next(reported_event, updated_event)
+    if reported_event.score_home > reported_event.score_away
+      losing_team_prev_score = reported_event.score_away
+      winning_team_prev_score = reported_event.score_home
+      losing_team_current_score = updated_event.score_away
+      winning_team_current_score = updated_event.score_home
+    else
+      losing_team_prev_score = reported_event.score_home
+      winning_team_prev_score = reported_event.score_away
+      losing_team_current_score = updated_event.score_home
+      winning_team_current_score = updated_event.score_away
+    end
+    if losing_team_current_score > losing_team_prev_score
+      if winning_team_current_score == winning_team_prev_score
+        reported_event.losing_team_scored_next = 'yes'
+      else
+        reported_event.losing_team_scored_next = 'error'
+      end
+      reported_event.save
+    elsif winning_team_current_score > winning_team_prev_score
+      reported_event.losing_team_scored_next = 'no'
+      reported_event.save
+    end
   end
 end
