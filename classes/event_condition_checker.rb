@@ -34,6 +34,18 @@ class EventConditionChecker
         BALL_POSSESSION_ADVANTAGE_PERCENTAGE_CUTOFF
   end
 
+  def self.which_team_scored(reported_event, updated_event)
+    if updated_event.score_away > reported_event.score_away
+      if updated_event.score_home > reported_event.score_home
+        :both
+      else
+        :away
+      end
+    elsif updated_event.score_home > reported_event.score_home
+      :home
+    end
+  end
+
   class << self
     private
 

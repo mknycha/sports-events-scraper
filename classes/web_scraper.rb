@@ -33,8 +33,8 @@ class WebScraper
     end
     @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
-  rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
-    handle_no_such_element_error(error)
+  rescue ::Selenium::WebDriver::Error::NoSuchElementError => e
+    handle_no_such_element_error(e)
   ensure
     @webdriver_handler&.quit_driver
   end
@@ -58,6 +58,27 @@ class WebScraper
       end
       @events_storage.save_or_update_event(event_id, details)
     end
+  end
+
+  def check_if_losing_team_scored_next(reported_event, updated_event)
+    team_which_scored_next = EventConditionChecker.which_team_scored(reported_event,
+                                                                     updated_event)
+    if reported_event.score_home > reported_event.score_away
+      losing_team = :away
+      winning_team = :home
+    else
+      losing_team = :home
+      winning_team = :away
+    end
+    case team_which_scored_next
+    when losing_team
+      reported_event.losing_team_scored_next = 'yes'
+    when winning_team
+      reported_event.losing_team_scored_next = 'no'
+    when :both
+      reported_event.losing_team_scored_next = 'error'
+    end
+    reported_event.save unless team_which_scored_next.nil?
   end
 
   def save_and_report_event(event, event_id)
@@ -109,30 +130,5 @@ class WebScraper
   def handle_no_such_element_error(error)
     @logger.warn 'Table with live events or its children not found - see logs for details'
     @logger.warn error.message
-  end
-
-  def check_if_losing_team_scored_next(reported_event, updated_event)
-    if reported_event.score_home > reported_event.score_away
-      losing_team_prev_score = reported_event.score_away
-      winning_team_prev_score = reported_event.score_home
-      losing_team_current_score = updated_event.score_away
-      winning_team_current_score = updated_event.score_home
-    else
-      losing_team_prev_score = reported_event.score_home
-      winning_team_prev_score = reported_event.score_away
-      losing_team_current_score = updated_event.score_home
-      winning_team_current_score = updated_event.score_away
-    end
-    if losing_team_current_score > losing_team_prev_score
-      if winning_team_current_score == winning_team_prev_score
-        reported_event.losing_team_scored_next = 'yes'
-      else
-        reported_event.losing_team_scored_next = 'error'
-      end
-      reported_event.save
-    elsif winning_team_current_score > winning_team_prev_score
-      reported_event.losing_team_scored_next = 'no'
-      reported_event.save
-    end
   end
 end
