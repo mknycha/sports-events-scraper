@@ -3,6 +3,7 @@
 class WebScraper
   VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/
   VALID_SCORE_FORMAT = /\A\d-\d\z/
+  MIN_MATCH_LENGTH_IN_MINUTES = 90
   REQUEST_BLOCKED_ERROR_MSG = 'Current machine was blocked, ' \
                               'further scraping is not possible'
 
@@ -23,7 +24,16 @@ class WebScraper
     check_live_events_and_update_storage(events_ids)
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
-      check_if_losing_team_scored_next(reported_event, updated_event)
+      if reported_event.created_at < MIN_MATCH_LENGTH_IN_MINUTES.minutes.ago &&
+         @webdriver_handler.find_event_details(reported_event.event_id).nil?
+        reported_event.losing_team_scored_next = 'no'
+        reported_event.save
+      elsif updated_event.nil?
+        reported_event.losing_team_scored_next = 'error'
+        reported_event.save
+      else
+        check_if_losing_team_scored_next(reported_event, updated_event)
+      end
     end
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'
