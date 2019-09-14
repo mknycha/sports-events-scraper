@@ -30,4 +30,12 @@ class ReportedEvent < ActiveRecord::Base
       send("#{field}_away=", event.send(field)[:away])
     end
   end
+
+  def winning_team
+    score_home > score_away ? :home : :away
+  end
+
+  def losing_team
+    winning_team == :home ? :away : :home
+  end
 end

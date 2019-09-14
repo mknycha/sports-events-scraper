@@ -3,7 +3,6 @@
 class WebScraper
   VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/
   VALID_SCORE_FORMAT = /\A\d-\d\z/
-  MIN_MATCH_LENGTH_IN_MINUTES = 90
   REQUEST_BLOCKED_ERROR_MSG = 'Current machine was blocked, ' \
                               'further scraping is not possible'
 
@@ -24,16 +23,14 @@ class WebScraper
     check_live_events_and_update_storage(events_ids)
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
-      if reported_event.created_at < MIN_MATCH_LENGTH_IN_MINUTES.minutes.ago &&
-         @webdriver_handler.find_event_details(reported_event.event_id).nil?
-        reported_event.losing_team_scored_next = 'no'
-        reported_event.save
-      elsif updated_event.nil?
-        reported_event.losing_team_scored_next = 'error'
-        reported_event.save
-      else
-        check_if_losing_team_scored_next(reported_event, updated_event)
-      end
+      event_details = @webdriver_handler.find_event_details(reported_event.event_id)
+      flag = EventResultsPredictionUpdater.losing_team_scored_next(reported_event,
+                                                                   updated_event,
+                                                                   event_details.nil?)
+      next if flag.nil?
+
+      reported_event.losing_team_scored_next = flag
+      reported_event.save
     end
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'
@@ -68,27 +65,6 @@ class WebScraper
       end
       @events_storage.save_or_update_event(event_id, details)
     end
-  end
-
-  def check_if_losing_team_scored_next(reported_event, updated_event)
-    team_which_scored_next = EventConditionChecker.which_team_scored(reported_event,
-                                                                     updated_event)
-    if reported_event.score_home > reported_event.score_away
-      losing_team = :away
-      winning_team = :home
-    else
-      losing_team = :home
-      winning_team = :away
-    end
-    case team_which_scored_next
-    when losing_team
-      reported_event.losing_team_scored_next = 'yes'
-    when winning_team
-      reported_event.losing_team_scored_next = 'no'
-    when :both
-      reported_event.losing_team_scored_next = 'error'
-    end
-    reported_event.save unless team_which_scored_next.nil?
   end
 
   def save_and_report_event(event, event_id)
