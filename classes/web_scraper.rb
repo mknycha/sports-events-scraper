@@ -21,6 +21,17 @@ class WebScraper
       raise ::Exception, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
     end
     check_live_events_and_update_storage(events_ids)
+    ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
+      updated_event = @events_storage.find_event(reported_event.event_id)
+      event_details = @webdriver_handler.find_event_details(reported_event.event_id)
+      flag = EventResultsPredictionUpdater.losing_team_scored_next(reported_event,
+                                                                   updated_event,
+                                                                   event_details.nil?)
+      next if flag.nil?
+
+      reported_event.losing_team_scored_next = flag
+      reported_event.save
+    end
     @logger.info 'Finished checking events'
     @logger.info 'Processing events data'
     events_ids.each do |event_id|
@@ -29,8 +40,8 @@ class WebScraper
     end
     @logger.info 'Finished processing events data'
     send_events_table_and_log_info unless @events_html_table.empty?
-  rescue ::Selenium::WebDriver::Error::NoSuchElementError => error
-    handle_no_such_element_error(error)
+  rescue ::Selenium::WebDriver::Error::NoSuchElementError => e
+    handle_no_such_element_error(e)
   ensure
     @webdriver_handler&.quit_driver
   end
