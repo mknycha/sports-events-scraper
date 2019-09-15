@@ -39,6 +39,13 @@ describe EventResultsPredictionUpdater do
         expect(described_class.losing_team_scored_next(reported_event,
                                                        event, true)).to eq('no')
       end
+
+      context 'when it also could not found in temporary storage' do
+        it "returns 'error'" do
+          expect(described_class.losing_team_scored_next(reported_event,
+                                                         nil, true)).to eq('error')
+        end
+      end
     end
 
     context 'when the match could not be found' do
@@ -50,7 +57,8 @@ describe EventResultsPredictionUpdater do
 
     context 'when the match was found and has not finished yet' do
       it 'compares the score with the current one and returns flag based on it' do
-        expected_flag = described_class.losing_team_scored_next_comparing_to_prev_results(
+        expected_flag = described_class.send(
+          :losing_team_scored_next_comparing_to_prev_results,
           reported_event,
           event
         )

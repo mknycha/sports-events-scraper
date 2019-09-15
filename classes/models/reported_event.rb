@@ -34,6 +34,11 @@ class ReportedEvent < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "TIME: #{reporting_time} SCORE: #{score_home}-#{score_away}" \
+    " NAME: #{team_home}-#{team_away} LINK: #{link}"
+  end
+
   def winning_team
     score_home > score_away ? :home : :away
   end

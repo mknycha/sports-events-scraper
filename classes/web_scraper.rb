@@ -14,13 +14,15 @@ class WebScraper
   def run
     setup_events_table
     setup_webdriver_handler
-    @logger.info 'Checking events'
+    @logger.info 'Checking events on site'
     events_ids = @webdriver_handler.find_event_ids
     if events_ids.empty?
       @logger.warn 'There were no events found'
       raise ::StandardError, REQUEST_BLOCKED_ERROR_MSG if @webdriver_handler.request_blocked?
     end
     check_live_events_and_update_storage(events_ids)
+    @logger.info 'Finished checking events on site'
+    @logger.info 'Checking results for reported events'
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
       event_details = @webdriver_handler.find_event_details(reported_event.event_id)
@@ -31,8 +33,10 @@ class WebScraper
 
       reported_event.losing_team_scored_next = flag
       reported_event.save
+      @logger.info 'Updated prediction result for an event: ' \
+                   "\n#{reported_event}\nLosing team scored next?: #{flag}"
     end
-    @logger.info 'Finished checking events'
+    @logger.info 'Finished checking results for reported events'
     @logger.info 'Processing events data'
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)

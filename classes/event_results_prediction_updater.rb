@@ -6,10 +6,10 @@ class EventResultsPredictionUpdater
   def self.losing_team_scored_next(reported_event, updated_event, event_details_empty)
     match_finished = reported_event.created_at < MIN_MATCH_LENGTH_MINUTES.minutes.ago &&
                      event_details_empty
-    if match_finished
-      'no'
-    elsif updated_event.nil?
+    if updated_event.nil?
       'error'
+    elsif match_finished
+      'no'
     else
       losing_team_scored_next_comparing_to_prev_results(reported_event,
                                                         updated_event)
@@ -40,4 +40,7 @@ class EventResultsPredictionUpdater
       :home
     end
   end
+
+  private_class_method :losing_team_scored_next_comparing_to_prev_results,
+                       :which_team_scored
 end
