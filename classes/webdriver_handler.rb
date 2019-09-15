@@ -41,10 +41,10 @@ class WebdriverHandler
   end
 
   def link_to_event_stats_page(event_link)
-    sleep 1
+    sleep 2
     @driver.navigate.to event_link
     while scoreboard_frame_doesnt_exist?
-      sleep 1
+      sleep 2
       @driver.navigate.refresh
     end
     iframe_element = @driver.find_element(id: 'scoreboard_frame')
@@ -53,7 +53,7 @@ class WebdriverHandler
   end
 
   def second_half_available?(detailed_page_link)
-    sleep 1
+    sleep 2
     @driver.navigate.to detailed_page_link
     second_half_tab_button = @driver.find_element(
       xpath: ".//li[@data-period='SECOND_HALF']"
@@ -66,7 +66,7 @@ class WebdriverHandler
   end
 
   def get_event_stats(detailed_page_link)
-    sleep 1
+    sleep 2
     @driver.navigate.to detailed_page_link
     stats_hash = all_stats_for_second_half
     stats_hash[:possession] = possession_stats_for_whole_match
@@ -98,6 +98,7 @@ class WebdriverHandler
   end
 
   def visit_page
+    sleep 2
     @driver.navigate.to SOCCER_SCORES_PATH
   end
 
