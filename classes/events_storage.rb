@@ -16,11 +16,10 @@ class EventsStorage
       event.update_time_and_score(time, score)
       label = 'updated'
     end
-    return event unless event.valid?
+    return unless event.valid?
 
     save_event(event_id, event)
     @logger.info "Temp storage: #{label} event\n#{event}"
-    event
   end
 
   def find_event(event_id)
