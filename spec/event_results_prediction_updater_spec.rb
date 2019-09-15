@@ -50,7 +50,8 @@ describe EventResultsPredictionUpdater do
 
     context 'when the match was found and has not finished yet' do
       it 'compares the score with the current one and returns flag based on it' do
-        expected_flag = described_class.losing_team_scored_next_comparing_to_prev_results(
+        expected_flag = described_class.send(
+          :losing_team_scored_next_comparing_to_prev_results,
           reported_event,
           event
         )

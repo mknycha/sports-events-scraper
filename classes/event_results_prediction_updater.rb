@@ -40,4 +40,7 @@ class EventResultsPredictionUpdater
       :home
     end
   end
+
+  private_class_method :losing_team_scored_next_comparing_to_prev_results,
+                       :which_team_scored
 end
