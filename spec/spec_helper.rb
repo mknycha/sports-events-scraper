@@ -15,10 +15,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 Bundler.require
-require './load_files'
 require 'vcr'
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start { add_filter %r{^/spec/} }
+require './load_files'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
