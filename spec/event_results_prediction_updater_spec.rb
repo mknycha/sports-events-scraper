@@ -66,7 +66,7 @@ describe EventResultsPredictionUpdater do
         event.score = '1-2'
       end
 
-      it "saves 'yes' to an event" do
+      it "returns 'yes'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
                                       reported_event, event)
         expect(result).to eq('yes')
@@ -78,7 +78,7 @@ describe EventResultsPredictionUpdater do
         event.score = '3-0'
       end
 
-      it "saves 'no' to an event" do
+      it "returns 'no'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
                                       reported_event, event)
         expect(result).to eq('no')
@@ -90,7 +90,7 @@ describe EventResultsPredictionUpdater do
         event.score = '2-1'
       end
 
-      it "saves 'error' to an event" do
+      it "returns 'error'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
                                       reported_event, event)
         expect(result).to eq('error')
@@ -98,7 +98,7 @@ describe EventResultsPredictionUpdater do
     end
 
     context 'when none of the teams scored' do
-      it 'does not change an event' do
+      it 'returns nil' do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
                                       reported_event, event)
         expect(result).to eq(nil)
