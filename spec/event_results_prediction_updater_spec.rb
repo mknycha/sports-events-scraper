@@ -39,6 +39,13 @@ describe EventResultsPredictionUpdater do
         expect(described_class.losing_team_scored_next(reported_event,
                                                        event, true)).to eq('no')
       end
+
+      context 'when it also could not found in temporary storage' do
+        it "returns 'error'" do
+          expect(described_class.losing_team_scored_next(reported_event,
+                                                         nil, true)).to eq('error')
+        end
+      end
     end
 
     context 'when the match could not be found' do
