@@ -12,10 +12,10 @@ pipelines:
         caches:
           - bundler
         script:
-          - export RAILS_ENV=test
+          - export POSTGRESQL_USER=web_scraper_test
           - bundle install
-          - bundle exec rake db:migrate
-          - bundle exec rspec
+          - RAILS_ENV=test bundle exec rake db:migrate
+          - RAILS_ENV=test bundle exec rspec
         services:
           - postgres
   branches:
