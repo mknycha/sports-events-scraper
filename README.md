@@ -8,6 +8,8 @@ The app does the following things:
 It uses pure Ruby, selenium for webscraping, PostgreSQL as a database.
 The repo also includes a configuration to deploy it to Amazon EC2 using Amazon CodeDeploy.
 
+Note that binaries under bin folder are for linux (I ran it under Amazon Linux AMI 2018.03.0)
+
 ## How to run it?
 
 1. Create a postgres database that you want to use
@@ -16,7 +18,8 @@ The repo also includes a configuration to deploy it to Amazon EC2 using Amazon C
 EMAIL_ADDRESS=emails.sender@example.com
 EMAIL_PASSWORD=secretpassword
 RECIPIENT_EMAIL=emails.receiver@example.com
-DRIVER_PATH=bin_local/chromedriver
+DRIVER_PATH=bin/chromedriver
+BINARY_PATH=bin/headless-chromium
 POSTGRESQL_USER=web_scraper_development
 RUBY_ENV=development
 ```
