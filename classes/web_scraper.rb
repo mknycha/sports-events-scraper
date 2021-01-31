@@ -22,6 +22,38 @@ class WebScraper
     end
     check_live_events_and_update_storage(events_ids)
     @logger.info 'Finished checking events on site'
+    @logger.info 'Saving goals stats'
+    events_ids.each do |event_id|
+      event = @events_storage.find_event(event_id)
+      next if event.nil? # When can it be nil?
+      # TODO: Refactor, copied from "event_should_be_reported?"
+      event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
+      next if event.link_to_stats.nil?
+      unless @webdriver_handler.second_half_available?(event.link_to_stats)
+        @logger.info "Second half is not available for an event \n#{event}"
+        next
+      end
+      @logger.info "Scraping details for an event:\n#{event}"
+      stats = @webdriver_handler.get_event_stats(event.link_to_stats)
+      event.update_details_from_scraped_attrs(stats)
+
+      event_goal = nil
+      if EventGoal.exists?(event_id: event_id)
+        event_goal = EventGoal.where(event_id: event_id).last
+      else
+        event_goal = EventGoal.new(event_id: event_id)
+      end
+      if event.score_home != event_goal.score_home || event.score_away != event_goal.score_away
+        @logger.info "Found a goal stat for event: #{event}"
+        eg = EventGoal.from_event(event)
+        eg.odds_home_to_score_next = 0
+        eg.odds_away_to_score_next = 0
+        eg.event_id = event_id
+        eg.link_to_stats = event.link_to_stats # Why does it need to assigned explicitly?
+        eg.save!
+      end
+    end
+    @logger.info 'End goals stats'
     @logger.info 'Checking results for reported events'
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
