@@ -53,7 +53,7 @@ class WebScraper
         eg.save!
       end
     end
-    @logger.info 'End goals stats'
+    @logger.info 'Finished saving goals stats'
     @logger.info 'Checking results for reported events'
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
@@ -89,7 +89,7 @@ class WebScraper
   end
 
   def setup_webdriver_handler
-    @webdriver_handler = WebdriverHandler.new
+    @webdriver_handler = WebdriverHandler.new(@logger)
   end
 
   def check_live_events_and_update_storage(event_ids)

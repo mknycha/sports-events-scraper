@@ -12,8 +12,9 @@ class WebdriverHandler
 
   SOCCER_SCORES_PATH = 'https://sports.williamhill.com/betting/en-gb/in-play/football'
 
-  def initialize
+  def initialize(logger)
     setup_driver
+    @logger = logger
   end
 
   def find_event_ids
@@ -42,9 +43,11 @@ class WebdriverHandler
 
   def link_to_event_stats_page(event_link)
     sleep 2
+    @logger.debug "Webdriver handler: navigating to #{event_link}"
     @driver.navigate.to event_link
     while scoreboard_frame_doesnt_exist?
       sleep 2
+      @logger.debug "Webdriver handler: refreshing page #{event_link}"
       @driver.navigate.refresh
     end
     iframe_element = @driver.find_element(id: 'scoreboard_frame')
@@ -54,6 +57,7 @@ class WebdriverHandler
 
   def second_half_available?(detailed_page_link)
     sleep 2
+    @logger.debug "Webdriver handler: navigating to #{detailed_page_link}"
     @driver.navigate.to detailed_page_link
     second_half_tab_button = @driver.find_element(
       xpath: ".//li[@data-period='SECOND_HALF']"
@@ -99,6 +103,7 @@ class WebdriverHandler
 
   def visit_page
     sleep 2
+    @logger.debug "Webdriver handler: navigating to #{SOCCER_SCORES_PATH}"
     @driver.navigate.to SOCCER_SCORES_PATH
   end
 
