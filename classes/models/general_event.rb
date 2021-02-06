@@ -23,6 +23,10 @@ class GeneralEvent < ActiveRecord::Base
       end
   end
 
+  def self.find_last_or_initialize(attributes = nil, &block)
+      self.where(attributes).last || new(attributes, &block)
+  end
+
   def assign_fields_from_hashes(event)
       %w[ball_possession attacks shots_on_target shots_off_target corners].each do |field|
       send("#{field}_home=", event.send(field)[:home])

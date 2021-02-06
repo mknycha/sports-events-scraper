@@ -36,13 +36,8 @@ class WebScraper
       @logger.info "Scraping details for an event:\n#{event}"
       stats = @webdriver_handler.get_event_stats(event.link_to_stats)
       event.update_details_from_scraped_attrs(stats)
-
-      event_goal = nil
-      if EventGoal.exists?(event_id: event_id)
-        event_goal = EventGoal.where(event_id: event_id).last
-      else
-        event_goal = EventGoal.new(event_id: event_id)
-      end
+      @logger.info "Event details updated"
+      event_goal = EventGoal.find_last_or_initialize(event_id: event_id)
       if event.score_home != event_goal.score_home || event.score_away != event_goal.score_away
         @logger.info "Found a goal stat for event: #{event}"
         eg = EventGoal.from_event(event)
