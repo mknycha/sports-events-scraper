@@ -22,21 +22,16 @@ class WebScraper
     end
     check_live_events_and_update_storage(events_ids)
     @logger.info 'Finished checking events on site'
+    @logger.info 'Filtering out events where second half has not started'
+    events_ids = filter_out_events_before_second_half(events_ids)
+    @logger.info 'Finished filtering out events'
     @logger.info 'Saving goals stats'
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      next if event.nil? # When can it be nil?
-      # TODO: Refactor, copied from "event_should_be_reported?"
-      event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
-      next if event.link_to_stats.nil?
-      unless @webdriver_handler.second_half_available?(event.link_to_stats)
-        @logger.info "Second half is not available for an event \n#{event}"
-        next
-      end
-      @logger.info "Scraping details for an event:\n#{event}"
+      @logger.info "Scraping stats for an event:\n#{event}"
       stats = @webdriver_handler.get_event_stats(event.link_to_stats)
       event.update_details_from_scraped_attrs(stats)
-      @logger.info "Event details updated"
+      @logger.info "Event stats updated"
       event_goal = EventGoal.find_last_or_initialize(event_id: event_id)
       if event.score_home != event_goal.score_home || event.score_away != event_goal.score_away
         @logger.info "Found a goal stat for event: #{event}"
@@ -98,6 +93,21 @@ class WebScraper
     end
   end
 
+  def filter_out_events_before_second_half(event_ids)
+    event_ids.select do |event_id|
+      event = @events_storage.find_event(event_id)
+      if event.nil?
+        raise "event_id: #{event_id} could not be found in the storage"
+      end
+      event_second_half_started?(event, @webdriver_handler)
+    end
+  end
+
+  def event_second_half_started?(event, webdriver_handler)
+    event.link_to_stats ||= webdriver_handler.link_to_event_stats_page(event.link)
+    !event.link_to_stats.nil? && webdriver_handler.second_half_available?(event.link_to_stats)
+  end
+
   def save_and_report_event(event, event_id)
     event.mark_as_reported
     add_to_events_table(event)
@@ -114,20 +124,7 @@ class WebScraper
   end
 
   def event_should_be_reported?(event)
-    return false unless event_stats_should_be_checked?(event)
-
-    event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
-    unless @webdriver_handler.second_half_available?(event.link_to_stats)
-      @logger.info "Second half is not available for an event \n#{event}"
-      return false
-    end
-    @logger.info "Scraping details for an event:\n#{event}"
-    stats = @webdriver_handler.get_event_stats(event.link_to_stats)
-    event.update_details_from_scraped_attrs(stats)
-    @logger.info "Checking details for an event:\n#{event}\nDetails:\n#{event.readable_details}"
-    return false unless event.details_reportable?
-
-    true
+    event_stats_should_be_checked?(event) && event.details_reportable?
   end
 
   def event_stats_should_be_checked?(event)
