@@ -77,6 +77,26 @@ class WebdriverHandler
     stats_hash
   end
 
+  def get_odds_for_next_team_to_score(event)
+    sleep 1
+    @logger.debug "Webdriver handler: navigating to #{event.link}"
+    @driver.navigate.to event.link
+    total_score = event.score_home + event.score_away
+    el = @driver.find_element(xpath: "//h2[starts-with(text(), '#{total_score + 1}') and contains(text(), 'Goal Live')]/../..")
+    sleep 1
+    el.click
+    buttons = el.find_elements(tag_name: 'button')
+    odds_home = calculate_odds_from_odds_button_element(buttons.first)
+    odds_away = calculate_odds_from_odds_button_element(buttons.second)
+    return nil if odds_home.zero? || odds_away.zero?
+    {
+      home: odds_home,
+      away: odds_away
+    }
+  rescue Selenium::WebDriver::Error::NoSuchElementError, Selenium::WebDriver::Error::ElementNotInteractableError => _e
+    nil
+  end
+
   def quit_driver
     @driver&.quit
   end
@@ -138,6 +158,12 @@ class WebdriverHandler
     @driver.find_element(xpath: ".//li[@data-period='TOTAL']").click
     element = general_stats_wrapper.find_element(xpath: ".//div[@data-stat='possession']")
     stat_values_home_and_away(element)
+  end
+
+  def calculate_odds_from_odds_button_element(el)
+    num = el.attribute('data-num').to_f
+    denom = el.attribute('data-denom').to_f
+    (num / denom).round(2)
   end
 
   def general_stats_wrapper

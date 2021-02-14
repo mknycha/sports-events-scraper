@@ -36,8 +36,11 @@ class WebScraper
       if event.score_home != event_goal.score_home || event.score_away != event_goal.score_away
         @logger.info "Found a goal stat for event: #{event}"
         eg = EventGoal.from_event(event)
-        eg.odds_home_to_score_next = 0
-        eg.odds_away_to_score_next = 0
+        odds = @webdriver_handler.get_odds_for_next_team_to_score(event)
+        unless odds.nil?
+          eg.odds_home_to_score_next = odds[:home]
+          eg.odds_away_to_score_next = odds[:away]
+        end
         eg.event_id = event_id
         eg.link_to_stats = event.link_to_stats # Why does it need to assigned explicitly?
         eg.save!
