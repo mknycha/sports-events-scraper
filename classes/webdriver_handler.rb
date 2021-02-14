@@ -45,9 +45,13 @@ class WebdriverHandler
     sleep 2
     @logger.debug "Webdriver handler: navigating to #{event_link}"
     @driver.navigate.to event_link
+    refresh_tries = 0
+    max_refresh_tries = 3
     while scoreboard_frame_doesnt_exist?
-      sleep 2
-      @logger.debug "Webdriver handler: refreshing page #{event_link}"
+      sleep 3
+      return nil if refresh_tries >= max_refresh_tries
+      refresh_tries += 1
+      @logger.debug "Webdriver handler: refreshing page #{event_link}, try: #{refresh_tries}"
       @driver.navigate.refresh
     end
     iframe_element = @driver.find_element(id: 'scoreboard_frame')
@@ -71,6 +75,7 @@ class WebdriverHandler
 
   def get_event_stats(detailed_page_link)
     sleep 2
+    @logger.debug "Webdriver handler: navigating to #{detailed_page_link}"
     @driver.navigate.to detailed_page_link
     stats_hash = all_stats_for_second_half
     stats_hash[:possession] = possession_stats_for_whole_match
