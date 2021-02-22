@@ -100,9 +100,11 @@ class WebScraper
     event_ids.select do |event_id|
       event = @events_storage.find_event(event_id)
       if event.nil?
-        raise "event_id: #{event_id} could not be found in the storage"
+        @logger.info "Event with ID \'#{event_id}\' could not be found. It may have ended"
+        false
+      else
+        event_second_half_started?(event, @webdriver_handler)
       end
-      event_second_half_started?(event, @webdriver_handler)
     end
   end
 
