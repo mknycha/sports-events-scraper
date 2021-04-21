@@ -7,3 +7,4 @@ require './db/configuration_helper.rb'
 
 Dir['./classes/*.rb'].each { |file| require file }
 Dir['./classes/models/*.rb'].each { |file| require file }
+Dir['./initializers/*.rb'].each { |file| require file }
