@@ -28,23 +28,13 @@ class WebScraper
     @logger.info 'Saving goals stats'
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
-      @logger.info "Scraping stats for an event:\n#{event}"
-      stats = @webdriver_handler.get_event_stats(event.link_to_stats)
-      event.update_details_from_scraped_attrs(stats)
-      @logger.info "Event stats updated"
-      event_goal = EventGoal.find_last_or_initialize(event_id: event_id)
-      if event.score_home != event_goal.score_home || event.score_away != event_goal.score_away
-        @logger.info "Found a goal stat for event: #{event}"
-        eg = EventGoal.from_event(event)
-        odds = @webdriver_handler.get_odds_for_next_team_to_score(event)
-        unless odds.nil?
-          eg.odds_home_to_score_next = odds[:home]
-          eg.odds_away_to_score_next = odds[:away]
-        end
-        eg.event_id = event_id
-        eg.link_to_stats = event.link_to_stats # Why does it need to assigned explicitly?
-        eg.save!
-      end
+      Resque.enqueue(EventGoalUpdaterWorker,
+        event_id,
+        event.name,
+        event.time,
+        event.score,
+        event.link,
+        event.link_to_stats)
     end
     @logger.info 'Finished saving goals stats'
     @logger.info 'Checking results for reported events'
