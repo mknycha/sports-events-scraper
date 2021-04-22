@@ -15,6 +15,7 @@ class Event
   }.freeze
   VALID_TIME_FORMAT = /\A\d{2}:\d{2}\z/.freeze
   VALID_SCORE_FORMAT = /\A\d-\d\z/.freeze
+  SECOND_HALF_STARTING_TIME_MINUTES = 45.freeze
 
   def initialize(name, time, score, link)
     @name = name.squeeze(' ')
@@ -81,6 +82,14 @@ class Event
 
   def losing_team
     winning_team == :home ? :away : :home
+  end
+
+  def second_half_started?
+    time_split = @time.split(':')
+    minutes = time_split.first.to_i
+    seconds = time_split.second.to_i
+    # If seconds is 0, it may be part-time break in a match
+    minutes > SECOND_HALF_STARTING_TIME_MINUTES && seconds > 0
   end
 
   private

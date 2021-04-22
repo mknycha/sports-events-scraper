@@ -28,6 +28,8 @@ class WebScraper
     @logger.info 'Saving goals stats'
     events_ids.each do |event_id|
       event = @events_storage.find_event(event_id)
+      event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
+      next if event.link_to_stats.nil?
       Resque.enqueue(EventGoalUpdaterWorker,
         event_id,
         event.name,
@@ -93,14 +95,9 @@ class WebScraper
         @logger.info "Event with ID \'#{event_id}\' could not be found. It may have ended"
         false
       else
-        event_second_half_started?(event, @webdriver_handler)
+        event.second_half_started?
       end
     end
-  end
-
-  def event_second_half_started?(event, webdriver_handler)
-    event.link_to_stats ||= webdriver_handler.link_to_event_stats_page(event.link)
-    !event.link_to_stats.nil? && webdriver_handler.second_half_available?(event.link_to_stats)
   end
 
   def save_and_report_event(event, event_id)
