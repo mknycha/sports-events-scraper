@@ -5,7 +5,7 @@ class EventResultsPredictionUpdater
 
   def self.losing_team_scored_next(reported_event, updated_event, event_details_empty)
     match_finished = reported_event.created_at < MIN_MATCH_LENGTH_MINUTES.minutes.ago &&
-                     event_details_empty
+    event_details_empty
     if updated_event.nil?
       'error'
     elsif match_finished

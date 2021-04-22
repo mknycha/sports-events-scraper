@@ -14,12 +14,12 @@ class GeneralEvent < ActiveRecord::Base
 
   def self.from_event(event)
       new.tap do |reported|
-      reported.team_home, reported.team_away = event.name.split(EVENT_NAME_DELIMITER)
-      reported.reporting_time = event.time
-      reported.score_home = event.score_home
-      reported.score_away = event.score_away
-      reported.link = event.link
-      reported.assign_fields_from_hashes(event)
+        reported.team_home, reported.team_away = event.name.split(EVENT_NAME_DELIMITER)
+        reported.reporting_time = event.time
+        reported.score_home = event.score_home
+        reported.score_away = event.score_away
+        reported.link = event.link
+        reported.assign_fields_from_hashes(event)
       end
   end
 

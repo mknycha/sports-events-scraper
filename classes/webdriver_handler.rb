@@ -82,11 +82,10 @@ class WebdriverHandler
     stats_hash
   end
 
-  def get_odds_for_next_team_to_score(event)
+  def get_odds_for_next_team_to_score(event_link, total_score)
     sleep 1
-    @logger.debug "Webdriver handler: navigating to #{event.link}"
-    @driver.navigate.to event.link
-    total_score = event.score_home + event.score_away
+    @logger.debug "Webdriver handler: navigating to #{event_link}"
+    @driver.navigate.to event_link
     el = @driver.find_element(xpath: "//h2[starts-with(text(), '#{total_score + 1}') and contains(text(), 'Goal Live')]/../..")
     sleep 1
     el.click

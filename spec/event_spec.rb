@@ -110,4 +110,20 @@ describe Event do
       expect(event.corners).to eq(attrs[:corners])
     end
   end
+
+  describe '#second_half_started?' do
+    context 'when time is <= 45:00' do
+      it 'returns false' do
+        expect(event.second_half_started?).to be_falsey
+      end
+    end
+
+    context 'when time is > 45:00' do
+      before { event.time = '46:10' }
+
+      it 'returns true' do
+        expect(event.second_half_started?).to be_truthy
+      end
+    end
+  end
 end

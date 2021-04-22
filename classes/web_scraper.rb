@@ -42,16 +42,12 @@ class WebScraper
     @logger.info 'Checking results for reported events'
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
-      event_details = @webdriver_handler.find_event_details(reported_event.event_id)
-      flag = EventResultsPredictionUpdater.losing_team_scored_next(reported_event,
-                                                                   updated_event,
-                                                                   event_details.nil?)
-      next if flag.nil?
-
-      reported_event.losing_team_scored_next = flag
-      reported_event.save
-      @logger.info 'Updated prediction result for an event: ' \
-                   "\n#{reported_event}\nLosing team scored next?: #{flag}"
+      Resque.enqueue(ResultCheckerWorker,
+        event_id,
+        event.name,
+        event.time,
+        event.score,
+        event.link)
     end
     @logger.info 'Finished checking results for reported events'
     @logger.info 'Processing events data'
