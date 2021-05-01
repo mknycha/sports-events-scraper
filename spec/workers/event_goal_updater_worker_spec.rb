@@ -2,6 +2,14 @@
 
 describe EventGoalUpdaterWorker do
   let(:webdriver_handler_mock) { double('WebdriverHandler') }
+
+  let(:event_id) { 'OB_EV20359319' }
+  let(:name) { 'Gagra v Zugdidi' }
+  let(:time) { '83:06' }
+  let(:link) { 'https://sports.williamhill.com/betting/en-gb/football/OB_EV20359319/gagra-vs-zugdidi' }
+  let(:link_to_stats) do
+    'https://scoreboardslauncher.williamhill.com/scoreboards/events/OB_EV20359319/launch?lang=en-gb&showSuggestions=true'
+  end
   let(:event_stats) do
     {
       possession: {
@@ -26,13 +34,10 @@ describe EventGoalUpdaterWorker do
       }
     }
   end
-
-  let(:event_id) { 'OB_EV20359319' }
-  let(:name) { 'Gagra v Zugdidi' }
-  let(:time) { '83:06' }
-  let(:link) { 'https://sports.williamhill.com/betting/en-gb/football/OB_EV20359319/gagra-vs-zugdidi' }
-  let(:link_to_stats) do
-    'https://scoreboardslauncher.williamhill.com/scoreboards/events/OB_EV20359319/launch?lang=en-gb&showSuggestions=true'
+  let(:event) do
+    event = Event.new(name, time, score, link)
+    event.update_details_from_scraped_attrs(event_stats)
+    event
   end
 
   before do
@@ -46,9 +51,9 @@ describe EventGoalUpdaterWorker do
   end
 
   describe '#perform' do
-    context 'score different than 0-0' do
-      let(:score) { '1-2' }
-      let(:total_score) { 3 }
+    context 'score was not reported yet' do
+      let(:score) { '0-0' }
+      let(:total_score) { 0 }
 
       before do
         allow(webdriver_handler_mock).to receive(:get_odds_for_next_team_to_score).with(link, total_score).and_return(
@@ -56,24 +61,48 @@ describe EventGoalUpdaterWorker do
         )
       end
 
-      it 'creates an event goal' do
+      it 'creates a score record, marks it as unreliable' do
         expect { EventGoalUpdaterWorker.perform(event_id, name, time, score, link, link_to_stats) }
           .to change(EventGoal, :count).by(1)
+        expect(EventGoal.last.reliable).to be_falsey
       end
     end
 
-    context 'score equal to 0-0' do
-      let(:score) { '0-0' }
-      let(:total_score) { 0 }
-
+    context 'there is already a reported score' do
       before do
+        last_event_score = EventGoal.from_event(event)
+        last_event_score.odds_home_to_score_next = 0.13
+        last_event_score.odds_away_to_score_next = 0.67
+        last_event_score.event_id = event_id
+        last_event_score.link_to_stats = link_to_stats
+        last_event_score.save!
         allow(webdriver_handler_mock).to receive(:get_odds_for_next_team_to_score).with(link, total_score)
                                                                                   .and_return(event_stats)
       end
 
-      it 'does not create an event goal' do
-        expect { EventGoalUpdaterWorker.perform(event_id, name, time, score, link, link_to_stats) }
-          .not_to change(EventGoal, :count)
+      context 'new score same as last score' do
+        let(:score) { '0-0' }
+        let(:new_score) { '0-0' }
+        let(:total_score) { 0 }
+
+        it 'does not create a score record' do
+          expect { EventGoalUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
+            .not_to change(EventGoal, :count)
+          expect(EventGoal.last.reliable).to be_falsey
+        end
+      end
+
+      context 'new score different than the last score' do
+        let(:score) { '0-0' }
+        let(:new_score) { '0-1' }
+        let(:total_score) { 1 }
+
+        it 'creates a new score record and marks it as reliable' do
+          expect(EventGoal.last.reliable).to be_falsey
+          expect { EventGoalUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
+            .to change(EventGoal, :count).by(1)
+          expect(EventGoal.last.reliable).to be_truthy
+        end
       end
     end
   end
