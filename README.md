@@ -6,9 +6,16 @@ The app does the following things:
 - It sends an email if there is a particular situation in the stats (goal difference, particular possession etc.)
 
 It uses pure Ruby, selenium for webscraping, PostgreSQL as a database.
+There is also some logic that is supposed to be processed in the background - you can find it in the `workers` folder.
+Background processing is handled by `resque` gem, it requires Redis (used as a queue).
 The repo also includes a configuration to deploy it to Amazon EC2 using Amazon CodeDeploy.
 
 Note that binaries under bin folder are for linux (I ran it under Amazon Linux AMI 2018.03.0)
+
+## Dependencies
+- Ruby version 2.6.3
+- PostgreSQL 13.2
+- Redis 6.2.2
 
 ## How to run it?
 
@@ -23,4 +30,5 @@ BINARY_PATH=bin/headless-chromium
 POSTGRESQL_USER=web_scraper_development
 RUBY_ENV=development
 ```
-3. Run `bundle exec ruby scrap_live_events.rb`
+3. Run `scripts/start_server` and `scripts/start_workers` (these scripts will run processes in the background). Logs will be saved in the `logs` folder.
+4. To later stop execution of the main server and the workers, use `scripts/stop_server` and `scripts/stop_workers` accordingly.
