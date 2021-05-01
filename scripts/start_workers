@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/ec2-user
+COUNT=2 QUEUE=* bundle exec rake resque:workers > /dev/null 2>&1 &
