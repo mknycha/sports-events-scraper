@@ -14,6 +14,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+ENV['RUBY_ENV'] = 'test'
+
 Bundler.require
 require 'vcr'
 require 'simplecov'
@@ -28,10 +30,6 @@ end
 Mail.defaults do
   delivery_method :test
 end
-
-# Establish database connection
-test_db_configuration = Database::ConfigurationHelper.db_configuration['test']
-ActiveRecord::Base.establish_connection(test_db_configuration)
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
