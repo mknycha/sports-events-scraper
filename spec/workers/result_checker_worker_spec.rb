@@ -32,9 +32,12 @@ describe ResultCheckerWorker do
     }
   end
 
-  let(:reported_event) do
+  let(:event) do
     event = Event.new(name, time, score, link)
     event.update_details_from_scraped_attrs(event_stats)
+    event
+  end
+  let(:reported_event) do
     reported_event = ReportedEvent.from_event(event)
     reported_event.event_id = event_id
     reported_event
@@ -55,7 +58,7 @@ describe ResultCheckerWorker do
     context 'the event has not finish yet' do
       it 'does not update the reported event' do
         expect(reported_event.losing_team_scored_next).to eq(nil)
-        ResultCheckerWorker.perform(event_id, name, time, score, link)
+        ResultCheckerWorker.perform(event_id, event.score_home, event.score_away)
         expect(reported_event.reload.losing_team_scored_next).to eq(nil)
       end
     end
@@ -68,7 +71,7 @@ describe ResultCheckerWorker do
 
       it 'updates the reported event' do
         expect(reported_event.losing_team_scored_next).to eq(nil)
-        ResultCheckerWorker.perform(event_id, name, time, score, link)
+        ResultCheckerWorker.perform(event_id, event.score_home, event.score_away)
         expect(reported_event.reload.losing_team_scored_next).to eq('no')
       end
     end

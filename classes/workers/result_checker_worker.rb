@@ -3,12 +3,12 @@
 class ResultCheckerWorker
   @queue = :general
 
-  def self.perform(event_id, name, time, score, link)
-    updated_event = Event.new(name, time, score, link) # TODO: Isn't score the only needed thing here?
+  def self.perform(event_id, new_score_home, new_score_away)
     reported_event = ReportedEvent.find_by(event_id: event_id)
     event_details = webdriver_handler.find_event_details(reported_event.event_id)
     flag = EventResultsPredictionUpdater.losing_team_scored_next(reported_event,
-                                                                 updated_event,
+                                                                 new_score_home,
+                                                                 new_score_away,
                                                                  event_details.nil?)
     return if flag.nil?
 

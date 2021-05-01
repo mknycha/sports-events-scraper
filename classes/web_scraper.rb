@@ -43,11 +43,9 @@ class WebScraper
     ReportedEvent.where(losing_team_scored_next: nil).each do |reported_event|
       updated_event = @events_storage.find_event(reported_event.event_id)
       Resque.enqueue(ResultCheckerWorker,
-        event_id,
-        event.name,
-        event.time,
-        event.score,
-        event.link)
+                     event_id,
+                     updated_event&.score_home,
+                     updated_event&.score_away)
     end
     @logger.info 'Finished checking results for reported events'
     @logger.info 'Processing events data'

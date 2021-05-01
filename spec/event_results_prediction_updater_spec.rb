@@ -37,13 +37,17 @@ describe EventResultsPredictionUpdater do
 
       it 'returns no' do
         expect(described_class.losing_team_scored_next(reported_event,
-                                                       event, true)).to eq('no')
+                                                       event.score_home,
+                                                       event.score_away,
+                                                       true)).to eq('no')
       end
 
       context 'when it also could not found in temporary storage' do
         it "returns 'error'" do
           expect(described_class.losing_team_scored_next(reported_event,
-                                                         nil, true)).to eq('error')
+                                                         nil,
+                                                         nil,
+                                                         true)).to eq('error')
         end
       end
     end
@@ -51,7 +55,9 @@ describe EventResultsPredictionUpdater do
     context 'when the match could not be found' do
       it "returns 'error'" do
         expect(described_class.losing_team_scored_next(reported_event,
-                                                       nil, false)).to eq('error')
+                                                       nil,
+                                                       nil,
+                                                       false)).to eq('error')
       end
     end
 
@@ -60,10 +66,13 @@ describe EventResultsPredictionUpdater do
         expected_flag = described_class.send(
           :losing_team_scored_next_comparing_to_prev_results,
           reported_event,
-          event
+          event.score_home,
+          event.score_away
         )
         expect(described_class.losing_team_scored_next(reported_event,
-                                                       event, false)).to eq(expected_flag)
+                                                       event.score_home,
+                                                       event.score_away,
+                                                       false)).to eq(expected_flag)
       end
     end
   end
@@ -76,7 +85,9 @@ describe EventResultsPredictionUpdater do
 
       it "returns 'yes'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
-                                      reported_event, event)
+                                      reported_event,
+                                      event.score_home,
+                                      event.score_away)
         expect(result).to eq('yes')
       end
     end
@@ -88,7 +99,9 @@ describe EventResultsPredictionUpdater do
 
       it "returns 'no'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
-                                      reported_event, event)
+                                      reported_event,
+                                      event.score_home,
+                                      event.score_away)
         expect(result).to eq('no')
       end
     end
@@ -100,7 +113,9 @@ describe EventResultsPredictionUpdater do
 
       it "returns 'error'" do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
-                                      reported_event, event)
+                                      reported_event,
+                                      event.score_home,
+                                      event.score_away)
         expect(result).to eq('error')
       end
     end
@@ -108,7 +123,9 @@ describe EventResultsPredictionUpdater do
     context 'when none of the teams scored' do
       it 'returns nil' do
         result = described_class.send(:losing_team_scored_next_comparing_to_prev_results,
-                                      reported_event, event)
+                                      reported_event,
+                                      event.score_home,
+                                      event.score_away)
         expect(result).to eq(nil)
       end
     end
