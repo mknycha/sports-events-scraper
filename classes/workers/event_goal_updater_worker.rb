@@ -21,12 +21,15 @@ class EventGoalUpdaterWorker
       eg.link_to_stats = link_to_stats
       eg.save!
     end
+  rescue StandardError => err
+    logger.error err.message
+    err.backtrace.each { |line| logger.error line }
   ensure
     webdriver_handler.quit_driver
   end
 
   def self.logger
-    @logger ||= Logger.new(STDOUT)
+    @logger ||= DoubleLogger.new('event_goal_updater_worker')
   end
 
   def self.webdriver_handler

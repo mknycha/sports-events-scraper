@@ -16,12 +16,15 @@ class ResultCheckerWorker
     reported_event.save
     logger.info 'Updated prediction result for an event: ' \
                   "\n#{reported_event}\nLosing team scored next?: #{flag}"
+  rescue StandardError => err
+    logger.error err.message
+    err.backtrace.each { |line| logger.error line }
   ensure
     webdriver_handler.quit_driver
   end
 
   def self.logger
-    @logger ||= Logger.new(STDOUT)
+    @logger ||= DoubleLogger.new('result_checker_worker')
   end
 
   def self.webdriver_handler

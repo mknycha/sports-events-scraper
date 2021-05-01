@@ -5,7 +5,7 @@ require_relative 'mailer_initializer'
 class App
   def initialize
     @retries = 0
-    @logger = DoubleLogger.new
+    @logger = DoubleLogger.new('server')
   end
 
   def run

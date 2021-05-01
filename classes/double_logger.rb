@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class DoubleLogger < Logger
-  def initialize
-    @file_logger = Logger.new('logs/logfile.log', 'daily')
+  def initialize(logfile_name)
+    @file_logger = Logger.new("logs/#{logfile_name}.log", 'daily')
     @stdout_logger = Logger.new(STDOUT)
   end
 
