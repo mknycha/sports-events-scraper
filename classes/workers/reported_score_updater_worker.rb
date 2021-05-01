@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EventGoalUpdaterWorker
+class ReportedScoreUpdaterWorker
   @queue = :general
 
   def self.perform(event_id, name, time, score, link, link_to_stats)
@@ -8,11 +8,10 @@ class EventGoalUpdaterWorker
     stats = webdriver_handler.get_event_stats(link_to_stats)
     event.update_details_from_scraped_attrs(stats)
 
-    # The table should be renamed too, as a last step (last_observed_score?)
-    last_event_score = if EventGoal.exists?(event_id: event_id)
-      EventGoal.where(event_id: event_id).last
+    last_event_score = if ReportedScore.exists?(event_id: event_id)
+      ReportedScore.where(event_id: event_id).last
     else
-      new_event_score = EventGoal.from_event(event)
+      new_event_score = ReportedScore.from_event(event)
       new_event_score.event_id = event_id
       new_event_score.reliable = false
       new_event_score.link_to_stats = link_to_stats
@@ -20,7 +19,7 @@ class EventGoalUpdaterWorker
     end
     if event.score_home != last_event_score.score_home || event.score_away != last_event_score.score_away
       logger.info "Found a goal stat for event: #{event}"
-      eg = EventGoal.from_event(event)
+      eg = ReportedScore.from_event(event)
       eg.event_id = event_id
       eg.link_to_stats = link_to_stats
       eg.reliable = true
@@ -40,7 +39,7 @@ class EventGoalUpdaterWorker
   end
 
   def self.logger
-    @logger ||= DoubleLogger.new('event_goal_updater_worker')
+    @logger ||= DoubleLogger.new('reported_score_updater_worker')
   end
 
   def self.webdriver_handler

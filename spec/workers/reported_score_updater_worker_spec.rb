@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe EventGoalUpdaterWorker do
+describe ReportedScoreUpdaterWorker do
   let(:webdriver_handler_mock) { double('WebdriverHandler') }
 
   let(:event_id) { 'OB_EV20359319' }
@@ -41,13 +41,13 @@ describe EventGoalUpdaterWorker do
   end
 
   before do
-    allow(EventGoalUpdaterWorker).to receive(:webdriver_handler).and_return(webdriver_handler_mock)
+    allow(ReportedScoreUpdaterWorker).to receive(:webdriver_handler).and_return(webdriver_handler_mock)
     allow(webdriver_handler_mock).to receive(:get_event_stats).with(link_to_stats).and_return(event_stats)
     allow(webdriver_handler_mock).to receive(:quit_driver)
   end
 
   after do
-    EventGoal.destroy_all
+    ReportedScore.destroy_all
   end
 
   describe '#perform' do
@@ -62,15 +62,15 @@ describe EventGoalUpdaterWorker do
       end
 
       it 'creates a score record, marks it as unreliable' do
-        expect { EventGoalUpdaterWorker.perform(event_id, name, time, score, link, link_to_stats) }
-          .to change(EventGoal, :count).by(1)
-        expect(EventGoal.last.reliable).to be_falsey
+        expect { ReportedScoreUpdaterWorker.perform(event_id, name, time, score, link, link_to_stats) }
+          .to change(ReportedScore, :count).by(1)
+        expect(ReportedScore.last.reliable).to be_falsey
       end
     end
 
     context 'there is already a reported score' do
       before do
-        last_event_score = EventGoal.from_event(event)
+        last_event_score = ReportedScore.from_event(event)
         last_event_score.odds_home_to_score_next = 0.13
         last_event_score.odds_away_to_score_next = 0.67
         last_event_score.event_id = event_id
@@ -86,9 +86,9 @@ describe EventGoalUpdaterWorker do
         let(:total_score) { 0 }
 
         it 'does not create a score record' do
-          expect { EventGoalUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
-            .not_to change(EventGoal, :count)
-          expect(EventGoal.last.reliable).to be_falsey
+          expect { ReportedScoreUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
+            .not_to change(ReportedScore, :count)
+          expect(ReportedScore.last.reliable).to be_falsey
         end
       end
 
@@ -98,10 +98,10 @@ describe EventGoalUpdaterWorker do
         let(:total_score) { 1 }
 
         it 'creates a new score record and marks it as reliable' do
-          expect(EventGoal.last.reliable).to be_falsey
-          expect { EventGoalUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
-            .to change(EventGoal, :count).by(1)
-          expect(EventGoal.last.reliable).to be_truthy
+          expect(ReportedScore.last.reliable).to be_falsey
+          expect { ReportedScoreUpdaterWorker.perform(event_id, name, time, new_score, link, link_to_stats) }
+            .to change(ReportedScore, :count).by(1)
+          expect(ReportedScore.last.reliable).to be_truthy
         end
       end
     end

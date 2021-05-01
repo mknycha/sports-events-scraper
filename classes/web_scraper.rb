@@ -30,7 +30,7 @@ class WebScraper
       event = @events_storage.find_event(event_id)
       event.link_to_stats ||= @webdriver_handler.link_to_event_stats_page(event.link)
       next if event.link_to_stats.nil?
-      Resque.enqueue(EventGoalUpdaterWorker,
+      Resque.enqueue(ReportedScoreUpdaterWorker,
         event_id,
         event.name,
         event.time,
