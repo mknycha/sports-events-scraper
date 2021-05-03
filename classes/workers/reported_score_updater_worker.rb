@@ -16,6 +16,7 @@ class ReportedScoreUpdaterWorker
       new_event_score.reliable = false
       new_event_score.link_to_stats = link_to_stats
       new_event_score.save!
+      new_event_score
     end
     if event.score_home != last_event_score.score_home || event.score_away != last_event_score.score_away
       logger.info "Found a goal stat for event: #{event}"
