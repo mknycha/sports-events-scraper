@@ -17,6 +17,7 @@ class App
       end
     rescue Net::ReadTimeout,
            Selenium::WebDriver::Error::StaleElementReferenceError,
+           Selenium::WebDriver::Error::TimeoutError,
            StatsReadingError => e
       log_error e
       @logger.info 'Retrying...'

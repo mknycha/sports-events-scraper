@@ -111,7 +111,7 @@ class WebdriverHandler
     service = Selenium::WebDriver::Service.chrome(path: ENV['DRIVER_PATH'])
     @driver = Selenium::WebDriver.for :chrome, service: service, options: driver_options
     @driver.manage.timeouts.implicit_wait = 30
-    @driver.manage.timeouts.page_load = 10
+    @driver.manage.timeouts.page_load = 20
   end
 
   def driver_options
