@@ -2,7 +2,7 @@
 
 describe ReportedScoreUpdaterWorker do
   let(:webdriver_handler_mock) { double('WebdriverHandler') }
-
+  let(:logger_mock) { Logger.new(STDOUT) }
   let(:event_id) { 'OB_EV20359319' }
   let(:name) { 'Gagra v Zugdidi' }
   let(:time) { '83:06' }
@@ -44,6 +44,7 @@ describe ReportedScoreUpdaterWorker do
     allow(ReportedScoreUpdaterWorker).to receive(:webdriver_handler).and_return(webdriver_handler_mock)
     allow(webdriver_handler_mock).to receive(:get_event_stats).with(link_to_stats).and_return(event_stats)
     allow(webdriver_handler_mock).to receive(:quit_driver)
+    allow(ReportedScoreUpdaterWorker).to receive(:logger).and_return(logger_mock)
   end
 
   after do

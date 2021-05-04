@@ -2,6 +2,7 @@
 
 describe ResultCheckerWorker do
   let(:webdriver_handler_mock) { double('WebdriverHandler') }
+  let(:logger_mock) { Logger.new(STDOUT) }
   let(:event_id) { 'OB_EV20359319' }
   let(:name) { 'Gagra v Zugdidi' }
   let(:time) { '93:06' }
@@ -48,6 +49,7 @@ describe ResultCheckerWorker do
     allow(ResultCheckerWorker).to receive(:webdriver_handler).and_return(webdriver_handler_mock)
     allow(webdriver_handler_mock).to receive(:find_event_details).with(event_id)
     allow(webdriver_handler_mock).to receive(:quit_driver)
+    allow(ResultCheckerWorker).to receive(:logger).and_return(logger_mock)
   end
 
   after do
