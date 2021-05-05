@@ -2,35 +2,43 @@ version: 0.0
 os: linux
 files:
   - source: settings.rb
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: scrap_live_events.rb
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: mailer_initializer.rb
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: load_files.rb
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: Gemfile
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: Gemfile.lock
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: Rakefile
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/sports-events-scraper/
   - source: classes/
-    destination: /home/ec2-user/classes/
+    destination: /home/ec2-user/sports-events-scraper/classes/
   - source: bin/
-    destination: /home/ec2-user/bin/
+    destination: /home/ec2-user/sports-events-scraper/bin/
   - source: db/
-    destination: /home/ec2-user/db/
+    destination: /home/ec2-user/sports-events-scraper/db/
+  - source: initializers/
+    destination: /home/ec2-user/sports-events-scraper/initializers/
+  - source: config/
+    destination: /home/ec2-user/sports-events-scraper/config/
+  - source: .standalone_migrations
+    destination: /home/ec2-user/sports-events-scraper/.standalone_migrations
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies
+    - location: scripts/install_ruby_dependencies
       timeout: 300
+      runas: root
+    - location: scripts/install_ruby
+      timeout: 500
       runas: root
   AfterInstall:
     - location: scripts/bundle_install
       timeout: 300
       runas: root
-  AfterInstall:
     - location: scripts/run_migrations
       timeout: 300
       runas: root
