@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ec2-user
+cd /home/ec2-user/sports-events-scraper
 RAILS_ENV=production bundle exec rake db:migrate

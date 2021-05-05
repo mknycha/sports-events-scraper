@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ec2-user
+cd /home/ec2-user/sports-events-scraper
 bundle exec ruby scrap_live_events.rb > /dev/null 2>&1 &

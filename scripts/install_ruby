@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /home/ec2-user/sports-events-scraper
+
+amazon-linux-extras enable ruby2.6
+yum clean metadata
+yum install ruby ruby-irb rubygem-rake rubygem-json rubygems
+
+gem install bundler:1.17.2 --bindir /usr/bin

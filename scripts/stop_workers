@@ -1,3 +1,10 @@
 #!/bin/bash
 
-pkill -f "resque"
+pgrep -f "resque"
+if [ $? -eq 0 ]
+then
+    echo "Found running workers, stopping"
+    pkill -f "resque"
+else
+    echo "Nothing to do"
+fi

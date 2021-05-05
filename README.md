@@ -32,3 +32,12 @@ RUBY_ENV=development
 ```
 3. Run `scripts/start_server` and `scripts/start_workers` (these scripts will run processes in the background). Logs will be saved in the `logs` folder.
 4. To later stop execution of the main server and the workers, use `scripts/stop_server` and `scripts/stop_workers` accordingly.
+
+## Deployment
+
+1. Zip the app:
+```
+zip -r app.zip settings.rb scrap_live_events.rb Rakefile mailer_initializer.rb load_files.rb Gemfile Gemfile.lock appspec.yml .standalone_migrations spec/ scripts logs/ initializers db/ config classes bin config
+```
+2. Upload to S3
+3. Create a new deployment in codedeploy
