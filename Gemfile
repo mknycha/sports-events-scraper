@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'activerecord', '~> 5.2.4'
+gem 'activerecord', '~> 7.0.4'
 gem 'dotenv'
 gem 'json'
 gem 'mail'
